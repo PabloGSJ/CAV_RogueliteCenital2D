@@ -7,7 +7,7 @@ public class WeaponScript : MonoBehaviour
 {
     public GameObject holder;
     public GameObject bulletPrefab;
-    //public BulletSpawner bulletSpawner;
+    public BulletSpawner bulletSpawner;
     public float bulletSpeed;
     public Camera cam;
     public Rigidbody2D rb;
@@ -64,6 +64,6 @@ public class WeaponScript : MonoBehaviour
 
     private void Shoot()
     {
-        //bulletSpawner.spawnBullet(bulletPrefab, shootingVector.normalized, bulletSpeed);
+        bulletSpawner.spawnBullet(bulletPrefab, shootingVector.normalized, bulletSpeed);
     }
 }
