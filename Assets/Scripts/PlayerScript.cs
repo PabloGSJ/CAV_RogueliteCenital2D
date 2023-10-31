@@ -6,26 +6,25 @@ using Cinemachine;
 
 public class playerScript : MonoBehaviour
 {
-    // general statistics
-    public float speed = 500;
+    // General
+    public Rigidbody2D rb;
+    public Camera cam;
+    PlayerInput input;
+
+    // Stats
+    public float speed = 10;
     public float healthPoints = 5;
     private Vector2 movementVector;
     private int coins = 0;
 
-    // dash statistics
-    //public const float maxDashTime = 1.0f;
-    //public float dashDistance = 10;
-    //public float dashStoppingSpeed = 0.1f;
-    //private float currentDashTime = maxDashTime;
-    //private float dashSpeed = 6;
+    // weapon
+    private GameObject weapon = null;
 
-    // game entities
-    public Rigidbody2D rb;
-    public Camera cam;
+    // Logic
+    private bool pressedE;
 
-    // Player input listeners setup
-    PlayerInput input;
 
+    // Manage player inputs
     private void Awake()
     {
         input = new PlayerInput();
@@ -37,7 +36,8 @@ public class playerScript : MonoBehaviour
 
         input.Gameplay.Movement.performed += OnMovement;
         input.Gameplay.Movement.canceled += OnMovement;
-        //input.Gameplay.Dashing.performed += OnDashing;
+        input.Gameplay.Interact.performed += OnInteract;
+        input.Gameplay.Interact.canceled += OnInteract;
     }
 
     private void OnDisable()
@@ -45,18 +45,17 @@ public class playerScript : MonoBehaviour
         input.Disable();
     }
 
-    // Player input handlers
     private void OnMovement(InputAction.CallbackContext context)
     {
         movementVector = context.ReadValue<Vector2>();
     }
 
-    //private void OnDashing(InputAction.CallbackContext context)
-    //{
-    //    state = States.DASHING;
-    //}
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        pressedE = true;
+    }
 
-    // Update is called on its own timer
+    // Transform
     void FixedUpdate()
     {
         rb.velocity = movementVector * speed * Time.fixedDeltaTime;
@@ -67,7 +66,7 @@ public class playerScript : MonoBehaviour
     {
         switch (collision.gameObject.layer)
         {
-            case 7:     // enemy layer
+            case 11:     // enemy layer
                 print("Enemy collision");
                 healthPoints--;
 
@@ -87,10 +86,39 @@ public class playerScript : MonoBehaviour
     {
         switch (collision.gameObject.layer)
         {
-            case 10:     // coin layer
+            case 9:     // coin layer
                 print("Coin +1");
                 coins++;
                 break;
+            case 10:    // weapons layer
+                // player can press E to pickup
+                pressedE = false;
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        switch (collision.gameObject.layer)
+        { 
+            case 10:    // weapons layer
+                if (pressedE)
+                {
+                    if (weapon != null)
+                    {
+                        // drop the old weapon
+                        StartCoroutine(weapon.GetComponent<WeaponScript>().drop());
+                    }
+                    
+                    // pick up the new weapon
+                    collision.gameObject.GetComponent<WeaponScript>().pickUp(gameObject);
+                    weapon = collision.gameObject;
+                }
+                break;
+
             default:
                 break;
         }

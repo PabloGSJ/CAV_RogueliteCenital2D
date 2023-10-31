@@ -13,11 +13,11 @@ TagManager:
   - UI
   - Player
   - Walls
-  - Bullets
+  - PlayerBullets
   - Coins
   - Weapons
-  - 
-  - 
+  - Enemies
+  - EnemyBullets
   - 
   - 
   - 
