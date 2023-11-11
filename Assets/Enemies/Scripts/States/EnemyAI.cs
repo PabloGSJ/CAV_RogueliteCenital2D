@@ -37,12 +37,13 @@ public class EnemyAI : MonoBehaviour
     }
 
     private Vector2 GetRoamingPosition() 
-    { 
+    {
+        //new Vector2(Random.Range(-1f,1f), Random.Range(-1f, 1f)).normalized; 
         return new Vector2(Random.Range(-1f,1f), Random.Range(-1f, 1f)).normalized; 
     }
 
     private Vector2 GetChasingPosition()
-    {   
+    {
         return stateMachine.Player.position;
     }
 
@@ -51,6 +52,7 @@ public class EnemyAI : MonoBehaviour
         if (collision.gameObject.tag == "Wall" && stateMachine.IsRoaming) 
         {
             StopAllCoroutines();
+            enemyPathfinding.collisionToWall(true);
             StartCoroutine(RoamingRoutine());
         }
     }
