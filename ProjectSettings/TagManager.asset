@@ -11,13 +11,13 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Walls
+  - PlayerBullets
+  - Coins
+  - Weapons
+  - Enemies
+  - EnemyBullets
   - 
   - 
   - 
@@ -42,8 +42,14 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 2914565551
+    uniqueID: 2097871979
     locked: 0
-  - name: Top
-    uniqueID: 3289441525
+  - name: Floor
+    uniqueID: 1100340957
+    locked: 0
+  - name: Standing
+    uniqueID: 3255799635
+    locked: 0
+  - name: Hover
+    uniqueID: 3261729333
     locked: 0
