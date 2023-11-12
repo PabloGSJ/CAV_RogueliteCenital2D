@@ -82,6 +82,11 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     /*    */
+    private void MovePlayer()
+    {
+        rb.velocity = _movementVector * Speed * Time.fixedDeltaTime;
+    }
+
     private void Update()
     {
         _currentState.UpdateState();
@@ -89,7 +94,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = _movementVector * Speed * Time.fixedDeltaTime;
+        MovePlayer();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
