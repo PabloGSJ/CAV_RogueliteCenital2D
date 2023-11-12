@@ -84,4 +84,10 @@ public class EnemyPathfinding : MonoBehaviour
     {
         isWall = collision;
     }
+
+    public void SetPatrolPoints(Transform[] points)
+    {
+        Debug.Log("ENTRA EN SET PATROL");
+        patrolPoints = points;
+    }
 }
