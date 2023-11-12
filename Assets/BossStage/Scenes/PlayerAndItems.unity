@@ -977,8 +977,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1314124507}
   cam: {fileID: 1124182945}
-  speed: 500
-  healthPoints: 5
+  Speed: 10
+  Health: 5
+  _movementVector: {x: 0, y: 0}
+  _coins: 0
+  _weapon: {fileID: 0}
+  _pressedE: 0
 --- !u!61 &1314124506
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1130,6 +1134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3810708543871990702, guid: 93f0af2785c30ac44bcf2bbb4a24c4ab, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6169913681371895804, guid: 93f0af2785c30ac44bcf2bbb4a24c4ab, type: 3}
       propertyPath: m_LocalScale.y
       value: 8.977968
@@ -1195,6 +1203,10 @@ PrefabInstance:
     - target: {fileID: 3810708543871990702, guid: 93f0af2785c30ac44bcf2bbb4a24c4ab, type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3810708543871990702, guid: 93f0af2785c30ac44bcf2bbb4a24c4ab, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6169913681371895804, guid: 93f0af2785c30ac44bcf2bbb4a24c4ab, type: 3}
       propertyPath: m_LocalScale.x
