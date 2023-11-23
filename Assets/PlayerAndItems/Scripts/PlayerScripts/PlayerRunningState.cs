@@ -14,7 +14,10 @@ public class PlayerRunningState : PlayerBaseState
 
     public override void UpdateState()
     {
+        CheckSwitchStates();
 
+        // move the player through the velocity variable
+        _ctx.rb.velocity = _ctx.MovementVector * _ctx.Speed * Time.fixedDeltaTime;
     }
 
     public override void ExitState()

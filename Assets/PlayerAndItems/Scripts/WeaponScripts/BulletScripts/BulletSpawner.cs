@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletSpawnerScript: MonoBehaviour
+public class BulletSpawnerScript : MonoBehaviour
 {
-    public void spawnBullet(GameObject bullet, Vector2 movementVector, float bulletSpeed)
+    public void spawnBullet(GameObject bullet, Vector2 shootingVector, float bulletSpeed)
     {
         GameObject go = Instantiate(bullet,
                                     new Vector3(transform.position.x,
@@ -13,6 +11,9 @@ public class BulletSpawnerScript: MonoBehaviour
                                     Quaternion.identity,
                                     gameObject.transform) as GameObject;
 
-        go.GetComponent<Rigidbody2D>().velocity = movementVector * bulletSpeed;
+        go.GetComponent<Rigidbody2D>().velocity = shootingVector * bulletSpeed;
+        Debug.Log("velocity = " + shootingVector * bulletSpeed);
+        Debug.Log("shootingVector = " + shootingVector);
+        Debug.Log("bulletSpeed = " + bulletSpeed);
     }
 }

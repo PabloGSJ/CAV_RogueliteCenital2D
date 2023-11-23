@@ -24,7 +24,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void CheckSwitchStates()
     {
-        if (_ctx.IsMoving)
+        if (_ctx.MovementVector != Vector2.zero)
         {
             SwitchState(_factory.Running());
         }

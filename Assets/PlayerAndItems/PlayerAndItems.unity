@@ -180,50 +180,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e8c5dc103dc0e74d92a4ac2eb0a5f3d, type: 3}
---- !u!1 &24430226
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 24430227}
-  - component: {fileID: 24430228}
-  m_Layer: 0
-  m_Name: BulletSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &24430227
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24430226}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
-  m_LocalScale: {x: 0.26, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 814240480}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &24430228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24430226}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccc67c0de77fd954fbe14ec0640e78df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &134845423
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,11 +326,11 @@ GameObject:
   m_Component:
   - component: {fileID: 587257406}
   - component: {fileID: 587257410}
-  - component: {fileID: 587257409}
+  - component: {fileID: 587257411}
   - component: {fileID: 587257408}
   - component: {fileID: 587257407}
   m_Layer: 10
-  m_Name: Weapon (1)
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -389,8 +345,8 @@ Transform:
   m_GameObject: {fileID: 587257405}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.54, y: 0.27, z: 0}
-  m_LocalScale: {x: 2.583, y: 0.7596875, z: 1}
+  m_LocalPosition: {x: 1.12, y: 0.84, z: 0}
+  m_LocalScale: {x: 1.097775, y: 0.3133711, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 901690442}
@@ -458,25 +414,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &587257409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587257405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1544294d819f3b3438c5dc949c81e9c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 1124182945}
-  rb: {fileID: 587257408}
-  trig: {fileID: 587257407}
-  holdOffset: 0.5
-  bulletPrefab: {fileID: 1224280175503306348, guid: adfc888d622d3f44bb9aba7db07cde38, type: 3}
-  bulletSpawner: {fileID: 901690443}
-  bulletSpeed: 20
 --- !u!212 &587257410
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -519,7 +456,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.15058792, g: 1, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -529,6 +466,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &587257411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587257405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 786aeddbbfb92724f882810debf16620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 1124182945}
+  rb: {fileID: 587257408}
+  trig: {fileID: 587257407}
+  HandOffset: {x: 0.5, y: 0}
+  BulletType: {fileID: 1224280175503306348, guid: adfc888d622d3f44bb9aba7db07cde38, type: 3}
+  NumBullets: 10
+  BulletSpawner: {fileID: 901690443}
+  ShootingForce: 10
+  Cadence: 0
 --- !u!1001 &642880564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -608,16 +566,16 @@ GameObject:
   m_Component:
   - component: {fileID: 814240480}
   - component: {fileID: 814240483}
-  - component: {fileID: 814240481}
+  - component: {fileID: 814240485}
   - component: {fileID: 814240482}
   - component: {fileID: 814240484}
   m_Layer: 10
-  m_Name: Weapon
+  m_Name: Rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &814240480
 Transform:
   m_ObjectHideFlags: 0
@@ -630,29 +588,9 @@ Transform:
   m_LocalPosition: {x: 1.85, y: 5.25, z: 0}
   m_LocalScale: {x: 1.23, y: 0.325, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 24430227}
+  m_Children: []
   m_Father: {fileID: 134845424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &814240481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814240479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1544294d819f3b3438c5dc949c81e9c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 1124182945}
-  rb: {fileID: 814240482}
-  trig: {fileID: 814240484}
-  holdOffset: 0.36
-  bulletPrefab: {fileID: 1224280175503306348, guid: adfc888d622d3f44bb9aba7db07cde38, type: 3}
-  bulletSpawner: {fileID: 24430228}
-  bulletSpeed: 20
 --- !u!50 &814240482
 Rigidbody2D:
   serializedVersion: 4
@@ -767,6 +705,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!114 &814240485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814240479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2402dc327e3d3584fbbc2f5da270e8bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &901690441
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,7 +728,7 @@ GameObject:
   - component: {fileID: 901690442}
   - component: {fileID: 901690443}
   m_Layer: 0
-  m_Name: BulletSpawner
+  m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -972,17 +922,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1314124504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a069666f2a556c47a8d3cfc150f2fb3, type: 3}
+  m_Script: {fileID: 11500000, guid: 5cd3ab128d9360e4e9b8c4a3c56e462a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1314124507}
   cam: {fileID: 1124182945}
-  Speed: 10
   Health: 5
-  _movementVector: {x: 0, y: 0}
-  _coins: 0
-  _weapon: {fileID: 0}
-  _pressedE: 0
+  Speed: 500
+  Weapon: {fileID: 0}
+  DefaultWeapon: {fileID: 0}
 --- !u!61 &1314124506
 BoxCollider2D:
   m_ObjectHideFlags: 0
