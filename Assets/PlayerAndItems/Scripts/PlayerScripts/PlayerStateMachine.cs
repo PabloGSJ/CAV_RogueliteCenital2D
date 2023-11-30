@@ -17,14 +17,18 @@ public class PlayerStateMachine : MonoBehaviour
     public Camera cam;
     private PlayerInput _input;
     private Vector2 _mousePos;
+    private DisplayManager ui;
 
-    public const int CoinLayer = 9;
+    public const int CoinsLayer = 9;
     public const int WeaponsLayer = 10;
-    public const int EnemyLayer = 11;
+    public const int EnemiesLayer = 11;
+    public const int GroundBulletsLayer = 13;
+    public const int HeartsLayer = 14;
 
 
     // Statistics variables
-    public float Health = 3;
+    public const int MaxHealth = 5;
+    public int Health = 3;
     private int _coins = 0;
 
     // Movement variables
@@ -34,6 +38,7 @@ public class PlayerStateMachine : MonoBehaviour
     // Combat variables
     public BaseWeapon Weapon = null;
     public BaseWeapon DefaultWeapon = null;
+    private int _numBullets = 0;
 
     // Inventory variables
     
@@ -66,13 +71,6 @@ public class PlayerStateMachine : MonoBehaviour
         _interacted = context.ReadValueAsButton();
     }
 
-    // INPUT: save mouse position on screen
-    private void OnMousePos(InputAction.CallbackContext context)
-    {
-        _mousePos = cam.ScreenToWorldPoint(context.ReadValue<Vector2>());
-        Debug.Log(_mousePos);
-    }
-
     private void OnShoot(InputAction.CallbackContext context)
     {
         context.action.GetBindingForControl(context.control);
@@ -94,6 +92,13 @@ public class PlayerStateMachine : MonoBehaviour
         _currentState = _states.Running();
         _currentState.EnterState();
 
+        // setup logic manager
+        ui = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<DisplayManager>();
+        ui.DisplayNewHealth(Health);
+        ui.DisplayNewPNBullets(_numBullets);
+        ui.EnableWeaponNBullets(false);
+        ui.DisplayNewPCoins(_coins);
+
         // setup input system
         _input = new PlayerInput();
         _input.Gameplay.Movement.performed += OnMovement;
@@ -102,8 +107,6 @@ public class PlayerStateMachine : MonoBehaviour
         _input.Gameplay.Interact.canceled += OnInteract;
         _input.Gameplay.Shooting.performed += OnShoot;
         _input.Gameplay.Shooting.canceled += OnShoot;
-        _input.Gameplay.MousePos.performed += OnMousePos;
-        _input.Gameplay.MousePos.canceled += OnMousePos;
     }
 
     // setup input system
@@ -119,7 +122,8 @@ public class PlayerStateMachine : MonoBehaviour
     // update every game tick (very fast but irregular)
     private void Update()
     {
-
+        // INPUT: read mouse position on screen
+        _mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     // update for interactions involving physics engine
@@ -133,7 +137,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         switch (collision.gameObject.layer)
         {
-            case EnemyLayer:
+            case EnemiesLayer:
                 ReceiveDamage();
                 break;
             default:
@@ -146,11 +150,17 @@ public class PlayerStateMachine : MonoBehaviour
     {
         switch (collision.gameObject.layer)
         {
-            case CoinLayer:
+            case CoinsLayer:
                 PickupCoin();
                 break;
             case WeaponsLayer:
                 _interacted = false;    // reset actions and listen
+                break;
+            case GroundBulletsLayer:
+                PickupGroundBullet();
+                break;
+            case HeartsLayer:
+                PickupHeart();
                 break;
 
             default:
@@ -177,6 +187,10 @@ public class PlayerStateMachine : MonoBehaviour
 
     // AUXILIARY FUNCTION DECLARATIONS:
 
+    /*
+     * Borrows one bullet from player inventory
+     */
+
     private void MovePlayer()
     {
         rb.velocity = _movementVector * Speed * Time.fixedDeltaTime;
@@ -187,6 +201,7 @@ public class PlayerStateMachine : MonoBehaviour
         Debug.Log("Recieving Damage");
 
         Health--;
+        ui.DisplayNewHealth(Health);
         if (Health == 0)
         {
             // die
@@ -197,6 +212,23 @@ public class PlayerStateMachine : MonoBehaviour
     private void PickupCoin()
     {
         _coins++;
+        ui.DisplayNewPCoins(_coins);
+    }
+
+    private void PickupGroundBullet()
+    {
+        _numBullets++;
+        ui.DisplayNewPNBullets(_numBullets);
+    }
+
+    private void PickupHeart()
+    {
+        if (Health < MaxHealth)
+        {
+            // the heart gets consumed anyway
+            Health++;
+            ui.DisplayNewHealth(Health);
+        }
     }
 
     private void PickupWeapon(BaseWeapon weapon)
@@ -210,5 +242,17 @@ public class PlayerStateMachine : MonoBehaviour
         // pick up the new weapon
         weapon.Pickedup(gameObject.GetComponent<PlayerStateMachine>());
         Weapon = weapon;
+    }
+
+    public bool BorrowBullet()
+    {
+        bool borrow = false;
+        if (_numBullets > 0)
+        {
+            borrow = true;
+            _numBullets--;
+            ui.DisplayNewPNBullets(_numBullets);
+        }
+        return borrow;
     }
 }
