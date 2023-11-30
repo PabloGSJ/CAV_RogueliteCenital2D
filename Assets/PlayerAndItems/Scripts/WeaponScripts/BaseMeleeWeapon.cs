@@ -10,7 +10,7 @@ public class BaseMeleeWeapon : BaseWeapon
     // Spawn a slash at the hands of the player
     public override void Shoot()
     {
-        SlashSpawner.spawnSlash(SlashType, _holder);
+        SlashSpawner.spawnSlash(SlashType);
     }
 
     protected override void DisplayUp() { }
