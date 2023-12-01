@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 5356356142946149978}
   - component: {fileID: 2877826194484804267}
   - component: {fileID: 5290602598791756745}
-  m_Layer: 0
-  m_Name: Stalker
+  m_Layer: 11
+  m_Name: StalkerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3057365966985478989}
   - component: {fileID: 8743025605065503568}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wayPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3632133666576076006}
   - component: {fileID: 8980084518322720762}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wayPoint0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5545000744795827636}
   - component: {fileID: 4599421561846603574}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wayPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,7 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7839696454166063141}
   - component: {fileID: 10265179350121429}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: wayPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
