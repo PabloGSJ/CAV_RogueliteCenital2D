@@ -38,7 +38,13 @@ TagManager:
   - 
   - 
   - 
+<<<<<<< HEAD
   - Algo metido por pablo
+=======
+  - 
+  - 
+  - Prueba
+>>>>>>> Maps
   m_SortingLayers:
   - name: Default
     uniqueID: 0

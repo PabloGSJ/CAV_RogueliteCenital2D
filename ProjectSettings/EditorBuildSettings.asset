@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/Integracion/Map+PAI/ForestStart_integracion.unity
     guid: cfbb67eb2e751434ca0496f579dde70e
   - enabled: 1
+=======
+>>>>>>> Maps
     path: Assets/Maps/Javi/Maps_Javier/ForestStart.unity
     guid: 37669b51bdcbf644cab44977134c9c13
   - enabled: 1
