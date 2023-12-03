@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - LogicManager
-  - GMManager
   layers:
   - Default
   - TransparentFX
@@ -38,13 +37,7 @@ TagManager:
   - 
   - 
   - 
-<<<<<<< HEAD
-  - Algo metido por pablo
-=======
   - 
-  - 
-  - Prueba
->>>>>>> Maps
   m_SortingLayers:
   - name: Default
     uniqueID: 0
