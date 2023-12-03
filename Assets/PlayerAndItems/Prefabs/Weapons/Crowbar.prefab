@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c396aae5a48eef4bbadedf284e867a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackRange: 0
 --- !u!1 &8143044070160544798
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,9 +119,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1100340957
-  m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingLayerID: -1039167661
+  m_SortingLayer: 3
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.32829916, g: 0.9607843, b: 0, a: 1}
   m_FlipX: 0
@@ -152,6 +153,8 @@ MonoBehaviour:
   Cadence: 0
   SlashType: {fileID: 1224280175503306348, guid: 0746626cecf5f1340a552c83586a9b3d, type: 3}
   SlashSpawner: {fileID: 7251197541735617559}
+  TimeBetweenAttacks: 0
+  AttackRange: 0
 --- !u!50 &4832154119501156754
 Rigidbody2D:
   serializedVersion: 4
