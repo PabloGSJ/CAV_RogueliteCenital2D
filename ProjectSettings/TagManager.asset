@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - LogicManager
+  - GMManager
   layers:
   - Default
   - TransparentFX
@@ -37,7 +38,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Algo metido por pablo
   m_SortingLayers:
   - name: Default
     uniqueID: 0
