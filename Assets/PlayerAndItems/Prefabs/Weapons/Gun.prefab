@@ -118,8 +118,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1033237963
-  m_SortingLayer: 4
+  m_SortingLayerID: 1100340957
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.9622642, g: 0.55267346, b: 0, a: 1}
@@ -147,12 +147,13 @@ MonoBehaviour:
   cam: {fileID: 0}
   rb: {fileID: 4832154119501156754}
   trig: {fileID: 8941774902993081030}
+  sr: {fileID: 4722121175707967963}
   HandOffset: {x: 0.5, y: 0}
-  BulletType: {fileID: 1224280175503306348, guid: adfc888d622d3f44bb9aba7db07cde38, type: 3}
-  NumBullets: 10
-  BulletSpawner: {fileID: 5825041603950613342}
-  ShootingForce: 10
   Cadence: 0
+  BulletType: {fileID: 1224280175503306348, guid: adfc888d622d3f44bb9aba7db07cde38, type: 3}
+  BulletSpawner: {fileID: 5825041603950613342}
+  NumBullets: 10
+  ShootingForce: 10
 --- !u!50 &4832154119501156754
 Rigidbody2D:
   serializedVersion: 4

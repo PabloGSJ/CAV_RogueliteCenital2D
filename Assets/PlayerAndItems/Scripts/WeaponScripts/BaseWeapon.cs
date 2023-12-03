@@ -9,6 +9,7 @@ public abstract class BaseWeapon : MonoBehaviour
     public Rigidbody2D rb;
     public CircleCollider2D trig;
     protected DisplayManager ui;
+    public SpriteRenderer sr;
 
     // Holding variables
     protected PlayerStateMachine _holder = null;
@@ -57,6 +58,7 @@ public abstract class BaseWeapon : MonoBehaviour
         this.transform.position = new Vector3(player.transform.position.x + HandOffset.x, 
                                               player.transform.position.y + HandOffset.y, 
                                               0);
+        this.sr.sortingLayerName = "Hover";
 
         DisplayUp();
     }
@@ -68,6 +70,7 @@ public abstract class BaseWeapon : MonoBehaviour
 
         this._holder = null;
         this.transform.parent = null;
+        this.sr.sortingLayerName = "Floor";
         yield return new WaitForSeconds(1f);    // wait for the button unpress
         trig.enabled = true;
     }

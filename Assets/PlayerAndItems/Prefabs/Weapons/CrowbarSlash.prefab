@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7819768428638135566}
   - component: {fileID: 750298686685874561}
-  - component: {fileID: 536291292295773689}
+  - component: {fileID: 8757674432596267404}
   - component: {fileID: 223585407936221917}
   - component: {fileID: 3424358198318613804}
   m_Layer: 8
-  m_Name: GunBullet
+  m_Name: CrowbarSlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 925837795
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.87790203, g: 0, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &536291292295773689
+--- !u!114 &8757674432596267404
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1224280175503306348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f94a2c08d3b2aa249bd4203a2eb97dca, type: 3}
+  m_Script: {fileID: 11500000, guid: 42cd5e9687387724c8488c0c9639ad49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!50 &223585407936221917
@@ -160,4 +160,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
