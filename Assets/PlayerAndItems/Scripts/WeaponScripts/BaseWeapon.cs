@@ -58,7 +58,7 @@ public abstract class BaseWeapon : MonoBehaviour
         this.transform.position = new Vector3(player.transform.position.x + HandOffset.x, 
                                               player.transform.position.y + HandOffset.y, 
                                               0);
-        this.sr.sortingLayerName = "Hover";
+        this.sr.sortingOrder = 1;
 
         DisplayUp();
     }
@@ -70,7 +70,7 @@ public abstract class BaseWeapon : MonoBehaviour
 
         this._holder = null;
         this.transform.parent = null;
-        this.sr.sortingLayerName = "Floor";
+        this.sr.sortingOrder = -1;
         yield return new WaitForSeconds(1f);    // wait for the button unpress
         trig.enabled = true;
     }
