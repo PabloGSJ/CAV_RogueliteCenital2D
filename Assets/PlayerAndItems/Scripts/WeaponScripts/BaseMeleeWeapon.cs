@@ -8,9 +8,9 @@ public class BaseMeleeWeapon : BaseWeapon
     public SlashSpawnerScript SlashSpawner;
 
     // Spawn a slash at the hands of the player
-    public override void Shoot()
+    public override void Shoot(float dmgMod)
     {
-        SlashSpawner.spawnSlash(SlashType);
+        SlashSpawner.spawnSlash(SlashType, dmgMod);
     }
 
     protected override void DisplayUp() { }

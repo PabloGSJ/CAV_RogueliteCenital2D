@@ -13,18 +13,18 @@ public class BaseRangedWeapon : BaseWeapon
     public float ShootingForce;
 
     // Spawn a bullet at the tip of the weapon
-    public override void Shoot()
+    public override void Shoot(float dmgMod)
     {
         if (NumBullets > 0)
         {
-            BulletSpawner.spawnBullet(BulletType, _shootingVector.normalized, ShootingForce);
+            BulletSpawner.spawnBullet(BulletType, _shootingVector.normalized, ShootingForce, dmgMod);
             NumBullets--;
             ui.DisplayNewWNBullets(NumBullets);
 
         }
         else if (_holder.BorrowBullet())
         {
-            BulletSpawner.spawnBullet(BulletType, _shootingVector.normalized, ShootingForce);
+            BulletSpawner.spawnBullet(BulletType, _shootingVector.normalized, ShootingForce, dmgMod);
         }
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseSlash : MonoBehaviour
+public class BaseSlash : BaseAmmo
 {
     public float TTL;
 

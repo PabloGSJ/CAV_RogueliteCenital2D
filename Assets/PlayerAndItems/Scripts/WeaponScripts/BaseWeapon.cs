@@ -43,7 +43,7 @@ public abstract class BaseWeapon : MonoBehaviour
     // AUXILIARY FUNCTIONS:
 
     // Shoot a bullet
-    public abstract void Shoot();
+    public abstract void Shoot(float dmgMod);
 
     // Each child manages display independently
     protected abstract void DisplayUp();

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class BaseBullet : MonoBehaviour
+public abstract class BaseBullet : BaseAmmo
 {
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BulletSpawnerScript : MonoBehaviour
 {
-    public void spawnBullet(GameObject bullet, Vector2 shootingVector, float bulletSpeed)
+    public void spawnBullet(GameObject bullet, Vector2 shootingVector, float bulletSpeed, float dmgMod)
     {
         GameObject go = Instantiate(bullet,
                                     new Vector3(transform.position.x,
@@ -12,8 +12,6 @@ public class BulletSpawnerScript : MonoBehaviour
                                     gameObject.transform) as GameObject;
 
         go.GetComponent<Rigidbody2D>().velocity = shootingVector * bulletSpeed;
-        Debug.Log("velocity = " + shootingVector * bulletSpeed);
-        Debug.Log("shootingVector = " + shootingVector);
-        Debug.Log("bulletSpeed = " + bulletSpeed);
+        go.GetComponent<BaseBullet>().DamageModifier = dmgMod;
     }
 }

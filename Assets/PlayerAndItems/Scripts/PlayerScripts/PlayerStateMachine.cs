@@ -25,7 +25,6 @@ public class PlayerStateMachine : MonoBehaviour
     public const int GroundBulletsLayer = 13;
     public const int HeartsLayer = 14;
 
-
     // Statistics variables
     public const int MaxHealth = 5;
     public int Health = 3;
@@ -39,9 +38,7 @@ public class PlayerStateMachine : MonoBehaviour
     public BaseWeapon Weapon = null;
     public BaseWeapon DefaultWeapon = null;
     private int _numBullets = 0;
-
-    // Inventory variables
-    
+    private float _dmgMod = 0;
 
     // Actions variables
     private bool _interacted;
@@ -77,7 +74,7 @@ public class PlayerStateMachine : MonoBehaviour
         if (context.ReadValueAsButton() && Weapon != null)
         {
             Debug.Log("Shoot!");
-            Weapon.Shoot();
+            Weapon.Shoot(_dmgMod);
         }
     }
 
