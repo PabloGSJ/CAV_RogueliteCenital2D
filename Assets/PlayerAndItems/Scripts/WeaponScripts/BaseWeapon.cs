@@ -24,7 +24,10 @@ public abstract class BaseWeapon : MonoBehaviour
     // at the begining, before Start
     private void Awake()
     {
-        // setup logic manager
+        // get main camera
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
+        // get logic manager
         ui = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<DisplayManager>();
     }
 

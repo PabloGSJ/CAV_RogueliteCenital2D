@@ -2,17 +2,25 @@ using UnityEngine;
 
 public class SlashSpawnerScript : MonoBehaviour
 {
-    public float AttackRange;
+    private GameObject empty;
 
-    public void spawnSlash(GameObject slash, float dmgMod)
+    private void Awake()
+    {
+        // preserve the bullets absolute proportions
+        empty = GameObject.FindGameObjectWithTag("Empty");
+        if (empty != null)
+            Debug.Log(empty);
+    }
+
+    public void spawnSlash(GameObject slash, float dmgMod, Quaternion weaponRotation)
     {
         GameObject go = Instantiate(slash,
                                     new Vector3(transform.position.x,
                                                 transform.position.y,
                                                 transform.position.z),
-                                    Quaternion.identity,
-                                    gameObject.transform) as GameObject;
-        go.transform.parent = gameObject.transform;
+                                    weaponRotation,
+                                    empty.transform) as GameObject;
+        go.transform.parent = empty.transform;
         go.GetComponent<BaseSlash>().DamageModifier = dmgMod;
     }
 }

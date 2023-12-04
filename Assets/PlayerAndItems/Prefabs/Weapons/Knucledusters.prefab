@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9170279501527936082}
-  - component: {fileID: 5825041603950613342}
+  - component: {fileID: 7251197541735617559}
   m_Layer: 0
-  m_Name: Cannon
+  m_Name: SlashPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,13 +26,13 @@ Transform:
   m_GameObject: {fileID: 3117900317397829418}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
-  m_LocalScale: {x: 0.26, y: 1, z: 1}
+  m_LocalPosition: {x: 1.13, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7378922150399054558}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5825041603950613342
+--- !u!114 &7251197541735617559
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3117900317397829418}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccc67c0de77fd954fbe14ec0640e78df, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c396aae5a48eef4bbadedf284e867a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8143044070160544798
@@ -54,11 +54,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7378922150399054558}
   - component: {fileID: 4722121175707967963}
-  - component: {fileID: 2251923739610827617}
+  - component: {fileID: 2631014436918580117}
   - component: {fileID: 4832154119501156754}
   - component: {fileID: 8941774902993081030}
   m_Layer: 10
-  m_Name: Gun
+  m_Name: Knucledusters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,8 +73,8 @@ Transform:
   m_GameObject: {fileID: 8143044070160544798}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.12, y: 0.84, z: 0}
-  m_LocalScale: {x: 1.1, y: 0.3, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.370156, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9170279501527936082}
@@ -122,7 +122,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9622642, g: 0.55267346, b: 0, a: 1}
+  m_Color: {r: 0.9607843, g: 0.91559535, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -132,7 +132,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2251923739610827617
+--- !u!114 &2631014436918580117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,19 +141,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8143044070160544798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 786aeddbbfb92724f882810debf16620, type: 3}
+  m_Script: {fileID: 11500000, guid: 175faf16b060e4b4ebd0cf9222a88512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
   rb: {fileID: 4832154119501156754}
   trig: {fileID: 8941774902993081030}
   sr: {fileID: 4722121175707967963}
-  HandOffset: {x: 0.5, y: 0}
+  HandOffset: {x: 0, y: 0}
   Cadence: 0
-  BulletType: {fileID: 1224280175503306348, guid: adfc888d622d3f44bb9aba7db07cde38, type: 3}
-  BulletSpawner: {fileID: 5825041603950613342}
-  NumBullets: 10
-  ShootingForce: 10
+  SlashType: {fileID: 1224280175503306348, guid: 143f1b78605e07841a578c0dd75eca86, type: 3}
+  SlashSpawner: {fileID: 7251197541735617559}
 --- !u!50 &4832154119501156754
 Rigidbody2D:
   serializedVersion: 4

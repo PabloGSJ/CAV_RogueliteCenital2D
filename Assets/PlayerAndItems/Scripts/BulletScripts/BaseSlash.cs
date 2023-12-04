@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseSlash : BaseAmmo
 {
-    public float TTL;
+    public float TTL = 0.3f;
 
     private void Update()
     {

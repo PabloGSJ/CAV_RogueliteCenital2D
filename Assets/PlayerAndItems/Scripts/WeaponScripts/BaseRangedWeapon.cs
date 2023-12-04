@@ -17,14 +17,14 @@ public class BaseRangedWeapon : BaseWeapon
     {
         if (NumBullets > 0)
         {
-            BulletSpawner.spawnBullet(BulletType, _shootingVector.normalized, ShootingForce, dmgMod);
+            BulletSpawner.spawnBullet(BulletType, _shootingVector.normalized, ShootingForce, dmgMod, this.transform.rotation);
             NumBullets--;
             ui.DisplayNewWNBullets(NumBullets);
 
         }
         else if (_holder.BorrowBullet())
         {
-            BulletSpawner.spawnBullet(BulletType, _shootingVector.normalized, ShootingForce, dmgMod);
+            BulletSpawner.spawnBullet(BulletType, _shootingVector.normalized, ShootingForce, dmgMod, this.transform.rotation);
         }
     }
 

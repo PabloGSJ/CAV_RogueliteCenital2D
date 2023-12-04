@@ -36,7 +36,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     // Combat variables
     public BaseWeapon Weapon = null;
-    public BaseWeapon DefaultWeapon = null;
+    public GameObject DefaultWeapon = null;
     private int _numBullets = 0;
     private float _dmgMod = 0;
 
@@ -104,6 +104,15 @@ public class PlayerStateMachine : MonoBehaviour
         _input.Gameplay.Interact.canceled += OnInteract;
         _input.Gameplay.Shooting.performed += OnShoot;
         _input.Gameplay.Shooting.canceled += OnShoot;
+
+        // setup default weapon
+        GameObject go = Instantiate(DefaultWeapon,
+                                    new Vector3(transform.position.x,
+                                                transform.position.y,
+                                                transform.position.z),
+                                    Quaternion.identity,
+                                    this.transform) as GameObject;
+        PickupWeapon(go.GetComponent<BaseWeapon>());
     }
 
     // setup input system
@@ -122,16 +131,7 @@ public class PlayerStateMachine : MonoBehaviour
         // INPUT: read mouse position on screen
         _mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        if (_mousePos.x < this.transform.position.x)    // Mouse is left of the player
-        {
-            // Face player left
-            this.transform.eulerAngles = new Vector3(0, 180, this.transform.eulerAngles.z);
-        }
-        else                                            // Mouse is right of the player
-        {
-            // Face player right
-            this.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z);
-        }
+        
     }
 
     // update for interactions involving physics engine
