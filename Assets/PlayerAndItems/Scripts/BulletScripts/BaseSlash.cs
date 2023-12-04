@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class BaseSlash : MonoBehaviour
 {
-    private void Awake()
+    public float TTL;
+
+    private void Update()
     {
-        StartCoroutine(Live());
+        // die instantly
+        if (TTL <= 0)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            TTL -= Time.deltaTime;
+        }
     }
 
-    private IEnumerator Live()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        yield return new WaitForSeconds(1f);    // Stay on screen 
         Destroy(gameObject);
     }
 }
