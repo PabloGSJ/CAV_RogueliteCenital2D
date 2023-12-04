@@ -121,6 +121,17 @@ public class PlayerStateMachine : MonoBehaviour
     {
         // INPUT: read mouse position on screen
         _mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        if (_mousePos.x < this.transform.position.x)    // Mouse is left of the player
+        {
+            // Face player left
+            this.transform.eulerAngles = new Vector3(0, 180, this.transform.eulerAngles.z);
+        }
+        else                                            // Mouse is right of the player
+        {
+            // Face player right
+            this.transform.eulerAngles = new Vector3(0, 0, this.transform.eulerAngles.z);
+        }
     }
 
     // update for interactions involving physics engine

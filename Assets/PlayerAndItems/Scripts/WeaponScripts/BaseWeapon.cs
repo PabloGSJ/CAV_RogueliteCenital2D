@@ -30,10 +30,11 @@ public abstract class BaseWeapon : MonoBehaviour
 
     // update for interactions involving physics engine
     void FixedUpdate()
-    {
+    { 
         // follow mouse pointer while on hand
         if (_holder != null)
         {
+            // rotate the weapon
             _shootingVector = _holder.MousePos - rb.position;
             rb.MoveRotation(Mathf.Atan2(_shootingVector.y, _shootingVector.x) * Mathf.Rad2Deg);
         }
