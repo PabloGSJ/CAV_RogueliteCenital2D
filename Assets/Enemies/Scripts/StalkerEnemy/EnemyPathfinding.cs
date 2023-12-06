@@ -18,43 +18,32 @@ public class EnemyPathfinding : MonoBehaviour
     public Transform enemySpawnPoint;
     public float waypointRadius;
 
+    public bool IsWall { get { return isWall; } set { isWall = value; } }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         stateMachine = GetComponent<EnemyStateMachine>();
         ChangeTargetInt();
-    }
-
-    private void Start()
-    {
         targetPoint = 0;
-
-        for (int i = 0; i < patrolPoints.Length; i++)
-        {
-            Vector3 randomOffset = Random.insideUnitSphere * waypointRadius;
-            randomOffset.z = 0f; 
-
-            Vector3 randomWaypointPosition = enemySpawnPoint.position + randomOffset;
-
-            patrolPoints[i].position = randomWaypointPosition;
-        }
     }
+
     private void FixedUpdate()
     {
 
         if (stateMachine.IsRoaming)
         {
+            
             if (!isWall)
-            {
+            { 
                 rb.MovePosition(rb.position + moveDirection * (moveSpeed * Time.fixedDeltaTime));
             } else
             {
                 if (transform.position == patrolPoints[targetPoint].position)
                 {
-                    collisionToWall(false);
+                    isWall = false;
                     ChangeTargetInt();
                 }
-
                 Debug.Log("Target: " + targetPoint);
 
                 transform.position = Vector2.MoveTowards(transform.position, patrolPoints[targetPoint].position, moveSpeed * Time.deltaTime);
@@ -78,16 +67,5 @@ public class EnemyPathfinding : MonoBehaviour
     public void MoveTo(Vector2 targetPosition)
     {
         moveDirection = targetPosition;
-    }
-
-    public void collisionToWall(bool collision)
-    {
-        isWall = collision;
-    }
-
-    public void SetPatrolPoints(Transform[] points)
-    {
-        Debug.Log("ENTRA EN SET PATROL");
-        patrolPoints = points;
     }
 }

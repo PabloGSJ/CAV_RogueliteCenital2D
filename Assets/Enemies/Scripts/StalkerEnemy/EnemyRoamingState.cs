@@ -29,7 +29,7 @@ public class EnemyRoamingState : EnemyBaseState
 
         ctx.IsRoaming = false;
 
-        enemyAI.StopAllCoroutines();
+        enemyAI.StopCoroutine(enemyAI.RoamingRoutine());
     }
 
     public override void UpdateState()

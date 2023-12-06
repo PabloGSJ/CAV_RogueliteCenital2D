@@ -38,7 +38,6 @@ public class EnemyAI : MonoBehaviour
 
     private Vector2 GetRoamingPosition() 
     {
-        //new Vector2(Random.Range(-1f,1f), Random.Range(-1f, 1f)).normalized; 
         return new Vector2(Random.Range(-1f,1f), Random.Range(-1f, 1f)).normalized; 
     }
 
@@ -49,10 +48,10 @@ public class EnemyAI : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Wall" && stateMachine.IsRoaming) 
+        if (collision.gameObject.layer == 7 && stateMachine.IsRoaming) 
         {
             StopAllCoroutines();
-            enemyPathfinding.collisionToWall(true);
+            enemyPathfinding.IsWall = true;
             StartCoroutine(RoamingRoutine());
         }
     }
