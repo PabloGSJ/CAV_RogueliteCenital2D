@@ -10,3 +10,7 @@ LAYERS UTILIZADOS:
 - 13:	GroundBullets
 - 14:	Hearts
 - 15:	GameModifiers
+
+TAGS UTILIZADOS:
+- 0: 
+- 1: 
