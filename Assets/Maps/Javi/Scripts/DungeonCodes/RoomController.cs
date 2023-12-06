@@ -36,6 +36,10 @@ public class RoomController : MonoBehaviour
         LoadRoom("Empty", 1, 0);
         LoadRoom("Empty", -1, 0);
         LoadRoom("Empty", 0, -1);
+        LoadRoom("Empty", 2, 0);
+        LoadRoom("Empty", 2, -1);
+        LoadRoom("Empty", 2, 1);
+        LoadRoom("Empty", -1, -1);
     }
 
     void Update()
