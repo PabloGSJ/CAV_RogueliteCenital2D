@@ -9,6 +9,7 @@ public class DisplayManager : MonoBehaviour
     public Text PlayerNumBulletsDisplay;
     public Text WeaponNumBulletsDisplay;
     public Text PlayerCoinsDisplay;
+    public Text DashCooldownDisplay;
 
     public void DisplayNewHealth(int newHealth)
     {
@@ -33,5 +34,15 @@ public class DisplayManager : MonoBehaviour
     public void DisplayNewPCoins(int newNumCoins)
     {
         PlayerCoinsDisplay.text = newNumCoins.ToString();
+    }
+
+    public void DisplayNewDashCooldown(float newDashCooldown)
+    {
+        DashCooldownDisplay.text = newDashCooldown.ToString();
+    }
+
+    public void EnableDashCooldown(bool enable)
+    {
+        DashCooldownDisplay.gameObject.SetActive(enable);
     }
 }

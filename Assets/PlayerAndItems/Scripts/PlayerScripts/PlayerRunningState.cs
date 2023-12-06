@@ -27,7 +27,10 @@ public class PlayerRunningState : PlayerBaseState
 
     public override void CheckSwitchStates()
     {
-
+        if (_ctx.IsDashing)
+        {
+            SwitchState(_factory.Dashing());
+        }
     }
 
     public override void InitializeSubState()

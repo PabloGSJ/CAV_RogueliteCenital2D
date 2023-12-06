@@ -24,6 +24,7 @@ public class PlayerStateMachine : MonoBehaviour
     public const int EnemiesLayer = 11;
     public const int GroundBulletsLayer = 13;
     public const int HeartsLayer = 14;
+    public const int GMLayer = 15;
 
     // Statistics variables
     public const int MaxHealth = 5;
@@ -33,11 +34,16 @@ public class PlayerStateMachine : MonoBehaviour
     // Movement variables
     public float Speed = 500;
     private Vector2 _movementVector;
+    private bool _dashing = false;
+    public float DashSpeed = 750;
+    public float DashCooldown;
+    private float _dashCooldownCounter;
+    public float DashDuration;
 
     // Combat variables
     public BaseWeapon Weapon = null;
     public GameObject DefaultWeapon = null;
-    private int _numBullets = 0;
+    private int _numBullets = 99;
     private float _dmgMod = 0;
 
     // Actions variables
@@ -50,8 +56,10 @@ public class PlayerStateMachine : MonoBehaviour
     // getters-setters
     public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
     public bool IsInteracting { get { return _interacted; } }
+    public bool IsDashing { get { return _dashing; } }
     public Vector2 MovementVector { get { return _movementVector; } }
     public Vector2 MousePos { get { return _mousePos; } }
+    public float DmgMod { set { _dmgMod = value; } }
 
 
     // INPUT HANDLERS:
@@ -75,6 +83,14 @@ public class PlayerStateMachine : MonoBehaviour
         {
             Debug.Log("Shoot!");
             Weapon.Shoot(_dmgMod);
+        }
+    }
+
+    private void OnDash(InputAction.CallbackContext context)
+    {
+        if (_dashCooldownCounter <= 0)
+        {
+            _dashing = true;
         }
     }
 
@@ -104,6 +120,8 @@ public class PlayerStateMachine : MonoBehaviour
         _input.Gameplay.Interact.canceled += OnInteract;
         _input.Gameplay.Shooting.performed += OnShoot;
         _input.Gameplay.Shooting.canceled += OnShoot;
+        _input.Gameplay.Dash.performed += OnDash;
+        _input.Gameplay.Dash.canceled += OnDash;
 
         // setup default weapon
         GameObject go = Instantiate(DefaultWeapon,
@@ -113,6 +131,9 @@ public class PlayerStateMachine : MonoBehaviour
                                     Quaternion.identity,
                                     this.transform) as GameObject;
         PickupWeapon(go.GetComponent<BaseWeapon>());
+
+        // setup dash
+        _dashCooldownCounter = DashCooldown;
     }
 
     // setup input system
@@ -131,7 +152,17 @@ public class PlayerStateMachine : MonoBehaviour
         // INPUT: read mouse position on screen
         _mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        
+        // reduce dash cooldown
+        if (!_dashing && _dashCooldownCounter > 0)
+        { 
+            _dashCooldownCounter -= Time.deltaTime;
+            ui.EnableDashCooldown(true);
+            ui.DisplayNewDashCooldown(_dashCooldownCounter);
+        }
+        else
+        {
+            ui.EnableDashCooldown(false);
+        }
     }
 
     // update for interactions involving physics engine
@@ -170,6 +201,9 @@ public class PlayerStateMachine : MonoBehaviour
             case HeartsLayer:
                 PickupHeart();
                 break;
+            case GMLayer:
+                Debug.Log("Picked up gm");
+                break;
 
             default:
                 break;
@@ -199,7 +233,7 @@ public class PlayerStateMachine : MonoBehaviour
      * Borrows one bullet from player inventory
      */
 
-    private void MovePlayer()
+    public void MovePlayer()
     {
         rb.velocity = _movementVector * Speed * Time.fixedDeltaTime;
     }
@@ -262,5 +296,16 @@ public class PlayerStateMachine : MonoBehaviour
             ui.DisplayNewPNBullets(_numBullets);
         }
         return borrow;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Health -= damage;
+    }
+
+    public void ResetDash()
+    {
+        _dashing = false;
+        _dashCooldownCounter = DashCooldown;
     }
 }

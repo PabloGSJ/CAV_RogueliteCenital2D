@@ -6,6 +6,7 @@ public abstract class BaseConsumables : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Picked me up");
         Destroy(gameObject);
     }
 }
