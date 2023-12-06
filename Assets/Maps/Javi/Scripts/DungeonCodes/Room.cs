@@ -17,10 +17,6 @@ public class Room : MonoBehaviour
             Debug.LogError("You pressed play in the wrong scene!");
             return;
         }
-        else
-        {
-            Debug.Log("RoomController.instance is not null");
-        }
 
         RoomController.instance.RegisterRoom(this);
     }
@@ -31,8 +27,16 @@ public class Room : MonoBehaviour
         Gizmos.DrawWireCube(transform.position, new Vector3(Width, Height, 0));
     }
 
-    public Vector3 GetRoomCenter()
+    public Vector3 GetRoomCentre()
     {
         return new Vector3(X * Width, Y * Height);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag("Player"))
+        {
+            RoomController.instance.OnPlayerEnterRoom(this);
+        }
     }
 }
