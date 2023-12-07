@@ -179,6 +179,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1761312423}
     m_Modifications:
+    - target: {fileID: 2112450487611908548, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: enemyRoom
+      value: 
+      objectReference: {fileID: 1761312422}
     - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.19
@@ -3235,6 +3239,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1761312423}
     m_Modifications:
+    - target: {fileID: 2112450487611908548, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: enemyRoom
+      value: 
+      objectReference: {fileID: 1761312422}
     - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.58
@@ -3461,6 +3469,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1761312423}
     m_Modifications:
+    - target: {fileID: 2112450487611908548, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: enemyRoom
+      value: 
+      objectReference: {fileID: 1761312422}
     - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.65

@@ -261,6 +261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StalkerEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2877826194484804267, guid: cc5cea51385b6d34682cd42a5013a157, type: 3}
+      propertyPath: enemyRoom
+      value: 
+      objectReference: {fileID: 1761312422}
     - target: {fileID: 5290602598791756745, guid: cc5cea51385b6d34682cd42a5013a157, type: 3}
       propertyPath: patrolPoints.Array.data[0]
       value: 
@@ -2291,6 +2295,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StalkerEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2877826194484804267, guid: cc5cea51385b6d34682cd42a5013a157, type: 3}
+      propertyPath: enemyRoom
+      value: 
+      objectReference: {fileID: 1761312422}
     - target: {fileID: 5290602598791756745, guid: cc5cea51385b6d34682cd42a5013a157, type: 3}
       propertyPath: patrolPoints.Array.data[0]
       value: 
@@ -3598,6 +3606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StalkerEnemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2877826194484804267, guid: cc5cea51385b6d34682cd42a5013a157, type: 3}
+      propertyPath: enemyRoom
+      value: 
+      objectReference: {fileID: 1761312422}
     - target: {fileID: 5290602598791756745, guid: cc5cea51385b6d34682cd42a5013a157, type: 3}
       propertyPath: patrolPoints.Array.data[0]
       value: 

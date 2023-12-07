@@ -18,6 +18,7 @@ public class RoomController : MonoBehaviour
     RoomInfo currentLoadRoomData;
 
     Room currRoom;
+    public Room CurrentRoom { get { return currRoom; } }
 
     Queue<RoomInfo> loadRoomQueue = new Queue<RoomInfo>();
 

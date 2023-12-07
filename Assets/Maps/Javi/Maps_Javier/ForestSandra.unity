@@ -2166,6 +2166,72 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &594201347
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1761312423}
+    m_Modifications:
+    - target: {fileID: 2112450487611908548, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: enemyRoom
+      value: 
+      objectReference: {fileID: 1761312422}
+    - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.5944734
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.423032
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8822695693289226495, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+      propertyPath: m_Name
+      value: TowerEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+--- !u!4 &594201348 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6047971485393521595, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+  m_PrefabInstance: {fileID: 594201347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &734935944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,7 +2246,7 @@ GameObject:
   - component: {fileID: 734935948}
   - component: {fileID: 734935947}
   - component: {fileID: 734935946}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hidden_hitboxes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3441,6 +3507,7 @@ Transform:
   - {fileID: 193425942}
   - {fileID: 158999839}
   - {fileID: 824447827}
+  - {fileID: 594201348}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1761312424
@@ -3499,7 +3566,7 @@ GameObject:
   - component: {fileID: 1920165443}
   - component: {fileID: 1920165445}
   - component: {fileID: 1920165444}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
