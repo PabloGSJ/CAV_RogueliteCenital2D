@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7819768428638135566}
   - component: {fileID: 750298686685874561}
+  - component: {fileID: -4332097370448863906}
   - component: {fileID: 3424358198318613804}
   m_Layer: 15
   m_Name: GMNumEnemiesUp
@@ -85,6 +86,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-4332097370448863906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224280175503306348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cccef184c8b50094095755a190f4aec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &3424358198318613804
 CircleCollider2D:
   m_ObjectHideFlags: 0

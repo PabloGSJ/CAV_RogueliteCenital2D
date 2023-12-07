@@ -40,6 +40,21 @@ public abstract class BaseWeapon : MonoBehaviour
             // rotate the weapon
             _shootingVector = _holder.MousePos - rb.position;
             rb.MoveRotation(Mathf.Atan2(_shootingVector.y, _shootingVector.x) * Mathf.Rad2Deg);
+
+            if (_holder.MousePos.x < _holder.transform.position.x)
+            {
+                // el jugador esta apuntando a la izquierda del munheco
+                this.transform.position = new Vector3(_holder.transform.position.x - HandOffset.x,
+                                                      _holder.transform.position.y - HandOffset.y,
+                                                      0);
+            }
+            else
+            {
+                // el jugador esta apuntando a la derecha del munheco
+                this.transform.position = new Vector3(_holder.transform.position.x + HandOffset.x,
+                                                      _holder.transform.position.y + HandOffset.y,
+                                                      0);
+            }
         }
     }
 
