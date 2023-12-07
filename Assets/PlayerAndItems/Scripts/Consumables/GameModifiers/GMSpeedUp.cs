@@ -6,6 +6,6 @@ public class GMSpeedUP : BaseGM
 {
     protected override void ApplyEffect()
     {
-        gmm.ChangeSpeedMod(100);
+        gmm.ChangeSpeedMod(750);
     }
 }
