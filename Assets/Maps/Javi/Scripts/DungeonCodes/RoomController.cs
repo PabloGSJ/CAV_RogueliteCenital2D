@@ -33,13 +33,14 @@ public class RoomController : MonoBehaviour
     void Start()
     {
         LoadRoom("Start", 0, 0);
-        LoadRoom("Empty", 1, 0);
-        LoadRoom("Empty", -1, 0);
-        LoadRoom("Empty", 0, -1);
-        LoadRoom("Empty", 2, 0);
-        LoadRoom("Empty", 2, -1);
-        LoadRoom("Empty", 2, 1);
+        LoadRoom("TestEmpty", 1, 0);
+        LoadRoom("TestConsumables", -1, 0);
+        LoadRoom("Sandra", 0, -1);
+        LoadRoom("TestWeapons", 2, 0);
+        LoadRoom("TestEnemiesStalker", 2, -1);
+        LoadRoom("TestEnemiesSniper", 2, 1);
         LoadRoom("Empty", -1, -1);
+        LoadRoom("TestEnemiesTower", 3, 0);
     }
 
     void Update()

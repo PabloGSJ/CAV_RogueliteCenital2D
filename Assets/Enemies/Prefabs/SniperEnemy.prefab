@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8965950919446719322}
   - component: {fileID: 4862860231056156270}
   - component: {fileID: 1127467907864483587}
+  - component: {fileID: 5057968243099471769}
   m_Layer: 11
   m_Name: SniperEnemy
   m_TagString: Untagged
@@ -116,7 +117,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.03239894, y: 0}
@@ -130,9 +131,9 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7253303469712153535}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -148,7 +149,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1127467907864483587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,3 +165,16 @@ MonoBehaviour:
   prefab: {fileID: 5881011510308835535, guid: 900e0d0e552ea6a44b2c4734e564f62b, type: 3}
   cd: 1
   v: 10
+--- !u!114 &5057968243099471769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7253303469712153535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452b2852a8e27c548885986b66d6b3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 2
