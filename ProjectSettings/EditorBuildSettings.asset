@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Maps/Javi/Maps_Javier/ForestEmpty.unity
+    guid: 95e7de274c547db479fb4f0f62d9af17
+  - enabled: 1
+    path: Assets/Maps/Javi/Maps_Javier/ForestStart.unity
+    guid: 37669b51bdcbf644cab44977134c9c13
   m_configObjects: {}
