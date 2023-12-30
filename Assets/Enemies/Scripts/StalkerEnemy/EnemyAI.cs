@@ -5,19 +5,23 @@ using UnityEngine.UIElements;
 
 public class EnemyAI : MonoBehaviour
 {
+    private RoomController rc;
+    public Room enemyRoom;
+
     private EnemyPathfinding enemyPathfinding;
     private EnemyStateMachine stateMachine;
 
     private void Awake()
     {
+        rc = FindObjectOfType<RoomController>();
         enemyPathfinding = GetComponent<EnemyPathfinding>();
         stateMachine = GetComponent<EnemyStateMachine>();
     }
 
     public IEnumerator RoamingRoutine()
     {
-
-        while (true) { 
+        while (rc.CurrentRoom == enemyRoom)
+        {
             Debug.Log("Roaming");
             Vector2 roamPosition = GetRoamingPosition();
             enemyPathfinding.MoveTo(roamPosition);
@@ -38,7 +42,6 @@ public class EnemyAI : MonoBehaviour
 
     private Vector2 GetRoamingPosition() 
     {
-        //new Vector2(Random.Range(-1f,1f), Random.Range(-1f, 1f)).normalized; 
         return new Vector2(Random.Range(-1f,1f), Random.Range(-1f, 1f)).normalized; 
     }
 
@@ -49,10 +52,10 @@ public class EnemyAI : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Wall" && stateMachine.IsRoaming) 
+        if (collision.gameObject.layer == 7 && stateMachine.IsRoaming) 
         {
             StopAllCoroutines();
-            enemyPathfinding.collisionToWall(true);
+            enemyPathfinding.IsWall = true;
             StartCoroutine(RoamingRoutine());
         }
     }

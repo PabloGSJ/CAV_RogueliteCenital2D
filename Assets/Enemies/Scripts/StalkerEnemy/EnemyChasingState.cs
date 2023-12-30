@@ -29,7 +29,7 @@ public class EnemyChasingState : EnemyBaseState
 
     public override void UpdateState()
     {
-        Debug.Log("I");
+        CheckSwitchStates();
     }
 
     public override void InitializeSubState()
@@ -39,6 +39,6 @@ public class EnemyChasingState : EnemyBaseState
 
     public override void CheckSwitchStates()
     {
-        throw new System.NotImplementedException();
+        
     }
 }
