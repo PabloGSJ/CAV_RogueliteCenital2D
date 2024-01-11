@@ -7,24 +7,33 @@ public class EnemyShooting : MonoBehaviour
     public GameObject prefab;
     private Transform player;
 
+    public Room enemyRoom;
+    private RoomController rc;
+
     public float cd;
     public float v;
     private float timer;
 
     public void Start()
     {
+        rc = FindObjectOfType<RoomController>();
+        enemyRoom = gameObject.transform.parent.gameObject.GetComponent<Room>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timer = cd;
     }
 
     public void Update()
     {
-        timer -= Time.deltaTime;
 
-        if (timer <= 0f)
+        if (rc.CurrentRoom == enemyRoom)
         {
-            Shoot();
-            timer = cd;
+            timer -= Time.deltaTime;
+
+            if (timer <= 0f)
+            {
+                Shoot();
+                timer = cd;
+            }
         }
     }
 

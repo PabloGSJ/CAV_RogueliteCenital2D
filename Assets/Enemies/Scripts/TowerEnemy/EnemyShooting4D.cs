@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class EnemyShooting4D : MonoBehaviour
 {
     public GameObject prefab;
+
+    public Room enemyRoom; 
+    private RoomController rc;
 
     public float cd;
     public float v;
@@ -13,19 +17,26 @@ public class EnemyShooting4D : MonoBehaviour
 
     public void Start()
     {
+        enemyRoom = gameObject.transform.parent.gameObject.GetComponent<Room>();
+        rc = FindObjectOfType<RoomController>();
         timer = cd;
         shoots = 0;
     }
     public void Update()
     {
-        timer -= Time.deltaTime;
 
-        if (timer <= 0f)
+        if (rc.CurrentRoom == enemyRoom)
         {
-            shoots += 1;
-            Shoot4D();
-            timer = cd;
+            timer -= Time.deltaTime;
+
+            if (timer <= 0f)
+            {
+                shoots += 1;
+                Shoot4D();
+                timer = cd;
+            }
         }
+        
     }
 
     private void Shoot4D()

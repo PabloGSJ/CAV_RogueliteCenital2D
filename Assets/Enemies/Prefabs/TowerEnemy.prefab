@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2112450487611908548}
   - component: {fileID: 3111163453192314313}
   - component: {fileID: 5443283665120239187}
+  - component: {fileID: 6199252649671344771}
   m_Layer: 11
   m_Name: TowerEnemy
   m_TagString: Untagged
@@ -110,9 +111,9 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8822695693289226495}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
@@ -128,7 +129,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &5443283665120239187
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -158,9 +159,22 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
+--- !u!114 &6199252649671344771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8822695693289226495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452b2852a8e27c548885986b66d6b3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 4

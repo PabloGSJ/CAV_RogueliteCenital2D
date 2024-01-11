@@ -5,19 +5,23 @@ using UnityEngine.UIElements;
 
 public class EnemyAI : MonoBehaviour
 {
+    private RoomController rc;
+    public Room enemyRoom;
+
     private EnemyPathfinding enemyPathfinding;
     private EnemyStateMachine stateMachine;
 
     private void Awake()
     {
+        rc = FindObjectOfType<RoomController>();
         enemyPathfinding = GetComponent<EnemyPathfinding>();
         stateMachine = GetComponent<EnemyStateMachine>();
     }
 
     public IEnumerator RoamingRoutine()
     {
-
-        while (true) { 
+        while (rc.CurrentRoom == enemyRoom)
+        {
             Debug.Log("Roaming");
             Vector2 roamPosition = GetRoamingPosition();
             enemyPathfinding.MoveTo(roamPosition);
