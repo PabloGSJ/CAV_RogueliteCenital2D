@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.28, y: -0.79, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7839696454166063141}
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 526775347, guid: 99317a835d0f46b48b82eaedd8952ffb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8f00f9496f468c5428fde007d5019689, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -194,6 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497853864fbf0b1449757aaceacd52b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyRoom: {fileID: 0}
 --- !u!114 &5290602598791756745
 MonoBehaviour:
   m_ObjectHideFlags: 0
