@@ -5,37 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Forest/Room 0.unity
+    guid: 6a5306080e48ff64496fe81207bc71f3
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/Demo/DemoScene.unity
-    guid: 6cc9809add46b3842ac2c4c49b5e168c
-  - enabled: 1
-    path: Assets/Maps/Javi/Maps_Javier/ForestStart.unity
-    guid: 37669b51bdcbf644cab44977134c9c13
-  - enabled: 1
-    path: Assets/Maps/Javi/Maps_Javier/ForestEmpty.unity
-    guid: 95e7de274c547db479fb4f0f62d9af17
-  - enabled: 1
-    path: Assets/Maps/Javi/Maps_Javier/ForestTestConsumables.unity
-    guid: 54a86b71eb5e70f44b2acf23c27394d9
-  - enabled: 1
-    path: Assets/Maps/Javi/Maps_Javier/ForestTestEmpty.unity
-    guid: d41d18d023da5b44cbc92073c86d6fb4
-  - enabled: 1
-    path: Assets/Maps/Javi/Maps_Javier/ForestTestEnemiesSniper.unity
-    guid: d029ccd8f7689e1498913600a6b07ab7
-  - enabled: 1
-    path: Assets/Maps/Javi/Maps_Javier/ForestTestWeapons.unity
-    guid: 6acc8eb80e662b64db48b93745801c1c
-  - enabled: 1
-    path: Assets/Maps/Javi/Maps_Javier/ForestTestEnemiesStalker.unity
-    guid: 36ea3ce4726f81443bec2654320c4770
-  - enabled: 1
-    path: Assets/Maps/Javi/Maps_Javier/ForestTestEnemiesTower.unity
-    guid: 165a4dbbf2e36314380d2758de48d99b
-  - enabled: 1
-    path: Assets/Maps/Javi/Maps_Javier/ForestSandra.unity
-    guid: d1b4cc914a2d19440882966ea9ac80c3
+    path: Assets/GameRelease/Maps/Forest/Room 1.unity
+    guid: 477266242165ce04ca537938dee3c482
+  - enabled: 0
+    path: Assets/GameRelease/Maps/Forest/Room 2.unity
+    guid: f71d85886077fc941859bf946ecb16a4
+  - enabled: 0
+    path: Assets/GameRelease/Maps/Forest/Room 3.unity
+    guid: 215fa22cd5d3c7145b70f21ded14ff08
+  - enabled: 0
+    path: Assets/GameRelease/Maps/Forest/Room 4.unity
+    guid: 4bc7753750eb41549a6e3c0fac1c3902
+  - enabled: 0
+    path: Assets/GameRelease/Maps/Forest/Room 5.unity
+    guid: acac49048bcf42544acce6b4ea65dc7a
+  - enabled: 0
+    path: Assets/GameRelease/Maps/Forest/Room 6.unity
+    guid: 35c4cd23ae7e5a3468c5dabe87b9cee2
   m_configObjects: {}

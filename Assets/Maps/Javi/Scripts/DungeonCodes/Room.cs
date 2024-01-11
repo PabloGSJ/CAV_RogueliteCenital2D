@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-
     public int Width;
     public int Height;
     public int X;

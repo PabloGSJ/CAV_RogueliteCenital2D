@@ -33,15 +33,14 @@ public class RoomController : MonoBehaviour
     
     void Start()
     {
-        LoadRoom("Start", 0, 0);
-        LoadRoom("TestEmpty", 1, 0);
-        LoadRoom("TestConsumables", -1, 0);
-        LoadRoom("Sandra", 0, -1);
-        LoadRoom("TestWeapons", 2, 0);
-        LoadRoom("TestEnemiesStalker", 2, -1);
-        LoadRoom("TestEnemiesSniper", 2, 1);
-        LoadRoom("Empty", -1, -1);
-        LoadRoom("TestEnemiesTower", 3, 0);
+        LoadRoom("Room 0", 0, 0);
+        /*LoadRoom("Room 1", 1, 0);
+        LoadRoom("Room 2", -1, 0);
+        LoadRoom("Room 3", 0, -1);
+        LoadRoom("Room 4", 2, 0);
+        LoadRoom("Room 5", 2, -1);
+        LoadRoom("Room 6", 2, 1);
+        */
     }
 
     void Update()
@@ -84,7 +83,7 @@ public class RoomController : MonoBehaviour
 
     IEnumerator LoadRoomRoutine(RoomInfo info)
     {
-        string roomName = currentWorldName + info.name;
+        string roomName = info.name;
 
         AsyncOperation loadRoom = SceneManager.LoadSceneAsync(roomName, LoadSceneMode.Additive);
 
