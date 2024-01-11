@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LogicManager
+  - Empty
+  - GameModifiersManager
   layers:
   - Default
   - TransparentFX
@@ -18,9 +21,9 @@ TagManager:
   - Weapons
   - Enemies
   - EnemyBullets
-  - 
-  - 
-  - 
+  - GroundBullets
+  - Hearts
+  - GameModifiers
   - 
   - 
   - 
@@ -49,6 +52,9 @@ TagManager:
     locked: 0
   - name: Standing
     uniqueID: 3255799635
+    locked: 0
+  - name: Bullets
+    uniqueID: 925837795
     locked: 0
   - name: Hover
     uniqueID: 3261729333
