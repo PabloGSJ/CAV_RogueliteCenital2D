@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 6137822543764615183}
   - component: {fileID: 7902792122543212767}
   - component: {fileID: 4003305554574540487}
-  - component: {fileID: 917843668244239308}
   - component: {fileID: 5660536882755481117}
-  - component: {fileID: 4348878861007827580}
   - component: {fileID: 6738297839373201476}
   m_Layer: 11
   m_Name: CityStalkerEnemy
@@ -156,19 +154,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &917843668244239308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6831071265251678550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ef781b7902666d4097b948411d52fc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chaseDistance: 3
 --- !u!114 &5660536882755481117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,19 +167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
---- !u!114 &4348878861007827580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6831071265251678550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 497853864fbf0b1449757aaceacd52b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyRoom: {fileID: 0}
 --- !u!114 &6738297839373201476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,14 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  patrolPoints:
-  - {fileID: 2296618920566366611}
-  - {fileID: 1383494696704294009}
-  - {fileID: 1865890853839144632}
-  - {fileID: 4968474883844834399}
-  targetPoint: 0
-  enemySpawnPoint: {fileID: 5267940064421325721}
-  waypointRadius: 2
+  enemyRoom: {fileID: 0}
 --- !u!1 &7141280656485787766
 GameObject:
   m_ObjectHideFlags: 0

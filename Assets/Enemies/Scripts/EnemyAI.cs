@@ -13,6 +13,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Awake()
     {
+
+        enemyRoom = gameObject.transform.parent.gameObject.GetComponent<Room>();
         rc = FindObjectOfType<RoomController>();
         enemyPathfinding = GetComponent<EnemyPathfinding>();
         stateMachine = GetComponent<EnemyStateMachine>();
@@ -20,12 +22,14 @@ public class EnemyAI : MonoBehaviour
 
     public IEnumerator RoamingRoutine()
     {
-        while (rc.CurrentRoom == enemyRoom)
+        Debug.Log("CURRENT ROOM: "+ rc.CurrentRoom);
+        while (true)
         {
-            Debug.Log("Roaming");
-            Vector2 roamPosition = GetRoamingPosition();
-            enemyPathfinding.MoveTo(roamPosition);
-            yield return new WaitForSeconds(2f);
+            if (rc.CurrentRoom == enemyRoom) { 
+                Debug.Log("Roaming");
+                Vector2 roamPosition = GetRoamingPosition();
+                yield return new WaitForSeconds(2f);
+            }
         }
     }
 
@@ -35,7 +39,6 @@ public class EnemyAI : MonoBehaviour
         {
             Debug.Log("Chasing");
             Vector2 roamPosition = GetChasingPosition();
-            enemyPathfinding.MoveTo(roamPosition);
             yield return new WaitForSeconds(0.1f);
         }
     }
@@ -55,7 +58,6 @@ public class EnemyAI : MonoBehaviour
         if (collision.gameObject.layer == 7 && stateMachine.IsRoaming) 
         {
             StopAllCoroutines();
-            enemyPathfinding.IsWall = true;
             StartCoroutine(RoamingRoutine());
         }
     }

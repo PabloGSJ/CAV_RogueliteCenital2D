@@ -164,8 +164,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 5881011510308835535, guid: 900e0d0e552ea6a44b2c4734e564f62b, type: 3}
   enemyRoom: {fileID: 0}
-  cd: 1
+  cd: 2
   v: 10
+  pea_shot0: {fileID: -2108940179, guid: a68476a7ab971c640809c76a80270ed2, type: 3}
+  pea_shot1: {fileID: 1586926267, guid: a68476a7ab971c640809c76a80270ed2, type: 3}
+  pea_shot2: {fileID: 163039594, guid: a68476a7ab971c640809c76a80270ed2, type: 3}
 --- !u!114 &5057968243099471769
 MonoBehaviour:
   m_ObjectHideFlags: 0

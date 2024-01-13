@@ -13,9 +13,18 @@ public class EnemyShooting : MonoBehaviour
     public float cd;
     public float v;
     private float timer;
+    private float spriteTimer;
+    private float time;
+
+    //Sprites
+    public Sprite pea_shot0;
+    public Sprite pea_shot1;
+    public Sprite pea_shot2;
+    public Sprite currentSprite;
 
     public void Start()
     {
+        currentSprite = pea_shot0;
         rc = FindObjectOfType<RoomController>();
         enemyRoom = gameObject.transform.parent.gameObject.GetComponent<Room>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -28,12 +37,35 @@ public class EnemyShooting : MonoBehaviour
         if (rc.CurrentRoom == enemyRoom)
         {
             timer -= Time.deltaTime;
-
+            if(currentSprite == pea_shot0 && timer<=cd/4)
+            {
+                currentSprite = pea_shot1;
+                spriteTimer = Time.time;
+                this.GetComponent<SpriteRenderer>().sprite = currentSprite;
+            }
+            else if (currentSprite == pea_shot2)
+            {
+                time = Time.time - spriteTimer;
+                if (time >= 0.5f && spriteTimer != 0)
+                {
+                    spriteTimer = 0;
+                    currentSprite = pea_shot1;
+                    this.GetComponent<SpriteRenderer>().sprite = currentSprite;
+                }
+            }
             if (timer <= 0f)
             {
+                spriteTimer = Time.time;
+                currentSprite = pea_shot2;
+                this.GetComponent<SpriteRenderer>().sprite = currentSprite;
                 Shoot();
                 timer = cd;
             }
+        } else
+        {
+            spriteTimer = 0;
+            currentSprite = pea_shot0;
+            this.GetComponent<SpriteRenderer>().sprite = currentSprite;
         }
     }
 
