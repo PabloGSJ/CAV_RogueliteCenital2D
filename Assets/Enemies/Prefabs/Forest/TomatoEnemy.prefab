@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 2220719033398908691}
   - component: {fileID: 6082106480914507342}
   - component: {fileID: 5356356142946149978}
-  - component: {fileID: -4411038316638455859}
+  - component: {fileID: -1038061889107025340}
   - component: {fileID: -3929055091944506593}
   m_Layer: 11
-  m_Name: StalkerEnemy
+  m_Name: TomatoEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: -1039167661
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8f00f9496f468c5428fde007d5019689, type: 3}
+  m_Sprite: {fileID: -568120876, guid: 87077793b4d90b846a6b86205df87b7d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
---- !u!114 &-4411038316638455859
+--- !u!114 &-1038061889107025340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,15 +141,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2438402050777785532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 344d46fef4d45ee48b2a6a322e5c6f27, type: 3}
+  m_Script: {fileID: 11500000, guid: 6950084194a1d804b84557cc6c1f9f30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 100
   enemyRoom: {fileID: 0}
-  patrolPoints: []
-  targetPoint: 0
-  enemySpawnPoint: {fileID: 0}
-  waypointRadius: 0
+  tomato_follow0: {fileID: -568120876, guid: 87077793b4d90b846a6b86205df87b7d, type: 3}
+  tomato_follow1: {fileID: -1685496962, guid: 87077793b4d90b846a6b86205df87b7d, type: 3}
+  tomato_follow2: {fileID: 1848678637, guid: 87077793b4d90b846a6b86205df87b7d, type: 3}
+  currentSprite: {fileID: 0}
 --- !u!61 &-3929055091944506593
 BoxCollider2D:
   m_ObjectHideFlags: 0
