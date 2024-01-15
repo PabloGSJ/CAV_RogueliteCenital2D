@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5937777549998659161}
   - component: {fileID: 5439371002342755039}
   - component: {fileID: 3647917470461968549}
-  - component: {fileID: 8292967956926895465}
+  - component: {fileID: -5769467850344551358}
   - component: {fileID: 1056864370569203640}
   m_Layer: 12
   m_Name: HouseProjectileTower
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.73, y: -2.26, z: 0}
-  m_LocalScale: {x: 0.35, y: 0.35, z: 0.35}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 2
---- !u!114 &8292967956926895465
+--- !u!114 &-5769467850344551358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8747939458794013598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e30c05b4f1b6c824283c326a588a70a3, type: 3}
+  m_Script: {fileID: 11500000, guid: b8b6b160938d30140bc33ef043a5759e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &1056864370569203640

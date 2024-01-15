@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4872035483584357793}
   - component: {fileID: 4140036225204739826}
   - component: {fileID: -4129144141392037629}
-  - component: {fileID: 9101757949693027791}
+  - component: {fileID: 190693450714994880}
   - component: {fileID: 5162190667432156842}
   m_Layer: 12
   m_Name: ProjectileCarrot
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.9, y: 1.24, z: 0}
-  m_LocalScale: {x: 0.29289, y: 0.29289, z: 0.29289}
+  m_LocalScale: {x: 0.29289, y: 0.29289, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 1
---- !u!114 &9101757949693027791
+--- !u!114 &190693450714994880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5881011510308835535}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e30c05b4f1b6c824283c326a588a70a3, type: 3}
+  m_Script: {fileID: 11500000, guid: b8b6b160938d30140bc33ef043a5759e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &5162190667432156842
