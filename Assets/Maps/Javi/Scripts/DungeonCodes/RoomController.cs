@@ -30,17 +30,18 @@ public class RoomController : MonoBehaviour
     {
         instance = this;
     }
-    
+
     void Start()
     {
-        LoadRoom("Room 0", 0, 0);
-        /*LoadRoom("Room 1", 1, 0);
-        LoadRoom("Room 2", -1, 0);
-        LoadRoom("Room 3", 0, -1);
-        LoadRoom("Room 4", 2, 0);
-        LoadRoom("Room 5", 2, -1);
-        LoadRoom("Room 6", 2, 1);
-        */
+        LoadRoom("Start", 0, 0);
+        LoadRoom("TestEmpty", 1, 0);
+        LoadRoom("TestConsumables", -1, 0);
+        LoadRoom("Sandra", 0, -1);
+        LoadRoom("TestWeapons", 2, 0);
+        LoadRoom("TestEnemiesStalker", 2, -1);
+        LoadRoom("TestEnemiesSniper", 2, 1);
+        LoadRoom("Empty", -1, -1);
+        LoadRoom("TestEnemiesTower", 3, 0);
     }
 
     void Update()
@@ -50,12 +51,12 @@ public class RoomController : MonoBehaviour
 
     void UpdateRoomQueue()
     {
-        if(isLoadingRoom)
+        if (isLoadingRoom)
         {
             return;
         }
 
-        if(loadRoomQueue.Count == 0)
+        if (loadRoomQueue.Count == 0)
         {
             return;
         }
@@ -68,7 +69,7 @@ public class RoomController : MonoBehaviour
 
     public void LoadRoom(string name, int x, int y)
     {
-        if(DoesRoomExist(x, y))
+        if (DoesRoomExist(x, y))
         {
             return;
         }
@@ -83,11 +84,11 @@ public class RoomController : MonoBehaviour
 
     IEnumerator LoadRoomRoutine(RoomInfo info)
     {
-        string roomName = info.name;
+        string roomName = currentWorldName + info.name;
 
         AsyncOperation loadRoom = SceneManager.LoadSceneAsync(roomName, LoadSceneMode.Additive);
 
-        while(loadRoom.isDone == false)
+        while (loadRoom.isDone == false)
         {
             yield return null;
         }
@@ -108,7 +109,7 @@ public class RoomController : MonoBehaviour
 
         isLoadingRoom = false;
 
-        if(loadedRooms.Count == 0)
+        if (loadedRooms.Count == 0)
         {
             CameraController.instance.currRoom = room;
         }

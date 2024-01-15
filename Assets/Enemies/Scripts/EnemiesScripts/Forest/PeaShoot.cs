@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShooting : MonoBehaviour
+public class PeaShot : MonoBehaviour
 {
     public GameObject prefab;
     private Transform player;
@@ -37,7 +37,7 @@ public class EnemyShooting : MonoBehaviour
         if (rc.CurrentRoom == enemyRoom)
         {
             timer -= Time.deltaTime;
-            if(currentSprite == pea_shot0 && timer<=cd/4)
+            if (currentSprite == pea_shot0 && timer <= cd / 4)
             {
                 currentSprite = pea_shot1;
                 spriteTimer = Time.time;
@@ -61,7 +61,8 @@ public class EnemyShooting : MonoBehaviour
                 Shoot();
                 timer = cd;
             }
-        } else
+        }
+        else
         {
             spriteTimer = 0;
             currentSprite = pea_shot0;
@@ -73,7 +74,7 @@ public class EnemyShooting : MonoBehaviour
     {
         Vector2 dir = (player.position - transform.position).normalized;
 
-        GameObject projectile = Instantiate(prefab,transform.position,Quaternion.identity);
+        GameObject projectile = Instantiate(prefab, transform.position, Quaternion.identity);
 
         projectile.GetComponent<Rigidbody2D>().velocity = dir * v;
     }

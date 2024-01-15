@@ -28,7 +28,7 @@ public class PlayerStateMachine : MonoBehaviour
     public const int GMLayer = 15;
 
     // Statistics variables
-    public const int MaxHealth = 5;
+    public const int MaxHealth = 10;
     public int Health = 3;
     private int _coins = 0;
 
