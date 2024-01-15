@@ -6,6 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/GameRelease/Maps/Forest/Room 0.unity
     guid: 6a5306080e48ff64496fe81207bc71f3
   - enabled: 0
@@ -26,4 +27,11 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/GameRelease/Maps/Forest/Room 6.unity
     guid: 35c4cd23ae7e5a3468c5dabe87b9cee2
+=======
+    path: Assets/Maps/Javi/Maps_Javier/ForestEmpty.unity
+    guid: 95e7de274c547db479fb4f0f62d9af17
+  - enabled: 1
+    path: Assets/Maps/Javi/Maps_Javier/ForestStart.unity
+    guid: 37669b51bdcbf644cab44977134c9c13
+>>>>>>> Map+PlayerAndItems
   m_configObjects: {}
