@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4152413384575599479}
   - component: {fileID: 7706409714521334549}
-  - component: {fileID: 3178823922876953099}
   - component: {fileID: 8737912141650770362}
-  - component: {fileID: 7380396315813020148}
+  - component: {fileID: -3974449957713272336}
   - component: {fileID: 4820289903004093103}
+  - component: {fileID: 1425829884148393944}
   m_Layer: 11
   m_Name: CityTowerEnemy
   m_TagString: Untagged
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d9a029b9e52318745865fb6d5ac49f7d, type: 3}
+  m_Sprite: {fileID: 1330644166, guid: 5be2446956d8395488df44d5c1e5146f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,22 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3178823922876953099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8765113695160584823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96221dbc93ea9aa4da28d3cea6488ad1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 5881011510308835535, guid: 8759a09cd876f1f44bedc2a018910618, type: 3}
-  enemyRoom: {fileID: 0}
-  cd: 1
-  v: 10
 --- !u!50 &8737912141650770362
 Rigidbody2D:
   serializedVersion: 4
@@ -131,8 +115,42 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &7380396315813020148
-CapsuleCollider2D:
+--- !u!114 &-3974449957713272336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8765113695160584823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ede67d3ee5cb36349a101241d9bdb346, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8747939458794013598, guid: 5ef442009a80e7a49be2f95e0c3bb56f, type: 3}
+  enemyRoom: {fileID: 0}
+  cd: 1.5
+  v: 10
+  trash_shot0: {fileID: 1330644166, guid: 5be2446956d8395488df44d5c1e5146f, type: 3}
+  trash_shot1: {fileID: 542222423, guid: 5be2446956d8395488df44d5c1e5146f, type: 3}
+  trash_shot2: {fileID: 1977655879, guid: 5be2446956d8395488df44d5c1e5146f, type: 3}
+  trash_shot3: {fileID: 1692432055, guid: 5be2446956d8395488df44d5c1e5146f, type: 3}
+  currentSprite: {fileID: 0}
+--- !u!114 &4820289903004093103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8765113695160584823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452b2852a8e27c548885986b66d6b3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 5
+--- !u!61 &1425829884148393944
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -163,19 +181,16 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
-  m_Direction: 0
---- !u!114 &4820289903004093103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8765113695160584823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 452b2852a8e27c548885986b66d6b3ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 4
+  m_Offset: {x: 0.28497744, y: -1.1715755}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 17, y: 17}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 11.8703985, y: 14.656849}
+  m_EdgeRadius: 0

@@ -94,7 +94,7 @@ public class CarrotShot : MonoBehaviour
         Vector2 left;
         Vector2 right;
 
-        if (shoots <= 1)
+        if (shoots < 3)
         {
             up = Vector2.up.normalized;
             down = Vector2.down.normalized;

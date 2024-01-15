@@ -147,8 +147,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0.0075417757, y: 0.4875362}
+  m_Size: {x: 6.0324965, y: 16.500881}
   m_Direction: 0
 --- !u!114 &6199252649671344771
 MonoBehaviour:
@@ -177,8 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 5881011510308835535, guid: 8759a09cd876f1f44bedc2a018910618, type: 3}
   enemyRoom: {fileID: 0}
-  cd: 1
-  v: 10
+  cd: 1.5
+  v: 5
   carrot_shot0: {fileID: -839372892, guid: ac82df54fabc8c0498aa23c4e413a45e, type: 3}
   carrot_shot1: {fileID: -330189220, guid: ac82df54fabc8c0498aa23c4e413a45e, type: 3}
   carrot_shot2: {fileID: 31083505, guid: ac82df54fabc8c0498aa23c4e413a45e, type: 3}

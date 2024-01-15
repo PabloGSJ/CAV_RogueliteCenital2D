@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 6137822543764615183}
   - component: {fileID: 4003305554574540487}
   - component: {fileID: 5660536882755481117}
-  - component: {fileID: -3811184681323299693}
+  - component: {fileID: 3187037852268343670}
   - component: {fileID: 5129246849430151499}
   m_Layer: 11
-  m_Name: CityStalkerEnemy
+  m_Name: HouseStalkerEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1558532126, guid: c71e0ee32ef866c4397d6508a5364f2d, type: 3}
+  m_Sprite: {fileID: 367306656, guid: 993eac9206f0aea43a9210da8712f4f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452b2852a8e27c548885986b66d6b3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 8
---- !u!114 &-3811184681323299693
+  startingHealth: 12
+--- !u!114 &3187037852268343670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,14 +137,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6831071265251678550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 554ec9a8acdec414ab8ef4d52d54e7f6, type: 3}
+  m_Script: {fileID: 11500000, guid: b666317f7e09099469322c34c8c3953a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 150
+  moveSpeed: 200
   enemyRoom: {fileID: 0}
-  car_follow0: {fileID: -1558532126, guid: c71e0ee32ef866c4397d6508a5364f2d, type: 3}
-  car_follow1: {fileID: -1150561365, guid: c71e0ee32ef866c4397d6508a5364f2d, type: 3}
-  car_follow2: {fileID: -817772643, guid: c71e0ee32ef866c4397d6508a5364f2d, type: 3}
+  roomba_follow0: {fileID: 367306656, guid: 993eac9206f0aea43a9210da8712f4f9, type: 3}
+  roomba_follow1: {fileID: -1230805825, guid: 993eac9206f0aea43a9210da8712f4f9, type: 3}
+  roomba_follow2: {fileID: -842043794, guid: 993eac9206f0aea43a9210da8712f4f9, type: 3}
   currentSprite: {fileID: 0}
 --- !u!61 &5129246849430151499
 BoxCollider2D:
@@ -178,7 +178,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.26430035, y: -1.6518874}
+  m_Offset: {x: 0.376379, y: 0.10374355}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -189,5 +189,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.903315, y: 7.145877}
+  m_Size: {x: 13.057411, y: 10.657139}
   m_EdgeRadius: 0
