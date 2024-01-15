@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageSource : MonoBehaviour
 {
-    [SerializeField] private int damageAmount = 1;
+    [SerializeField] public int damageAmount = 1;
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.GetComponent<EnemyHealth>()) {
