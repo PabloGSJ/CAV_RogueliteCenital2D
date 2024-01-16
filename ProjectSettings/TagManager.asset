@@ -17,12 +17,12 @@ TagManager:
   - Player
   - Walls
   - PlayerBullets
-  - Coins
+  - Consumables
   - Weapons
   - Enemies
   - EnemyBullets
-  - GroundBullets
-  - Hearts
+  - ShopItems
+  - 
   - GameModifiers
   - 
   - 

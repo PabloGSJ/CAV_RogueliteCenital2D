@@ -4,4 +4,9 @@ using UnityEngine;
 
 public class Coin : BaseConsumables
 {
+    public override void UseConsumable(PlayerStateMachine player)
+    {
+        if (player.Coins < player.MaxCoins)
+            player.Coins++;
+    }
 }

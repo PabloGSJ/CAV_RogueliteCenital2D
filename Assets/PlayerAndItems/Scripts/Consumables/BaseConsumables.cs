@@ -4,9 +4,16 @@ using UnityEngine;
 
 public abstract class BaseConsumables : MonoBehaviour
 {
+    public abstract void UseConsumable(PlayerStateMachine player);
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Picked me up");
-        Destroy(gameObject);
+        PlayerStateMachine player = collision.gameObject.GetComponent<PlayerStateMachine>();
+        if (player != null)
+        {
+            UseConsumable(player);
+            Debug.Log("Picked me up");
+            Destroy(gameObject);
+        }
     }
 }

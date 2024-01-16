@@ -19,17 +19,26 @@ public class PlayerStateMachine : MonoBehaviour
     private Vector2 _mousePos;
     private DisplayManager ui;
 
-    public const int CoinsLayer = 9;
+    public const int Consumables = 9;
     public const int WeaponsLayer = 10;
     public const int EnemiesLayer = 11;
     public const int EnemyBulletsLayer = 12;
+<<<<<<< HEAD
     public const int GroundBulletsLayer = 13;
     public const int HeartsLayer = 14;
     public const int GMLayer = 15;
 
     // Statistics variables
     public const int MaxHealth = 10;
+=======
+    public const int ShopItemsLayer = 13;
+    public const int GMLayer = 15;
+
+    // Statistics variables
+    public int MaxHealth = 10;  // constant
+>>>>>>> PlayerAndItems
     public int Health = 3;
+    public int MaxCoins = 99;
     private int _coins = 0;
 
     // Movement variables
@@ -44,6 +53,7 @@ public class PlayerStateMachine : MonoBehaviour
     // Combat variables
     public BaseWeapon Weapon = null;
     public GameObject DefaultWeapon = null;
+    public int MaxPBullets = 99;
     private int _numBullets = 99;
     private float _dmgMod = 0;
 
@@ -61,6 +71,8 @@ public class PlayerStateMachine : MonoBehaviour
     public Vector2 MovementVector { get { return _movementVector; } }
     public Vector2 MousePos { get { return _mousePos; } }
     public float DmgMod { set { _dmgMod = value; } }
+    public int Coins { get { return _coins; } set { _coins = value; } }
+    public int NumBullets { get { return _numBullets; } set { _numBullets = value; } }
 
 
     // INPUT HANDLERS:
@@ -155,7 +167,7 @@ public class PlayerStateMachine : MonoBehaviour
 
         // reduce dash cooldown
         if (!_dashing && _dashCooldownCounter > 0)
-        { 
+        {
             _dashCooldownCounter -= Time.deltaTime;
             ui.EnableDashCooldown(true);
             ui.DisplayNewDashCooldown(_dashCooldownCounter);
@@ -164,6 +176,9 @@ public class PlayerStateMachine : MonoBehaviour
         {
             ui.EnableDashCooldown(false);
         }
+
+        // update UI
+
     }
 
     // update for interactions involving physics engine
@@ -183,20 +198,18 @@ public class PlayerStateMachine : MonoBehaviour
     {
         switch (collision.gameObject.layer)
         {
-            case CoinsLayer:
-                PickupCoin();
-                break;
+            case ShopItemsLayer:
             case WeaponsLayer:
                 _interacted = false;    // reset actions and listen
                 break;
-            case GroundBulletsLayer:
-                PickupGroundBullet();
-                break;
-            case HeartsLayer:
-                PickupHeart();
-                break;
+
             case GMLayer:
                 Debug.Log("Picked up gm");
+                break;
+
+            case Consumables:
+                // update all consumable related statistics just in case
+                UpdateConsumables();
                 break;
 
             default:
@@ -212,6 +225,18 @@ public class PlayerStateMachine : MonoBehaviour
                 if (_interacted)
                 {
                     PickupWeapon(collision.gameObject.GetComponent<BaseWeapon>());
+                }
+                break;
+
+            case ShopItemsLayer:
+                if (_interacted)
+                {
+                    BaseShopItem shopItem = collision.gameObject.GetComponent<BaseShopItem>();
+                    if (shopItem.TryBuy(_coins))
+                    {
+                        // Player has enough coins to buy 
+                        shopItem.BuyItem(this);
+                    }
                 }
                 break;
 
@@ -246,29 +271,7 @@ public class PlayerStateMachine : MonoBehaviour
         ui.DisplayNewHealth(Health);
     }
 
-    private void PickupCoin()
-    {
-        _coins++;
-        ui.DisplayNewPCoins(_coins);
-    }
-
-    private void PickupGroundBullet()
-    {
-        _numBullets++;
-        ui.DisplayNewPNBullets(_numBullets);
-    }
-
-    private void PickupHeart()
-    {
-        if (Health < MaxHealth)
-        {
-            // the heart gets consumed anyway
-            Health++;
-            ui.DisplayNewHealth(Health);
-        }
-    }
-
-    private void PickupWeapon(BaseWeapon weapon)
+    public void PickupWeapon(BaseWeapon weapon)
     {
         if (Weapon != null)
         {
@@ -297,5 +300,12 @@ public class PlayerStateMachine : MonoBehaviour
     {
         _dashing = false;
         _dashCooldownCounter = DashCooldown;
+    }
+
+    public void UpdateConsumables()
+    {
+        ui.DisplayNewHealth(Health);
+        ui.DisplayNewPCoins(_coins);
+        ui.DisplayNewPNBullets(_numBullets);
     }
 }
