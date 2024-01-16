@@ -23,20 +23,11 @@ public class PlayerStateMachine : MonoBehaviour
     public const int WeaponsLayer = 10;
     public const int EnemiesLayer = 11;
     public const int EnemyBulletsLayer = 12;
-<<<<<<< HEAD
-    public const int GroundBulletsLayer = 13;
-    public const int HeartsLayer = 14;
-    public const int GMLayer = 15;
-
-    // Statistics variables
-    public const int MaxHealth = 10;
-=======
     public const int ShopItemsLayer = 13;
     public const int GMLayer = 15;
 
     // Statistics variables
     public int MaxHealth = 10;  // constant
->>>>>>> PlayerAndItems
     public int Health = 3;
     public int MaxCoins = 99;
     private int _coins = 0;
