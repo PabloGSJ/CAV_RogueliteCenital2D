@@ -3076,6 +3076,7 @@ GameObject:
   - component: {fileID: 771950477}
   - component: {fileID: 771950479}
   - component: {fileID: 771950478}
+  - component: {fileID: 771950480}
   m_Layer: 0
   m_Name: Left_door
   m_TagString: Untagged
@@ -3229,6 +3230,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &771950480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771950476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c51828aeea2347b7de78ebfc62509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 0
 --- !u!1 &976793225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3442,6 +3456,7 @@ GameObject:
   - component: {fileID: 980392492}
   - component: {fileID: 980392494}
   - component: {fileID: 980392493}
+  - component: {fileID: 980392495}
   m_Layer: 0
   m_Name: Top_door
   m_TagString: Untagged
@@ -3595,6 +3610,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &980392495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 980392491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c51828aeea2347b7de78ebfc62509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 2
 --- !u!1 &1660555401
 GameObject:
   m_ObjectHideFlags: 0
@@ -4834,6 +4862,7 @@ GameObject:
   - component: {fileID: 1978531840}
   - component: {fileID: 1978531842}
   - component: {fileID: 1978531841}
+  - component: {fileID: 1978531843}
   m_Layer: 0
   m_Name: Bottom_door
   m_TagString: Untagged
@@ -4987,6 +5016,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1978531843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978531839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c51828aeea2347b7de78ebfc62509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 3
 --- !u!1 &1980339869
 GameObject:
   m_ObjectHideFlags: 0
@@ -4998,6 +5040,7 @@ GameObject:
   - component: {fileID: 1980339870}
   - component: {fileID: 1980339872}
   - component: {fileID: 1980339871}
+  - component: {fileID: 1980339873}
   m_Layer: 0
   m_Name: Right_door
   m_TagString: Untagged
@@ -5151,6 +5194,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1980339873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980339869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c51828aeea2347b7de78ebfc62509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
