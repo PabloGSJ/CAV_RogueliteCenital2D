@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GroundBullet : BaseConsumables
 {
-    protected override void UseConsumable(PlayerStateMachine player)
+    public override void UseConsumable(PlayerStateMachine player)
     {
-        player.NumBullets++;
+        if (player.NumBullets < player.MaxPBullets)
+            player.NumBullets++;
     }
 }

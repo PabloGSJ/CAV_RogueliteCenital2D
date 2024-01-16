@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Heart : BaseConsumables
 {
-    protected override void UseConsumable(PlayerStateMachine player)
+    public override void UseConsumable(PlayerStateMachine player)
     {
         if (player.Health < player.MaxHealth)
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseConsumables : MonoBehaviour
 {
-    protected abstract void UseConsumable(PlayerStateMachine player);
+    public abstract void UseConsumable(PlayerStateMachine player);
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

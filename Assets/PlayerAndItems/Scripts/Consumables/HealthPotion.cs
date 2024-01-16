@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class HealthPotion : BaseConsumables
 {
-    protected override void UseConsumable(PlayerStateMachine player)
+    public override void UseConsumable(PlayerStateMachine player)
     {
+        Debug.Log("consumed potion");
         player.Health = player.MaxHealth;
     }
 }
