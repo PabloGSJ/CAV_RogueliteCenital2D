@@ -47200,6 +47200,7 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   DefaultWeapon: {fileID: 8143044070160544798, guid: d77a9cf7f3d0c3c4abf46871c2a80b78, type: 3}
   MaxPBullets: 99
+  damage: 1
 --- !u!50 &1358984885
 Rigidbody2D:
   serializedVersion: 4
@@ -48414,11 +48415,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9021658340355533427, guid: 1ea303fbfc700f34ca3db9b445b1e516, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.4777942
+      value: 4.47
       objectReference: {fileID: 0}
     - target: {fileID: 9021658340355533427, guid: 1ea303fbfc700f34ca3db9b445b1e516, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -27.6
+      value: -27.13
       objectReference: {fileID: 0}
     - target: {fileID: 9021658340355533427, guid: 1ea303fbfc700f34ca3db9b445b1e516, type: 3}
       propertyPath: m_LocalPosition.z
