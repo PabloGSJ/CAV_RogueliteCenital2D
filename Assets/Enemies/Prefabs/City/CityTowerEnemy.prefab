@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7706409714521334549}
   - component: {fileID: 8737912141650770362}
   - component: {fileID: -3974449957713272336}
+  - component: {fileID: 3866155558203604137}
   - component: {fileID: 4820289903004093103}
   - component: {fileID: 1425829884148393944}
   m_Layer: 11
@@ -136,6 +137,19 @@ MonoBehaviour:
   trash_shot2: {fileID: 1977655879, guid: 5be2446956d8395488df44d5c1e5146f, type: 3}
   trash_shot3: {fileID: 1692432055, guid: 5be2446956d8395488df44d5c1e5146f, type: 3}
   currentSprite: {fileID: 0}
+--- !u!114 &3866155558203604137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8765113695160584823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd389fd5164a206439c86fb73f774ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
 --- !u!114 &4820289903004093103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452b2852a8e27c548885986b66d6b3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 5
+  startingHealth: 3
 --- !u!61 &1425829884148393944
 BoxCollider2D:
   m_ObjectHideFlags: 0

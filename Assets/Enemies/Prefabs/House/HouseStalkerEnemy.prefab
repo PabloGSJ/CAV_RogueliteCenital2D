@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4003305554574540487}
   - component: {fileID: 5660536882755481117}
   - component: {fileID: 3187037852268343670}
+  - component: {fileID: 2852402754300750820}
   - component: {fileID: 5129246849430151499}
   m_Layer: 11
   m_Name: HouseStalkerEnemy
@@ -127,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452b2852a8e27c548885986b66d6b3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 12
+  startingHealth: 11
 --- !u!114 &3187037852268343670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +147,19 @@ MonoBehaviour:
   roomba_follow1: {fileID: -1230805825, guid: 993eac9206f0aea43a9210da8712f4f9, type: 3}
   roomba_follow2: {fileID: -842043794, guid: 993eac9206f0aea43a9210da8712f4f9, type: 3}
   currentSprite: {fileID: 0}
+--- !u!114 &2852402754300750820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6831071265251678550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd389fd5164a206439c86fb73f774ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3
 --- !u!61 &5129246849430151499
 BoxCollider2D:
   m_ObjectHideFlags: 0

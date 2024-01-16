@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 658166074069810786}
   - component: {fileID: 3749269701068336096}
   - component: {fileID: 1828347657558432398}
+  - component: {fileID: 1682826207916195576}
   - component: {fileID: 5981586800839746347}
   - component: {fileID: 573490151754303807}
   m_Layer: 11
@@ -135,6 +136,19 @@ MonoBehaviour:
   drone_shot1: {fileID: 1959216686, guid: c94088889bd5c4a468f89f629e64f42e, type: 3}
   drone_shot2: {fileID: -927099550, guid: c94088889bd5c4a468f89f629e64f42e, type: 3}
   currentSprite: {fileID: 0}
+--- !u!114 &1682826207916195576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378251195204877894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd389fd5164a206439c86fb73f774ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3
 --- !u!114 &5981586800839746347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452b2852a8e27c548885986b66d6b3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 3
+  startingHealth: 2
 --- !u!61 &573490151754303807
 BoxCollider2D:
   m_ObjectHideFlags: 0

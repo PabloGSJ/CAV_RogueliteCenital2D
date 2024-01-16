@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3111163453192314313}
   - component: {fileID: 5443283665120239187}
   - component: {fileID: 6199252649671344771}
+  - component: {fileID: 961129993075669553}
   - component: {fileID: 9050549574085986291}
   m_Layer: 11
   m_Name: CarrotEnemy
@@ -162,7 +163,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452b2852a8e27c548885986b66d6b3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 4
+  startingHealth: 2
+--- !u!114 &961129993075669553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8822695693289226495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd389fd5164a206439c86fb73f774ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!114 &9050549574085986291
 MonoBehaviour:
   m_ObjectHideFlags: 0

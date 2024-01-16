@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4872035483584357793}
   - component: {fileID: 4140036225204739826}
   - component: {fileID: -4129144141392037629}
-  - component: {fileID: 190693450714994880}
+  - component: {fileID: 5178970440213690727}
   - component: {fileID: 5162190667432156842}
   m_Layer: 12
   m_Name: ProjectileCarrot
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 1
---- !u!114 &190693450714994880
+--- !u!114 &5178970440213690727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
