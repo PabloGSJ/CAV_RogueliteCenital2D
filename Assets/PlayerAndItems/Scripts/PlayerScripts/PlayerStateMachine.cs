@@ -20,11 +20,13 @@ public class PlayerStateMachine : MonoBehaviour
     private DisplayManager ui;
     public Collider2D myc;
 
+    public const int PlayerLayer = 6;
     public const int Consumables = 9;
     public const int WeaponsLayer = 10;
     public const int EnemiesLayer = 11;
     public const int EnemyBulletsLayer = 12;
     public const int ShopItemsLayer = 13;
+    public const int PlayerDashingLayer = 14;
     public const int GMLayer = 15;
 
     // Statistics variables
@@ -169,9 +171,6 @@ public class PlayerStateMachine : MonoBehaviour
         {
             ui.EnableDashCooldown(false);
         }
-
-        // update UI
-
     }
 
     // update for interactions involving physics engine
@@ -241,10 +240,6 @@ public class PlayerStateMachine : MonoBehaviour
 
     // AUXILIARY FUNCTION DECLARATIONS:
 
-    /*
-     * Borrows one bullet from player inventory
-     */
-
     public void MovePlayer()
     {
         rb.velocity = _movementVector * Speed * Time.fixedDeltaTime;
@@ -300,5 +295,17 @@ public class PlayerStateMachine : MonoBehaviour
         ui.DisplayNewHealth(Health);
         ui.DisplayNewPCoins(_coins);
         ui.DisplayNewPNBullets(_numBullets);
+    }
+
+    public void SwitchPlayerToDashLayer(bool switchToDashLayer)
+    {
+        if (switchToDashLayer)
+        {
+            this.gameObject.layer = PlayerDashingLayer;
+        }
+        else
+        {
+            this.gameObject.layer = PlayerLayer;
+        }
     }
 }
