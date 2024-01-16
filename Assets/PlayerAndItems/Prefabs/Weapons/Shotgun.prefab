@@ -74,7 +74,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.12, y: 0.84, z: 0}
-  m_LocalScale: {x: 1.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9170279501527936082}
@@ -119,10 +119,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1039167661
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: -1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9339623, g: 0.47931647, b: 0.7958593, a: 1}
+  m_Sprite: {fileID: 21300000, guid: de97af77db0e0eb48a1ba40d8dce3f1a, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -155,7 +155,8 @@ MonoBehaviour:
   NumBullets: 4
   ShootingForce: 15
   NumBuckshots: 5
-  SpreadFactor: 20
+  BulletSpreadFactor: 0
+  BulletSpeedFactor: 0
 --- !u!50 &4832154119501156754
 Rigidbody2D:
   serializedVersion: 4
