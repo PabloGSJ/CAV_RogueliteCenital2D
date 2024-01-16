@@ -4,6 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Scenes:
   - enabled: 1
     path: Assets/Maps/Javi/Maps_Javier/ForestEmpty.unity
@@ -35,4 +36,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Maps/Javi/Maps_Javier/ForestTestWeapons.unity
     guid: 6acc8eb80e662b64db48b93745801c1c
+=======
+  m_Scenes: []
+>>>>>>> 7d4310c67aab748519cb51d981a179cb3abc2010
   m_configObjects: {}
