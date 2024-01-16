@@ -16,7 +16,7 @@ public class BossMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Transform player;
     private System.Random random = new System.Random();
-    public int health = 0;  // Agrega un valor de vida
+    public float health = 1000;  // Agrega un valor de vida
 
     private enum BossState { RandomMovement, CutMovement, PunchMovement } // Agrega estados de comportamiento
     private BossState currentState;
@@ -120,11 +120,11 @@ public class BossMovement : MonoBehaviour
 
     void SetInitialBossState()
     {
-        if (health > 66)
+        if (health > 660)
         {
             ChangeState(BossState.PunchMovement);
         }
-        else if (health > 33)
+        else if (health >= 330 && health < 660)
         {
             ChangeState(BossState.CutMovement);
         }
@@ -137,11 +137,11 @@ public class BossMovement : MonoBehaviour
     void UpdateBossState(bool forceUpdate = false)
     {
         BossState newState;
-        if (health > 66)
+        if (health > 660)
         {
             newState = BossState.PunchMovement;
         }
-        else if (health >= 33 && health < 66)
+        else if (health >= 330 && health < 660)
         {
             newState = BossState.CutMovement;
         }
@@ -499,6 +499,24 @@ IEnumerator PunchMovement()
         }
 
         transform.position = originalPosition; // Restaura la posición original al final
+    }
+
+     private void OnCollisionEnter2D(Collision2D collision)
+    {
+        switch (collision.gameObject.layer)
+        {
+            case 8:     // PlayerBullets layer
+                // The enemy is hit by a bullet
+                health -= collision.gameObject.GetComponent<BaseAmmo>().GetDamageDealt();
+                if (health <= 0)
+                {
+                    // The enemy dies
+                    Destroy(gameObject);
+                }
+                break;
+            default:
+                break;
+        }
     }
 
 }
