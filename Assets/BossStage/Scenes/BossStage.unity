@@ -31829,9 +31829,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDuration: 1
-  shootDuration: 2
+  shootDuration: 3
   bulletPrefab: {fileID: 1626353810}
-  bulletSpeed: 10
+  bulletSpeed: 5
   margin: 150
   firingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   health: 8
@@ -31880,7 +31880,7 @@ MonoBehaviour:
   bulletSpeed: 10
   margin: 150
   firingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  health: 94
+  health: 100
 --- !u!1 &1089073202
 GameObject:
   m_ObjectHideFlags: 0
