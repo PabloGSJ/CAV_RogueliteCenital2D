@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Maps/Javi/Maps_Javier/ForestEmpty.unity
     guid: 95e7de274c547db479fb4f0f62d9af17
+  - enabled: 1
+    path: Assets/Maps/Javi/Maps_Javier/ForestExit.unity
+    guid: b3a55d3c81afe054aa1a694c439eacf4
   m_configObjects: {}
