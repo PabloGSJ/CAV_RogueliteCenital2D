@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7819768428638135566}
   - component: {fileID: 750298686685874561}
   - component: {fileID: 5245882833899515469}
+  - component: {fileID: 357157344303551367}
   - component: {fileID: 223585407936221917}
   - component: {fileID: 3424358198318613804}
   m_Layer: 8
@@ -100,6 +101,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseDamage: 2
+--- !u!114 &357157344303551367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224280175503306348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be7cb44ab8af1ce4b879eb432cdda271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 2
 --- !u!50 &223585407936221917
 Rigidbody2D:
   serializedVersion: 4

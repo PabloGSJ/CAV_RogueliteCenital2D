@@ -22,12 +22,13 @@ public class PlayerStateMachine : MonoBehaviour
     public const int CoinsLayer = 9;
     public const int WeaponsLayer = 10;
     public const int EnemiesLayer = 11;
+    public const int EnemyBulletsLayer = 12;
     public const int GroundBulletsLayer = 13;
     public const int HeartsLayer = 14;
     public const int GMLayer = 15;
 
     // Statistics variables
-    public const int MaxHealth = 5;
+    public const int MaxHealth = 10;
     public int Health = 3;
     private int _coins = 0;
 
@@ -174,14 +175,7 @@ public class PlayerStateMachine : MonoBehaviour
     // Collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        switch (collision.gameObject.layer)
-        {
-            case EnemiesLayer:
-                ReceiveDamage();
-                break;
-            default:
-                break;
-        }
+        
     }
 
     // Triggers
@@ -238,17 +232,18 @@ public class PlayerStateMachine : MonoBehaviour
         rb.velocity = _movementVector * Speed * Time.fixedDeltaTime;
     }
 
-    private void ReceiveDamage()
+    public void TakeDamage(int damageTaken)
     {
         Debug.Log("Recieving Damage");
 
-        Health--;
-        ui.DisplayNewHealth(Health);
-        if (Health == 0)
+        Health -= damageTaken;
+        if (Health <= 0)
         {
             // die
+            ui.DisplayNewHealth(0);
             Destroy(gameObject);
         }
+        ui.DisplayNewHealth(Health);
     }
 
     private void PickupCoin()
@@ -296,11 +291,6 @@ public class PlayerStateMachine : MonoBehaviour
             ui.DisplayNewPNBullets(_numBullets);
         }
         return borrow;
-    }
-
-    public void TakeDamage(int damage)
-    {
-        Health -= damage;
     }
 
     public void ResetDash()
