@@ -10,6 +10,7 @@ public class DisplayManager : MonoBehaviour
     public Text WeaponNumBulletsDisplay;
     public Text PlayerCoinsDisplay;
     public Text DashCooldownDisplay;
+    public Text PlayerMaxHealthDisplay;
 
     public void DisplayNewHealth(int newHealth)
     {
@@ -44,5 +45,10 @@ public class DisplayManager : MonoBehaviour
     public void EnableDashCooldown(bool enable)
     {
         DashCooldownDisplay.gameObject.SetActive(enable);
+    }
+
+    public void DisplayNewMaxHealth(int newMaxHealth)
+    {
+        PlayerMaxHealthDisplay.text = newMaxHealth.ToString();
     }
 }
