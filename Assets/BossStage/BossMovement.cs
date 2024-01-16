@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -14,14 +16,21 @@ public class BossMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Transform player;
     private System.Random random = new System.Random();
-    
+    public int health = 0;  // Agrega un valor de vida
 
+    private enum BossState { RandomMovement, CutMovement, PunchMovement } // Agrega estados de comportamiento
+    private BossState currentState;
+    private bool isMoving;
+    private Coroutine currentBehaviorCoroutine;
+    private Coroutine trembleCoroutine;
+    private Vector3[] edgeMidpoints;
 
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         player = GameObject.Find("Player").transform;
+
         if (spriteRenderer == null || player == null)
         {
             Debug.LogError("BossMovement: No se encontró un SpriteRenderer o el prefab Player en el objeto.");
@@ -29,7 +38,220 @@ public class BossMovement : MonoBehaviour
         }
 
         CalculateCornersWithMargin();
-        StartCoroutine(RandomMovement());
+        CalculateEdgeMidpoints();
+        SetInitialBossState(); // Establece e inicia el estado inicial basado en la salud
+    }
+
+    void CalculateEdgeMidpoints()
+    {
+        Camera cam = Camera.main;
+        edgeMidpoints = new Vector3[]
+        {
+            cam.ViewportToWorldPoint(new Vector3(0.5f, margin / cam.pixelHeight, cam.nearClipPlane)), // Arriba
+            cam.ViewportToWorldPoint(new Vector3(0.5f, 1 - (margin / cam.pixelHeight), cam.nearClipPlane)), // Abajo
+            cam.ViewportToWorldPoint(new Vector3(margin / cam.pixelWidth, 0.5f, cam.nearClipPlane)), // Izquierda
+            cam.ViewportToWorldPoint(new Vector3(1 - (margin / cam.pixelWidth), 0.5f, cam.nearClipPlane)) // Derecha
+        };
+    }
+
+    IEnumerator CutMovement()
+    {
+        while (currentState == BossState.CutMovement)
+        {
+            Vector3 startPoint = ChooseRandomPoint();
+            Vector3 endPoint = ChooseOppositePoint(startPoint);
+
+            yield return StartCoroutine(MoveToPosition(startPoint));
+            yield return StartCoroutine(MoveToPosition(endPoint));
+            
+            yield return new WaitForSeconds(1f);
+        }
+    }
+
+    Vector3 ChooseRandomPoint()
+    {
+        List<Vector3> allPoints = new List<Vector3>(corners);
+        allPoints.AddRange(edgeMidpoints);
+        int randomIndex = random.Next(allPoints.Count);
+        return allPoints[randomIndex];
+    }
+
+    private Vector3 ChooseOppositePoint(Vector3 startPoint)
+    {
+        // Determinar el punto opuesto en la pantalla
+        Vector3 oppositePoint;
+        if (corners.Contains(startPoint))
+        {
+            int startIndex = Array.IndexOf(corners, startPoint);
+            oppositePoint = corners[(startIndex + 2) % 4]; // Elige la esquina opuesta
+        }
+        else
+        {
+            int startIndex = Array.IndexOf(edgeMidpoints, startPoint);
+            oppositePoint = edgeMidpoints[(startIndex + 2) % 4]; // Elige el punto medio opuesto
+        }
+
+        return oppositePoint;
+    }
+    IEnumerator MoveToPosition(Vector3 targetPosition)
+    {
+        // Cambiar el color a amarillo antes de comenzar a moverse
+        StartCoroutine(ChangeColorTemporary(Color.yellow, 0.5f));
+        yield return new WaitForSeconds(0.5f);
+
+        float timeElapsed = 0;
+        Vector3 startPosition = transform.position;
+
+        // Cambiar el color a rojo mientras se mueve
+        spriteRenderer.color = Color.red;
+
+        while (timeElapsed < moveDuration)
+        {
+            transform.position = Vector3.Lerp(startPosition, targetPosition, timeElapsed / moveDuration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = targetPosition;
+
+        // Restablecer el color original después del movimiento
+        spriteRenderer.color = Color.white;
+    }
+
+    void SetInitialBossState()
+    {
+        if (health > 66)
+        {
+            ChangeState(BossState.PunchMovement);
+        }
+        else if (health > 33)
+        {
+            ChangeState(BossState.CutMovement);
+        }
+        else
+        {
+            ChangeState(BossState.RandomMovement);
+        }
+    }
+
+    void UpdateBossState(bool forceUpdate = false)
+    {
+        BossState newState;
+        if (health > 66)
+        {
+            newState = BossState.PunchMovement;
+        }
+        else if (health >= 33 && health < 66)
+        {
+            newState = BossState.CutMovement;
+        }
+        else
+        {
+            newState = BossState.RandomMovement;
+        }
+
+        if (forceUpdate || currentState != newState)
+        {
+             currentState = newState;
+            if (currentBehaviorCoroutine != null)
+            {
+                StopCoroutine(currentBehaviorCoroutine);
+            }
+
+            switch (currentState)
+            {
+                case BossState.RandomMovement:
+                    currentBehaviorCoroutine = StartCoroutine(RandomMovement());
+                    break;
+                case BossState.CutMovement:
+                    currentBehaviorCoroutine = StartCoroutine(CutMovement());
+                    break;
+                case BossState.PunchMovement:
+                    currentBehaviorCoroutine = StartCoroutine(PunchMovement());
+                    break;
+            }
+        }
+    }
+
+    void StartBehaviorBasedOnState()
+    {
+        switch (currentState)
+        {
+            case BossState.RandomMovement:
+                currentBehaviorCoroutine = StartCoroutine(RandomMovement());
+                break;
+            case BossState.CutMovement:
+                currentBehaviorCoroutine = StartCoroutine(CutMovement());
+                break;
+            case BossState.PunchMovement:
+                currentBehaviorCoroutine = StartCoroutine(PunchMovement());
+                break;
+        }
+    }
+
+    void ChangeState(BossState newState)
+    {
+        if (currentState != newState)
+        {
+            currentState = newState;
+            if (currentBehaviorCoroutine != null)
+            {
+                StopCoroutine(currentBehaviorCoroutine);
+            }
+
+            switch (currentState)
+            {
+                case BossState.RandomMovement:
+                    currentBehaviorCoroutine = StartCoroutine(RandomMovement());
+                    break;
+                case BossState.CutMovement:
+                    currentBehaviorCoroutine = StartCoroutine(CutMovement());
+                    break;
+                case BossState.PunchMovement:
+                    currentBehaviorCoroutine = StartCoroutine(PunchMovement());
+                    break;
+            }
+        }
+    }
+
+IEnumerator PunchMovement()
+{
+    Debug.Log("Iniciando PunchMovement");
+
+    while (currentState == BossState.PunchMovement)
+    {
+        Debug.Log("Elegir punto de inicio en PunchMovement");
+        Vector3 startPoint = ChooseRandomPoint();
+        yield return StartCoroutine(MoveToPosition(startPoint));
+
+        Debug.Log("Observar posición del jugador en PunchMovement");
+        Vector3 playerPosition = player.transform.position;
+
+        Debug.Log("Cambio de color a amarillo en PunchMovement");
+        StartCoroutine(ChangeColorTemporary(Color.yellow, 0.5f));
+        yield return new WaitForSeconds(0.5f);
+
+        Debug.Log("Movimiento hacia el jugador en PunchMovement");
+        spriteRenderer.color = Color.red;
+        yield return StartCoroutine(MoveToPosition(playerPosition));
+
+        Debug.Log("Regresar a punto aleatorio en PunchMovement");
+        spriteRenderer.color = Color.white;
+        Vector3 returnPoint = ChooseRandomPoint();
+        yield return StartCoroutine(MoveToPosition(returnPoint));
+
+        Debug.Log("Fin del ciclo PunchMovement");
+        yield return new WaitForSeconds(1f);
+    }
+}
+
+
+
+    void Update()
+    {
+        // Actualizaciones regulares, como ReflectSpriteBasedOnPosition
+        UpdateBossState();
+        ReflectSpriteBasedOnPosition();
     }
 
     void CalculateCornersWithMargin()
@@ -44,23 +266,34 @@ public class BossMovement : MonoBehaviour
                 };
     }
 
-    IEnumerator RandomMovement()
-        {
-            while (true)
-            {
-                Vector3 targetPosition = corners[random.Next(corners.Length)];
-                yield return StartCoroutine(MoveToPosition(targetPosition));
-                spriteRenderer.flipX = (targetPosition.x < transform.position.x);
-                StartCoroutine(ChangeColorTemporary(firingColor, 0.5f));
-                yield return StartCoroutine(ShootRandomly());
-            }
-        }
 
-    IEnumerator MoveToPosition(Vector3 targetPosition)
+    IEnumerator RandomMovement()
     {
+        while (currentState == BossState.RandomMovement)
+        {
+            // Detener el tremble effect antes de moverse
+            StopTrembleEffect();
+
+            Vector3 targetPosition = corners[random.Next(corners.Length)];
+            yield return StartCoroutine(MoveToPosition(targetPosition));
+
+            // Iniciar el tremble effect inmediatamente después de llegar a la esquina
+            StartTrembleEffect();
+
+            // Disparo
+            yield return StartCoroutine(ShootRandomly());
+
+            // No es necesario iniciar el tremble effect aquí ya que se inicia
+            // inmediatamente después de moverse a la esquina
+        }
+    }
+
+    IEnumerator MoveToPositionR(Vector3 targetPosition)
+    {
+        // Reutiliza la lógica de movimiento de RandomMovement
         float timeElapsed = 0;
         Vector3 startPosition = transform.position;
-        
+
         while (timeElapsed < moveDuration)
         {
             transform.position = Vector3.Lerp(startPosition, targetPosition, timeElapsed / moveDuration);
@@ -68,10 +301,25 @@ public class BossMovement : MonoBehaviour
             yield return null;
         }
 
-        transform.position = targetPosition; // Asegurarse de que el boss llegue a la posición.
+        transform.position = targetPosition;
+    }
+    void StartTrembleEffect()
+    {
+        if (trembleCoroutine != null)
+        {
+            StopCoroutine(trembleCoroutine);
+        }
+        trembleCoroutine = StartCoroutine(TrembleEffect());
     }
 
-    
+    void StopTrembleEffect()
+    {
+        if (trembleCoroutine != null)
+        {
+            StopCoroutine(trembleCoroutine);
+            trembleCoroutine = null;
+        }
+    }
 
     IEnumerator ChangeColorTemporary(Color color, float duration)
     {
@@ -91,7 +339,10 @@ public class BossMovement : MonoBehaviour
             if (Time.time >= endTime)
                 break;
             
-            // Select a random shooting pattern
+            // Detener el tremble effect justo antes de disparar
+            StopTrembleEffect();
+
+            // Seleccionar un patrón de disparo aleatorio y disparar
             int pattern = random.Next(3);
             switch (pattern)
             {
@@ -102,11 +353,14 @@ public class BossMovement : MonoBehaviour
                     FireConeTowardsPlayer();
                     break;
                 case 2:
-                    FireStraightAtPlayer();
+                    StartCoroutine(FireStraightAtPlayer());
                     break;
             }
 
             yield return new WaitForSeconds(shootDuration / shots);
+
+            // Reiniciar el tremble effect inmediatamente después de disparar
+            StartTrembleEffect();
         }
     }
 
@@ -118,12 +372,15 @@ public class BossMovement : MonoBehaviour
 
         for (int i = 0; i < bulletAmount; i++)
         {
+            StopTrembleEffect();
+
             // Calcula la dirección de este disparo basándose en el ángulo
             Quaternion bulletRotation = Quaternion.Euler(0f, 0f, angle);
             FireBulletInDirection(bulletRotation);
 
             // Incrementa el ángulo para el próximo disparo
             angle += angleStep;
+            StartTrembleEffect();
         }
     }
 
@@ -142,18 +399,20 @@ public class BossMovement : MonoBehaviour
         }
     }
 
-    void FireStraightAtPlayer()
+    IEnumerator FireStraightAtPlayer()
     {
-        Quaternion bulletRotation = Quaternion.LookRotation(Vector3.forward, GetDirectionToPlayer());
-        FireBulletInDirection(bulletRotation);
-    }
+        int numberOfShots = random.Next(3, 9); // Genera un número aleatorio entre 3 y 8
+        Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;
 
-    Vector2 GetDirectionToPlayer()
-    {
-        // Asumimos que 'player' es una referencia válida al GameObject del jugador.
-        return (player.transform.position - transform.position).normalized;
-    }
+        for (int i = 0; i < numberOfShots; i++)
+        {
+            float angle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg;
+            Quaternion bulletRotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+            FireBulletInDirection(bulletRotation);
 
+            yield return new WaitForSeconds(0.1f); // Retraso entre disparos
+        }
+    }
 
     void FireBulletInDirection(Quaternion rotation)
     {
@@ -172,8 +431,14 @@ public class BossMovement : MonoBehaviour
         }
         else
         {
-        Debug.LogError("El prefab de la bala no tiene un componente Rigidbody2D.");
+            Debug.LogError("El prefab de la bala no tiene un componente Rigidbody2D.");
         }
+    }
+
+    Vector2 GetDirectionToPlayer()
+    {
+        // Asumimos que 'player' es una referencia válida al GameObject del jugador.
+        return (player.transform.position - transform.position).normalized;
     }
 
     int RandomWeightedNumber()
@@ -200,9 +465,40 @@ public class BossMovement : MonoBehaviour
         }
     }
 
-    void Update()
+    bool IsAtCorner(Vector3 position)
     {
-        //GetDirectionToPlayer();
-        ReflectSpriteBasedOnPosition();
+        foreach (var corner in corners)
+        {
+            if (Vector3.Distance(position, corner) < 0.1f) // Usa un valor pequeño para tolerancia
+            {
+                return true;
+            }
+        }
+        return false;
     }
+
+    IEnumerator TrembleEffect()
+    {
+        float trembleDuration = 0.5f; // Duración del efecto de flotación
+        float elapsedTime = 0f;
+
+        Vector3 originalPosition = transform.position;
+        float frequency = 5f; // Frecuencia del movimiento de flotación
+        float amplitude = 0.05f; // Amplitud del movimiento de flotación
+
+        while (elapsedTime < trembleDuration)
+        {
+            // Calcula un valor de desplazamiento basado en una función sinusoidal
+            float displacement = Mathf.Sin(Time.time * frequency) * amplitude;
+
+            // Aplica el desplazamiento a la posición original para crear un efecto de flotación
+            transform.position = originalPosition + new Vector3(displacement, displacement, 0f);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = originalPosition; // Restaura la posición original al final
+    }
+
 }
