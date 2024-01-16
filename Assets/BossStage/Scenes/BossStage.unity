@@ -31834,7 +31834,7 @@ MonoBehaviour:
   bulletSpeed: 10
   margin: 150
   firingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  health: 100
+  health: 8
 --- !u!50 &1005800156
 Rigidbody2D:
   serializedVersion: 4
@@ -31875,9 +31875,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDuration: 1
-  shootDuration: 3
+  shootDuration: 2
   bulletPrefab: {fileID: 1626353810}
-  bulletSpeed: 5
+  bulletSpeed: 10
   margin: 150
   firingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   health: 94

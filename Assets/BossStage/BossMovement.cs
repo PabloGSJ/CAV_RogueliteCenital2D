@@ -124,7 +124,7 @@ public class BossMovement : MonoBehaviour
         {
             ChangeState(BossState.PunchMovement);
         }
-        else if (health > 33)
+        else if (health >= 33 && health < 66)
         {
             ChangeState(BossState.CutMovement);
         }
@@ -141,7 +141,7 @@ public class BossMovement : MonoBehaviour
         {
             newState = BossState.PunchMovement;
         }
-        else if (health > 33)
+        else if (health >= 33 && health < 66)
         {
             newState = BossState.CutMovement;
         }
@@ -250,6 +250,7 @@ IEnumerator PunchMovement()
     void Update()
     {
         // Actualizaciones regulares, como ReflectSpriteBasedOnPosition
+        UpdateBossState();
         ReflectSpriteBasedOnPosition();
     }
 
@@ -274,7 +275,7 @@ IEnumerator PunchMovement()
             StopTrembleEffect();
 
             Vector3 targetPosition = corners[random.Next(corners.Length)];
-            yield return StartCoroutine(MoveToPositionR(targetPosition));
+            yield return StartCoroutine(MoveToPosition(targetPosition));
 
             // Iniciar el tremble effect inmediatamente después de llegar a la esquina
             StartTrembleEffect();
