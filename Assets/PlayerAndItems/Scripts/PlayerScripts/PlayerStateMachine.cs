@@ -18,6 +18,7 @@ public class PlayerStateMachine : MonoBehaviour
     private PlayerInput _input;
     private Vector2 _mousePos;
     private DisplayManager ui;
+    public Collider2D myc;
 
     public const int Consumables = 9;
     public const int WeaponsLayer = 10;
@@ -115,6 +116,7 @@ public class PlayerStateMachine : MonoBehaviour
         ui.DisplayNewPNBullets(_numBullets);
         ui.EnableWeaponNBullets(false);
         ui.DisplayNewPCoins(_coins);
+        ui.DisplayNewMaxHealth(MaxHealth);
 
         // setup input system
         _input = new PlayerInput();

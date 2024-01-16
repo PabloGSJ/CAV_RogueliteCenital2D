@@ -17,6 +17,8 @@ public class PlayerDashingState : PlayerBaseState
     {
         _dashMovVector = _ctx.MovementVector;
         _dashActiveCounter = _ctx.DashDuration;
+        
+        // disable collitions between the player and the enemies and enemy bullets
     }
 
     public override void UpdateState()
@@ -30,6 +32,8 @@ public class PlayerDashingState : PlayerBaseState
     public override void ExitState()
     {
         _ctx.ResetDash();
+
+        // enable collitions between the player and the enemies and enemy bullets
     }
 
     public override void CheckSwitchStates()
