@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5937777549998659161}
   - component: {fileID: 5439371002342755039}
   - component: {fileID: 3647917470461968549}
-  - component: {fileID: 826716449250875106}
+  - component: {fileID: 8439677887900358882}
   - component: {fileID: 1056864370569203640}
   m_Layer: 12
   m_Name: CityProjectileTower
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 2
---- !u!114 &826716449250875106
+--- !u!114 &8439677887900358882
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8747939458794013598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 355da006fa2d4fc45866672f008c7528, type: 3}
+  m_Script: {fileID: 11500000, guid: b8b6b160938d30140bc33ef043a5759e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &1056864370569203640

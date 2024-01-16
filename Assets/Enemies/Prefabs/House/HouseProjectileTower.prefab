@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5937777549998659161}
   - component: {fileID: 5439371002342755039}
   - component: {fileID: 3647917470461968549}
-  - component: {fileID: -5769467850344551358}
+  - component: {fileID: 1510023639368838625}
   - component: {fileID: 1056864370569203640}
   m_Layer: 12
   m_Name: HouseProjectileTower
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 2
---- !u!114 &-5769467850344551358
+--- !u!114 &1510023639368838625
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

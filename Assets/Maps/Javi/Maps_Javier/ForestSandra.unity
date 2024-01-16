@@ -3351,6 +3351,68 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &908924342
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1761312423}
+    m_Modifications:
+    - target: {fileID: 4152413384575599479, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.6588397
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152413384575599479, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.9819362
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152413384575599479, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152413384575599479, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152413384575599479, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152413384575599479, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152413384575599479, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152413384575599479, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152413384575599479, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152413384575599479, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765113695160584823, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+      propertyPath: m_Name
+      value: SewersTowerEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+--- !u!4 &908924343 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4152413384575599479, guid: af593a3f8b917d145b60a4a1f574c1b3, type: 3}
+  m_PrefabInstance: {fileID: 908924342}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &980392491
 GameObject:
   m_ObjectHideFlags: 0
@@ -3577,6 +3639,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3404961829591590835, guid: e5e1cad42d884a147b0d64be6f97aa01, type: 3}
   m_PrefabInstance: {fileID: 1070903466}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1259664103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1761312423}
+    m_Modifications:
+    - target: {fileID: 1611017346111863731, guid: c078ca54f945e204494184ca0a313252, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.896072
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611017346111863731, guid: c078ca54f945e204494184ca0a313252, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.3270516
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611017346111863731, guid: c078ca54f945e204494184ca0a313252, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611017346111863731, guid: c078ca54f945e204494184ca0a313252, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611017346111863731, guid: c078ca54f945e204494184ca0a313252, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611017346111863731, guid: c078ca54f945e204494184ca0a313252, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611017346111863731, guid: c078ca54f945e204494184ca0a313252, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611017346111863731, guid: c078ca54f945e204494184ca0a313252, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611017346111863731, guid: c078ca54f945e204494184ca0a313252, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611017346111863731, guid: c078ca54f945e204494184ca0a313252, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378251195204877894, guid: c078ca54f945e204494184ca0a313252, type: 3}
+      propertyPath: m_Name
+      value: SewersSniperEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c078ca54f945e204494184ca0a313252, type: 3}
+--- !u!4 &1259664104 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1611017346111863731, guid: c078ca54f945e204494184ca0a313252, type: 3}
+  m_PrefabInstance: {fileID: 1259664103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1332972911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3697,6 +3821,9 @@ Transform:
   - {fileID: 1911625289}
   - {fileID: 184629209}
   - {fileID: 1920505903}
+  - {fileID: 1259664104}
+  - {fileID: 908924343}
+  - {fileID: 1841967658}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1761312424
@@ -3744,6 +3871,68 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18, y: 10}
   m_EdgeRadius: 0
+--- !u!1001 &1841967657
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1761312423}
+    m_Modifications:
+    - target: {fileID: 5267940064421325721, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.090749
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267940064421325721, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3366864
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267940064421325721, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267940064421325721, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267940064421325721, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267940064421325721, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267940064421325721, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267940064421325721, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267940064421325721, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267940064421325721, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831071265251678550, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+      propertyPath: m_Name
+      value: SewersStalkerEnemy
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+--- !u!4 &1841967658 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5267940064421325721, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
+  m_PrefabInstance: {fileID: 1841967657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1870470352
 PrefabInstance:
   m_ObjectHideFlags: 0
