@@ -19,16 +19,14 @@ public class PlayerStateMachine : MonoBehaviour
     private Vector2 _mousePos;
     private DisplayManager ui;
 
-    public const int CoinsLayer = 9;
+    public const int Consumables = 9;
     public const int WeaponsLayer = 10;
     public const int EnemiesLayer = 11;
     public const int EnemyBulletsLayer = 12;
-    public const int GroundBulletsLayer = 13;
-    public const int HeartsLayer = 14;
     public const int GMLayer = 15;
 
     // Statistics variables
-    public const int MaxHealth = 10;
+    public int MaxHealth = 10;  // constant
     public int Health = 3;
     private int _coins = 0;
 
@@ -61,6 +59,8 @@ public class PlayerStateMachine : MonoBehaviour
     public Vector2 MovementVector { get { return _movementVector; } }
     public Vector2 MousePos { get { return _mousePos; } }
     public float DmgMod { set { _dmgMod = value; } }
+    public int Coins { get { return _coins; } set { _coins = value; } }
+    public int NumBullets { get { return _numBullets; } set { _numBullets = value; } }
 
 
     // INPUT HANDLERS:
@@ -155,7 +155,7 @@ public class PlayerStateMachine : MonoBehaviour
 
         // reduce dash cooldown
         if (!_dashing && _dashCooldownCounter > 0)
-        { 
+        {
             _dashCooldownCounter -= Time.deltaTime;
             ui.EnableDashCooldown(true);
             ui.DisplayNewDashCooldown(_dashCooldownCounter);
@@ -183,20 +183,19 @@ public class PlayerStateMachine : MonoBehaviour
     {
         switch (collision.gameObject.layer)
         {
-            case CoinsLayer:
-                PickupCoin();
-                break;
             case WeaponsLayer:
                 _interacted = false;    // reset actions and listen
                 break;
-            case GroundBulletsLayer:
-                PickupGroundBullet();
-                break;
-            case HeartsLayer:
-                PickupHeart();
-                break;
+
             case GMLayer:
                 Debug.Log("Picked up gm");
+                break;
+
+            case Consumables:
+                // update all consumable related statistics just in case
+                ui.DisplayNewHealth(Health);
+                ui.DisplayNewPCoins(_coins);
+                ui.DisplayNewPNBullets(_numBullets);
                 break;
 
             default:

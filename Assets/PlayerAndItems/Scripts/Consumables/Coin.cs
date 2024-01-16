@@ -4,4 +4,8 @@ using UnityEngine;
 
 public class Coin : BaseConsumables
 {
+    protected override void UseConsumable(PlayerStateMachine player)
+    {
+        player.Coins++;
+    }
 }
