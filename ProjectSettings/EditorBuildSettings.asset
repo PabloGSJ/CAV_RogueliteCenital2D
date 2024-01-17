@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/BetaRelease/Maps/Forest_CopiaFin.unity
+    guid: ebd93f9656446c14eaf4c0d752091fa7
+  - enabled: 1
+    path: Assets/BetaRelease/Maps/Forest_CopiaIni.unity
+    guid: c2d5b4e201e13184084c34a77c99969a
+  - enabled: 1
+    path: Assets/BetaRelease/Maps/Forest_1.unity
+    guid: 2480d90c75014484d92b9c08418d10a5
   m_configObjects: {}
