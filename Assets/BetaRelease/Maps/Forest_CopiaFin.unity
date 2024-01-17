@@ -246,7 +246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &689815903
 Transform:
   m_ObjectHideFlags: 0
@@ -416,8 +416,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 0
-  doorSprite: {fileID: 0}
-  doorCollider: {fileID: 0}
 --- !u!19719996 &689815907
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -490,7 +488,17 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 689815907}
+    m_ColliderPaths:
+    - - X: -160000000
+        Y: 20000000
+      - X: -170000000
+        Y: 20000000
+      - X: -170000000
+        Y: -10000000
+      - X: -160000000
+        Y: -10000000
   m_CompositePaths:
     m_Paths:
     - - {x: -16.000029, y: -1}
@@ -907,7 +915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1175838053
 Transform:
   m_ObjectHideFlags: 0
@@ -936,8 +944,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 2
-  doorSprite: {fileID: 0}
-  doorCollider: {fileID: 0}
 --- !u!19719996 &1175838055
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -1010,7 +1016,17 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1175838055}
+    m_ColliderPaths:
+    - - X: 20000000
+        Y: 100000000
+      - X: -10000000
+        Y: 100000000
+      - X: -10000000
+        Y: 90000000
+      - X: 20000000
+        Y: 90000000
   m_CompositePaths:
     m_Paths:
     - - {x: 1.9999708, y: 9}
@@ -8020,7 +8036,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1542585776
 Transform:
   m_ObjectHideFlags: 0
@@ -8049,8 +8065,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 1
-  doorSprite: {fileID: 0}
-  doorCollider: {fileID: 0}
 --- !u!19719996 &1542585778
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -8123,7 +8137,17 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1542585778}
+    m_ColliderPaths:
+    - - X: 180000000
+        Y: 20000000
+      - X: 170000000
+        Y: 20000000
+      - X: 170000000
+        Y: -10000000
+      - X: 180000000
+        Y: -10000000
   m_CompositePaths:
     m_Paths:
     - - {x: 17.999971, y: -1}
@@ -8323,7 +8347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1733071805
 Transform:
   m_ObjectHideFlags: 0
@@ -8352,8 +8376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorType: 3
-  doorSprite: {fileID: 0}
-  doorCollider: {fileID: 0}
 --- !u!19719996 &1733071807
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -8426,7 +8448,17 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths: []
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1733071807}
+    m_ColliderPaths:
+    - - X: 20000000
+        Y: -80000000
+      - X: -10000000
+        Y: -80000000
+      - X: -10000000
+        Y: -90000000
+      - X: 20000000
+        Y: -90000000
   m_CompositePaths:
     m_Paths:
     - - {x: 1.9999708, y: -9}

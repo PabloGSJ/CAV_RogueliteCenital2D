@@ -70,7 +70,7 @@ public class Room : MonoBehaviour
     {
         foreach(Door door in doors)
         {
-            switch(door.doorType) // TODO: NO FUNCIONA
+            switch(door.doorType)
             {
                 case Door.DoorType.left:
                     if(GetLeft() != null)
