@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7819768428638135566}
   - component: {fileID: 750298686685874561}
+  - component: {fileID: -3579814839299711490}
   - component: {fileID: 5974463751236021444}
   - component: {fileID: 3424358198318613804}
   m_Layer: 9
@@ -86,6 +87,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3579814839299711490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224280175503306348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9e23617d790eb4180864c3b4e08250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSprite: {fileID: 0}
+  sprite0: {fileID: -1392119631, guid: dbfb82a0224738e47912ce7bbf1882d2, type: 3}
+  sprite1: {fileID: 86599608, guid: dbfb82a0224738e47912ce7bbf1882d2, type: 3}
+  sprite2: {fileID: -757790041, guid: dbfb82a0224738e47912ce7bbf1882d2, type: 3}
+  sprite3: {fileID: -2120209871, guid: dbfb82a0224738e47912ce7bbf1882d2, type: 3}
+  sprite4: {fileID: 599443358, guid: dbfb82a0224738e47912ce7bbf1882d2, type: 3}
+  sprite5: {fileID: 1684176490, guid: dbfb82a0224738e47912ce7bbf1882d2, type: 3}
+  timeToChange: 0.1
 --- !u!114 &5974463751236021444
 MonoBehaviour:
   m_ObjectHideFlags: 0
