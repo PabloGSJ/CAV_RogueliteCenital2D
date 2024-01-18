@@ -534,7 +534,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1033237963
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -2102860584, guid: 96a3c9ff69d9f184d9936e72f5d60fde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -17449,7 +17449,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1100340957
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -31127,7 +31127,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1100340957
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -45853,7 +45853,6 @@ GameObject:
   - component: {fileID: 1005800154}
   - component: {fileID: 1005800155}
   - component: {fileID: 1005800156}
-  - component: {fileID: 1005800157}
   - component: {fileID: 1005800160}
   - component: {fileID: 1005800162}
   m_Layer: 0
@@ -45870,7 +45869,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005800149}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 915e35a973b8638409e2296aecf56adf, type: 3}
   m_Name: 
@@ -45878,7 +45877,7 @@ MonoBehaviour:
   bullet: {fileID: 1457892809}
   bulletLife: 10
   speed: 10
-  spawnerType: 0
+  spawnerType: 1
   firingRate: 0.1
 --- !u!212 &1005800151
 SpriteRenderer:
@@ -45919,7 +45918,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1033237963
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -482141625, guid: 6bc4cf786d8c04943973d53bf3f64fa4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -45980,13 +45979,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cebe33b8e1a674ebf3c89f7b9252da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 1000
   moveDuration: 1
+  margin: 150
   shootDuration: 2
   bulletPrefab: {fileID: 1626353810}
   bulletSpeed: 10
-  margin: 150
   firingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  health: 1000
 --- !u!50 &1005800156
 Rigidbody2D:
   serializedVersion: 4
@@ -46014,18 +46013,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1005800157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1005800149}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8330660315d90f42bebc6251bed2a8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &1005800160
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46156,7 +46143,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1033237963
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 2.1875, y: 0.875, z: 0}
@@ -47288,7 +47275,7 @@ MonoBehaviour:
   cam: {fileID: 1590231417}
   myc: {fileID: 0}
   MaxHealth: 10
-  Health: 3
+  Health: 10
   MaxCoins: 99
   Speed: 500
   DashSpeed: 1500
@@ -47409,7 +47396,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1039167661
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0.64869, b: 1, a: 1}
@@ -47588,7 +47575,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1033237963
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 10
   m_Sprite: {fileID: -23146327, guid: 96a3c9ff69d9f184d9936e72f5d60fde, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
