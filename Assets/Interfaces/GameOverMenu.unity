@@ -335,8 +335,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -489,9 +489,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1460611914}
   - component: {fileID: 1460611918}
-  - component: {fileID: 1460611917}
   - component: {fileID: 1460611916}
   - component: {fileID: 1460611915}
+  - component: {fileID: 1460611919}
   m_Layer: 0
   m_Name: TryAgainButton
   m_TagString: Untagged
@@ -559,7 +559,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1460611917}
+  m_TargetGraphic: {fileID: 0}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -605,7 +605,15 @@ MonoBehaviour:
   sprite4: {fileID: 21300000, guid: 5e0e7b946908b55438fed3fd4b2146ba, type: 3}
   sprite5: {fileID: 21300000, guid: bc3671a4e20f0ad43966c80228281635, type: 3}
   currentSprite: {fileID: 0}
---- !u!114 &1460611917
+--- !u!222 &1460611918
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460611913}
+  m_CullTransparentMesh: 1
+--- !u!114 &1460611919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -635,14 +643,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!222 &1460611918
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460611913}
-  m_CullTransparentMesh: 1
 --- !u!1 &1475067111
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
