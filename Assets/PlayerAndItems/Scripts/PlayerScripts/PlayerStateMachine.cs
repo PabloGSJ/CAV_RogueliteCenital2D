@@ -34,7 +34,6 @@ public class PlayerStateMachine : MonoBehaviour
     public int MaxCoins = 99;
     private int _coins = 0;
 
-
     // Movement variables
     public float Speed = 500;
     private Vector2 _movementVector;
