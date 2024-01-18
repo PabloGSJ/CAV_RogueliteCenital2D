@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LogicManager
+  - Empty
+  - GameModifiersManager
   layers:
   - Default
   - TransparentFX
@@ -14,13 +17,13 @@ TagManager:
   - Player
   - Walls
   - PlayerBullets
-  - Coins
+  - Consumables
   - Weapons
   - Enemies
   - EnemyBullets
-  - 
-  - 
-  - 
+  - ShopItems
+  - PlayerInvulnerable
+  - GameModifiers
   - 
   - 
   - 
@@ -38,18 +41,33 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Megarectangle_back
+    uniqueID: 3814136697
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Background
     uniqueID: 2097871979
     locked: 0
+  - name: Walls
+    uniqueID: 1256072927
+    locked: 0
   - name: Floor
     uniqueID: 1100340957
+    locked: 0
+  - name: On
+    uniqueID: 1510381049
     locked: 0
   - name: Standing
     uniqueID: 3255799635
     locked: 0
+  - name: Bullets
+    uniqueID: 925837795
+    locked: 0
   - name: Hover
     uniqueID: 3261729333
+    locked: 0
+  - name: Megarectangle_front
+    uniqueID: 3303439927
     locked: 0

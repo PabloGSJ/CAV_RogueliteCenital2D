@@ -13,8 +13,8 @@ public class EnemyScript : MonoBehaviour
         {
             case 8:     // PlayerBullets layer
                 // The enemy is hit by a bullet
-                healthPoints--;
-                if (healthPoints == 0)
+                healthPoints -= collision.gameObject.GetComponent<BaseAmmo>().GetDamageDealt();
+                if (healthPoints <= 0)
                 {
                     // The enemy dies
                     Destroy(gameObject);

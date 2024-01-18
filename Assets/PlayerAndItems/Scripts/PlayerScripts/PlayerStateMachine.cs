@@ -4,32 +4,56 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
 
+/*
+ * This class serves 2 purposes:
+ *  - Save the context of the player and pass it to the states
+ *  - Update the player context by performing the actions
+ */
 public class PlayerStateMachine : MonoBehaviour
 {
+    // CONTEXT:
     public Rigidbody2D rb;
     public Camera cam;
     private PlayerInput _input;
+    private Vector2 _mousePos;
+    private DisplayManager ui;
+    public Collider2D myc;
+
+    public const int PlayerLayer = 6;
+    public const int Consumables = 9;
+    public const int WeaponsLayer = 10;
+    public const int EnemiesLayer = 11;
+    public const int EnemyBulletsLayer = 12;
+    public const int ShopItemsLayer = 13;
+    public const int PlayerInvulnerableLayer = 14;
+    public const int GMLayer = 15;
 
     // Statistics variables
-    public float Health = 5;
+    public int MaxHealth = 10;  // constant
+    public int Health = 3;
+    public int MaxCoins = 99;
     private int _coins = 0;
 
     // Movement variables
-    public float Speed = 10;
+    public float Speed = 500;
     private Vector2 _movementVector;
-    private bool _isMoving = false;
+    private bool _dashing = false;
+    public float DashSpeed = 750;
+    public float DashCooldown;
+    private float _dashCooldownCounter;
+    public float DashDuration;
 
     // Combat variables
-    private GameObject _weapon = null;
-    private GameObject _defaultWeapon = null;
-    public const int WeaponsLayer = 10;
-    public const int EnemyLayer = 11;
+    public BaseWeapon Weapon = null;
+    public GameObject DefaultWeapon = null;
+    public int MaxPBullets = 99;
+    private int _numBullets = 99;
+    private float _dmgMod = 0;
 
-    // Collectibles variables
-    public const int CoinLayer = 9;
+    public int damage = 1;
 
     // Actions variables
-    private bool _isInteracting;
+    private bool _interacted;
 
     // States variables
     PlayerBaseState _currentState;
@@ -37,17 +61,66 @@ public class PlayerStateMachine : MonoBehaviour
 
     // getters-setters
     public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
-    public bool IsInteracting { get { return _isInteracting; } }
-    public bool IsMoving { get { return _isMoving;  } }
+    public bool IsInteracting { get { return _interacted; } }
+    public bool IsDashing { get { return _dashing; } }
     public Vector2 MovementVector { get { return _movementVector; } }
+    public Vector2 MousePos { get { return _mousePos; } }
+    public float DmgMod { set { _dmgMod = value; } }
+    public int Coins { get { return _coins; } set { _coins = value; } }
+    public int NumBullets { get { return _numBullets; } set { _numBullets = value; } }
 
-    // Called earlier than Start
-    private void Awake()
+
+    // INPUT HANDLERS:
+
+
+    // INPUT: Performed when player moves
+    private void OnMovement(InputAction.CallbackContext context)
+    {
+        _movementVector = context.ReadValue<Vector2>();
+    }
+
+    // INPUT: Performed when player interacts with something
+    private void OnInteract(InputAction.CallbackContext context)
+    {
+        _interacted = context.ReadValueAsButton();
+    }
+
+    private void OnShoot(InputAction.CallbackContext context)
+    {
+        context.action.GetBindingForControl(context.control);
+        if (context.ReadValueAsButton() && Weapon != null)
+        {
+            Debug.Log("Shoot!");
+            Weapon.Shoot(_dmgMod);
+        }
+    }
+
+    private void OnDash(InputAction.CallbackContext context)
+    {
+        if (_dashCooldownCounter <= 0)
+        {
+            _dashing = true;
+        }
+    }
+
+
+    // MONO BEHABIOUR FUNCTIONS:
+
+    // Setup player systems
+    private void Awake()            // called earlier thant Start()
     {
         // setup state
         _states = new PlayerStateFactory(this);
-        _currentState = _states.Idle();
+        _currentState = _states.Running();
         _currentState.EnterState();
+
+        // setup logic manager
+        ui = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<DisplayManager>();
+        ui.DisplayNewHealth(Health);
+        ui.DisplayNewPNBullets(_numBullets);
+        ui.EnableWeaponNBullets(false);
+        ui.DisplayNewPCoins(_coins);
+        ui.DisplayNewMaxHealth(MaxHealth);
 
         // setup input system
         _input = new PlayerInput();
@@ -55,6 +128,22 @@ public class PlayerStateMachine : MonoBehaviour
         _input.Gameplay.Movement.canceled += OnMovement;
         _input.Gameplay.Interact.performed += OnInteract;
         _input.Gameplay.Interact.canceled += OnInteract;
+        _input.Gameplay.Shooting.performed += OnShoot;
+        _input.Gameplay.Shooting.canceled += OnShoot;
+        _input.Gameplay.Dash.performed += OnDash;
+        _input.Gameplay.Dash.canceled += OnDash;
+
+        // setup default weapon
+        GameObject go = Instantiate(DefaultWeapon,
+                                    new Vector3(transform.position.x,
+                                                transform.position.y,
+                                                transform.position.z),
+                                    Quaternion.identity,
+                                    this.transform) as GameObject;
+        PickupWeapon(go.GetComponent<BaseWeapon>());
+
+        // setup dash
+        _dashCooldownCounter = DashCooldown;
     }
 
     // setup input system
@@ -62,72 +151,63 @@ public class PlayerStateMachine : MonoBehaviour
     {
         _input.Enable();
     }
-
     private void OnDisable()
     {
         _input.Disable();
     }
 
-    // Performed when player moves
-    private void OnMovement(InputAction.CallbackContext context)
-    {
-        _movementVector = context.ReadValue<Vector2>();
-        _isMoving = context.performed;
-    }
-
-    // Performed when player interacts with something
-    private void OnInteract(InputAction.CallbackContext context)
-    {
-        _isInteracting = context.ReadValueAsButton();
-    }
-
-    /*    */
-    private void MovePlayer()
-    {
-        rb.velocity = _movementVector * Speed * Time.fixedDeltaTime;
-    }
-
+    // update every game tick (very fast but irregular)
     private void Update()
+    {
+        // INPUT: read mouse position on screen
+        _mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+
+        // reduce dash cooldown
+        if (!_dashing && _dashCooldownCounter > 0)
+        {
+            _dashCooldownCounter -= Time.deltaTime;
+            ui.EnableDashCooldown(true);
+            ui.DisplayNewDashCooldown(_dashCooldownCounter);
+        }
+        else
+        {
+            ui.EnableDashCooldown(false);
+        }
+    }
+
+    // update for interactions involving physics engine
+    void FixedUpdate()
     {
         _currentState.UpdateState();
     }
 
-    void FixedUpdate()
-    {
-        MovePlayer();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        switch (collision.gameObject.layer)
+    // Collisions
+    private void OnCollisionEnter2D(Collision2D other)
         {
-            case EnemyLayer:
-                print("Enemy collision");
-                Health--;
-
-                if (Health == 0)
-                {
-                    // die
-                    Destroy(gameObject);
-                }
-
-                break;
-            default:
-                break;
+            if (other.gameObject.GetComponent<BolaDeFuegoScript>())
+            {
+                BolaDeFuegoScript playerHealth = other.gameObject.GetComponent<BolaDeFuegoScript>();
+                playerHealth.TakeDamage(damage);
+            }
         }
-    }
 
+    // Triggers
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.gameObject.layer)
         {
-            case CoinLayer:     // coin layer
-                print("Coin +1");
-                _coins++;
+            case ShopItemsLayer:
+            case WeaponsLayer:
+                _interacted = false;    // reset actions and listen
                 break;
-            case WeaponsLayer:    // weapons layer
-                // player can press E to pickup
-                _isInteracting = false;
+
+            case GMLayer:
+                Debug.Log("Picked up gm");
+                break;
+
+            case Consumables:
+                // update all consumable related statistics just in case
+                UpdateConsumables();
                 break;
 
             default:
@@ -140,22 +220,98 @@ public class PlayerStateMachine : MonoBehaviour
         switch (collision.gameObject.layer)
         {
             case WeaponsLayer:    // weapons layer
-                if (_isInteracting)
+                if (_interacted)
                 {
-                    if (_weapon != null)
-                    {
-                        // drop the old weapon
-                        StartCoroutine(_weapon.GetComponent<WeaponScript>().drop());
-                    }
+                    PickupWeapon(collision.gameObject.GetComponent<BaseWeapon>());
+                }
+                break;
 
-                    // pick up the new weapon
-                    collision.gameObject.GetComponent<WeaponScript>().pickUp(gameObject);
-                    _weapon = collision.gameObject;
+            case ShopItemsLayer:
+                if (_interacted)
+                {
+                    BaseShopItem shopItem = collision.gameObject.GetComponent<BaseShopItem>();
+                    if (shopItem.TryBuy(_coins))
+                    {
+                        // Player has enough coins to buy 
+                        shopItem.BuyItem(this);
+                    }
                 }
                 break;
 
             default:
                 break;
+        }
+    }
+
+
+    // AUXILIARY FUNCTION DECLARATIONS:
+
+    public void MovePlayer()
+    {
+        rb.velocity = _movementVector * Speed * Time.fixedDeltaTime;
+    }
+
+    public void TakeDamage(int damageTaken)
+    {
+        Debug.Log("Recieving Damage");
+
+        Health -= damageTaken;
+        if (Health <= 0)
+        {
+            // die
+            ui.DisplayNewHealth(0);
+            Destroy(gameObject);
+        }
+        ui.DisplayNewHealth(Health);
+    }
+
+    public void PickupWeapon(BaseWeapon weapon)
+    {
+        if (Weapon != null)
+        {
+            // drop the old weapon
+            StartCoroutine(Weapon.Dropped());
+        }
+
+        // pick up the new weapon
+        weapon.Pickedup(gameObject.GetComponent<PlayerStateMachine>());
+        Weapon = weapon;
+    }
+
+    public bool BorrowBullet()
+    {
+        bool borrow = false;
+        if (_numBullets > 0)
+        {
+            borrow = true;
+            _numBullets--;
+            ui.DisplayNewPNBullets(_numBullets);
+        }
+        return borrow;
+    }
+
+    public void ResetDash()
+    {
+        _dashing = false;
+        _dashCooldownCounter = DashCooldown;
+    }
+
+    public void UpdateConsumables()
+    {
+        ui.DisplayNewHealth(Health);
+        ui.DisplayNewPCoins(_coins);
+        ui.DisplayNewPNBullets(_numBullets);
+    }
+
+    public void SwitchPlayerToInvulnerableLayer(bool switchToInvulnerableLayer)
+    {
+        if (switchToInvulnerableLayer)
+        {
+            this.gameObject.layer = PlayerInvulnerableLayer;
+        }
+        else
+        {
+            this.gameObject.layer = PlayerLayer;
         }
     }
 }
