@@ -26,7 +26,7 @@ public class PlayerStateMachine : MonoBehaviour
     public const int EnemiesLayer = 11;
     public const int EnemyBulletsLayer = 12;
     public const int ShopItemsLayer = 13;
-    public const int PlayerDashingLayer = 14;
+    public const int PlayerInvulnerableLayer = 14;
     public const int GMLayer = 15;
 
     // Statistics variables
@@ -297,11 +297,11 @@ public class PlayerStateMachine : MonoBehaviour
         ui.DisplayNewPNBullets(_numBullets);
     }
 
-    public void SwitchPlayerToDashLayer(bool switchToDashLayer)
+    public void SwitchPlayerToInvulnerableLayer(bool switchToInvulnerableLayer)
     {
-        if (switchToDashLayer)
+        if (switchToInvulnerableLayer)
         {
-            this.gameObject.layer = PlayerDashingLayer;
+            this.gameObject.layer = PlayerInvulnerableLayer;
         }
         else
         {
