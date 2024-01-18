@@ -12,7 +12,6 @@ using Cinemachine;
 public class PlayerStateMachine : MonoBehaviour
 {
     // CONTEXT:
-
     public Rigidbody2D rb;
     public Camera cam;
     private PlayerInput _input;
@@ -35,6 +34,7 @@ public class PlayerStateMachine : MonoBehaviour
     public int MaxCoins = 99;
     private int _coins = 0;
 
+
     // Movement variables
     public float Speed = 500;
     private Vector2 _movementVector;
@@ -50,6 +50,8 @@ public class PlayerStateMachine : MonoBehaviour
     public int MaxPBullets = 99;
     private int _numBullets = 99;
     private float _dmgMod = 0;
+
+    public int damage = 1;
 
     // Actions variables
     private bool _interacted;
@@ -70,6 +72,7 @@ public class PlayerStateMachine : MonoBehaviour
 
 
     // INPUT HANDLERS:
+
 
     // INPUT: Performed when player moves
     private void OnMovement(InputAction.CallbackContext context)
@@ -180,10 +183,14 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     // Collisions
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
+    private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (other.gameObject.GetComponent<BolaDeFuegoScript>())
+            {
+                BolaDeFuegoScript playerHealth = other.gameObject.GetComponent<BolaDeFuegoScript>();
+                playerHealth.TakeDamage(damage);
+            }
+        }
 
     // Triggers
     private void OnTriggerEnter2D(Collider2D collision)

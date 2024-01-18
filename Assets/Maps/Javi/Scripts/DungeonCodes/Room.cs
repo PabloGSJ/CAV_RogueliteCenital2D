@@ -9,6 +9,14 @@ public class Room : MonoBehaviour
     public int X;
     public int Y;
 
+    private bool updatedDoors = false;
+
+    public Room(int x, int y)
+    {
+        X = x;
+        Y = y;
+    }
+
     public Door leftDoor;
     public Door rightDoor;
     public Door topDoor;
@@ -49,34 +57,47 @@ public class Room : MonoBehaviour
         RoomController.instance.RegisterRoom(this);
     }
 
-    public void RemoveUnconnectedDoors()
+    void Update()
+    {
+        if(name.Contains("CopiaFin") && !updatedDoors)
+        {
+            RemoveConnectedDoors();
+            updatedDoors = true;
+        }
+    }
+
+    public void RemoveConnectedDoors()
     {
         foreach(Door door in doors)
         {
             switch(door.doorType)
             {
                 case Door.DoorType.left:
-                    if(GetLeft() == null)
+                    if(GetLeft() != null)
                     {
                         door.gameObject.SetActive(false);
+                        //GetLeft().rightDoor.gameObject.SetActive(false);
                     }
                     break;
                 case Door.DoorType.right:
-                    if(GetRight() == null)
+                    if(GetRight() != null)
                     {
                         door.gameObject.SetActive(false);
+                        //GetRight().leftDoor.gameObject.SetActive(false);
                     }
                     break;
                 case Door.DoorType.top:
-                    if(GetTop() == null)
+                    if(GetTop() != null)
                     {
                         door.gameObject.SetActive(false);
+                        //GetTop().bottomDoor.gameObject.SetActive(false);
                     }
                     break;
                 case Door.DoorType.bottom:
-                    if(GetBottom() == null)
+                    if(GetBottom() != null)
                     {
                         door.gameObject.SetActive(false);
+                        //GetBottom().topDoor.gameObject.SetActive(false);
                     }
                     break;
             }
