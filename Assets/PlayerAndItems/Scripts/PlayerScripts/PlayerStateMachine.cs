@@ -50,6 +50,8 @@ public class PlayerStateMachine : MonoBehaviour
     public int MaxPBullets = 99;
     private int _numBullets = 99;
     private float _dmgMod = 0;
+    private bool _isDamaged = false;
+    private Vector2 _damagerPos;    // this only makes sense if _isDamaged = true
 
     // Actions variables
     private bool _interacted;
@@ -67,6 +69,8 @@ public class PlayerStateMachine : MonoBehaviour
     public float DmgMod { set { _dmgMod = value; } }
     public int Coins { get { return _coins; } set { _coins = value; } }
     public int NumBullets { get { return _numBullets; } set { _numBullets = value; } }
+    public bool IsDamaged { get { return _isDamaged; } set { _isDamaged = value; } }
+    public Vector2 DamagerPos { get { return _damagerPos; } set { _damagerPos = value; } }
 
 
     // INPUT HANDLERS:
@@ -182,7 +186,14 @@ public class PlayerStateMachine : MonoBehaviour
     // Collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        switch (collision.gameObject.layer)
+        {
+            case EnemiesLayer:
+            case EnemyBulletsLayer:
+                break;
+            default:
+                break;
+        }
     }
 
     // Triggers

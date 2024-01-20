@@ -28,6 +28,14 @@ public class PlayerIdleState : PlayerBaseState
         {
             SwitchState(_factory.Running());
         }
+        else if (_ctx.IsDashing)
+        {
+            SwitchState(_factory.Dashing());
+        }
+        else if (_ctx.IsDamaged)
+        {
+            SwitchState(_factory.Damaged());
+        }
     }
 
     public override void InitializeSubState()
