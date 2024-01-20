@@ -2004,7 +2004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1314124507}
   cam: {fileID: 1124182945}
-  myc: {fileID: 0}
+  sr: {fileID: 1314124508}
   MaxHealth: 10
   Health: 3
   MaxCoins: 99
@@ -2015,7 +2015,7 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   DefaultWeapon: {fileID: 8143044070160544798, guid: d77a9cf7f3d0c3c4abf46871c2a80b78, type: 3}
   MaxPBullets: 99
-  damage: 1
+  InvulnerableTime: 0
 --- !u!50 &1314124507
 Rigidbody2D:
   serializedVersion: 4
