@@ -2015,6 +2015,7 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   DefaultWeapon: {fileID: 8143044070160544798, guid: d77a9cf7f3d0c3c4abf46871c2a80b78, type: 3}
   MaxPBullets: 99
+  damage: 1
 --- !u!50 &1314124507
 Rigidbody2D:
   serializedVersion: 4
@@ -2081,7 +2082,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1039167661
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0.64869, b: 1, a: 1}
