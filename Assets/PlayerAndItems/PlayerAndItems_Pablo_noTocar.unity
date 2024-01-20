@@ -812,7 +812,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 582363003709042902, guid: 527ece974d3dff843adc964c0f0808f0, type: 3}
       propertyPath: HandOffset.x
-      value: 0.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7378922150399054558, guid: 527ece974d3dff843adc964c0f0808f0, type: 3}
       propertyPath: m_LocalScale.x
@@ -840,15 +840,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7378922150399054558, guid: 527ece974d3dff843adc964c0f0808f0, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7378922150399054558, guid: 527ece974d3dff843adc964c0f0808f0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7378922150399054558, guid: 527ece974d3dff843adc964c0f0808f0, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7378922150399054558, guid: 527ece974d3dff843adc964c0f0808f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

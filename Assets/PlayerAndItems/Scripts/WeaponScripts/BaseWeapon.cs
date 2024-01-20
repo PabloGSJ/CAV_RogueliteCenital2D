@@ -15,6 +15,7 @@ public abstract class BaseWeapon : MonoBehaviour
     protected PlayerStateMachine _holder = null;
     public Vector2 HandOffset;
     protected Vector2 _shootingVector;
+    protected float _originalYScale;
 
     // Shoot variables
     public float Cadence = 0f;  // TODO
@@ -29,6 +30,9 @@ public abstract class BaseWeapon : MonoBehaviour
 
         // get logic manager
         ui = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<DisplayManager>();
+
+        // initialize y scale
+        _originalYScale = this.transform.localScale.y;
     }
 
     // update for interactions involving physics engine
@@ -39,27 +43,15 @@ public abstract class BaseWeapon : MonoBehaviour
         {
             // rotate the weapon
             _shootingVector = _holder.MousePos - rb.position;
-            rb.MoveRotation(Mathf.Atan2(_shootingVector.y, _shootingVector.x) * Mathf.Rad2Deg);
-
-            if (_holder.MousePos.x < _holder.transform.position.x)
-            {
-                // el jugador esta apuntando a la izquierda del munheco
-                this.transform.position = new Vector3(_holder.transform.position.x - HandOffset.x,
-                                                      _holder.transform.position.y - HandOffset.y,
-                                                      0);
-            }
-            else
-            {
-                // el jugador esta apuntando a la derecha del munheco
-                this.transform.position = new Vector3(_holder.transform.position.x + HandOffset.x,
-                                                      _holder.transform.position.y + HandOffset.y,
-                                                      0);
-            }
+            FollowPointer();
         }
     }
 
 
     // AUXILIARY FUNCTIONS:
+
+    // Follow pointer and update rendering
+    protected abstract void FollowPointer();
 
     // Shoot a bullet
     public abstract void Shoot(float dmgMod);
