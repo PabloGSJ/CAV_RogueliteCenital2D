@@ -6,7 +6,7 @@ public class Heart : BaseConsumables
 {
     protected override void PlaySound()
     {
-        // TODO: play correct sound from sc
+        sc.playHeartSoundEffect();
     }
 
     public override void UseConsumable(PlayerStateMachine player)
