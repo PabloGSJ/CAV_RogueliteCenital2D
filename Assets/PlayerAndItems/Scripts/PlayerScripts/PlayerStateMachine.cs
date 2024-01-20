@@ -18,7 +18,7 @@ public class PlayerStateMachine : MonoBehaviour
     private PlayerInput _input;
     private Vector2 _mousePos;
     private DisplayManager ui;
-    public Collider2D myc;
+    public SpriteRenderer sr;
 
     public const int PlayerLayer = 6;
     public const int Consumables = 9;
@@ -51,7 +51,7 @@ public class PlayerStateMachine : MonoBehaviour
     private int _numBullets = 99;
     private float _dmgMod = 0;
     private bool _isDamaged = false;
-    private Vector2 _damagerPos;    // this only makes sense if _isDamaged = true
+    public float InvulnerableTime;
 
     // Actions variables
     private bool _interacted;
@@ -69,8 +69,7 @@ public class PlayerStateMachine : MonoBehaviour
     public float DmgMod { set { _dmgMod = value; } }
     public int Coins { get { return _coins; } set { _coins = value; } }
     public int NumBullets { get { return _numBullets; } set { _numBullets = value; } }
-    public bool IsDamaged { get { return _isDamaged; } set { _isDamaged = value; } }
-    public Vector2 DamagerPos { get { return _damagerPos; } set { _damagerPos = value; } }
+    public bool IsDamaged { get { return _isDamaged; } }
 
 
     // INPUT HANDLERS:
@@ -92,7 +91,6 @@ public class PlayerStateMachine : MonoBehaviour
         context.action.GetBindingForControl(context.control);
         if (context.ReadValueAsButton() && Weapon != null)
         {
-            Debug.Log("Shoot!");
             Weapon.Shoot(_dmgMod);
         }
     }
@@ -190,6 +188,7 @@ public class PlayerStateMachine : MonoBehaviour
         {
             case EnemiesLayer:
             case EnemyBulletsLayer:
+                _isDamaged = true;
                 break;
             default:
                 break;
@@ -258,8 +257,6 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
-        Debug.Log("Recieving Damage");
-
         Health -= damageTaken;
         if (Health <= 0)
         {
@@ -295,17 +292,22 @@ public class PlayerStateMachine : MonoBehaviour
         return borrow;
     }
 
-    public void ResetDash()
-    {
-        _dashing = false;
-        _dashCooldownCounter = DashCooldown;
-    }
-
     public void UpdateConsumables()
     {
         ui.DisplayNewHealth(Health);
         ui.DisplayNewPCoins(_coins);
         ui.DisplayNewPNBullets(_numBullets);
+    }
+
+    public void ResetDamage()
+    {
+        _isDamaged = false;
+    }
+
+    public void ResetDash()
+    {
+        _dashing = false;
+        _dashCooldownCounter = DashCooldown;
     }
 
     public void SwitchPlayerToDashLayer(bool switchToDashLayer)

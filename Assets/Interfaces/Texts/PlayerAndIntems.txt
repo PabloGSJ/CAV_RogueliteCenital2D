@@ -1,0 +1,20 @@
+<<<<<<< HEAD
+Cambiar modo de renderizado a PIVOT - BOTTOM
+=======
+
+LAYERS UTILIZADOS:
+- 6:	Player
+- 7:	Walls
+- 8:	PlayerBullets
+- 9:	Coins
+- 10:	Weapons
+- 11:	Enemies
+- 12:	EnemyBullets
+- 13:	GroundBullets
+- 14:	Hearts
+- 15:	GameModifiers
+
+TAGS UTILIZADOS:
+- 0: 
+- 1: 
+>>>>>>> Demo

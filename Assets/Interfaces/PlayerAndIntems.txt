@@ -1,1 +1,0 @@
-Cambiar modo de renderizado a PIVOT - BOTTOM

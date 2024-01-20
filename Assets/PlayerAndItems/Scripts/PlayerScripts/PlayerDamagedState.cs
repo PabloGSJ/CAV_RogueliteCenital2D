@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerDamagedState : PlayerBaseState
 {
+    // TODO: play damaged animation (flickering)
+
     // CONTEXT:
 
     private float _timeInvulnerable;
-    private Vector2 _hitMovementVector;
 
     public PlayerDamagedState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) 
     : base(currentContext, playerStateFactory)
@@ -16,8 +17,8 @@ public class PlayerDamagedState : PlayerBaseState
 
     public override void EnterState()
     {
-        //_hitMovementVector = _ctx.MovementVector;
-        //_timeInvulnerable = _ctx.DashDuration;
+        _timeInvulnerable = _ctx.InvulnerableTime;
+        _ctx.sr.color = Color.gray;
 
         // disable collitions between the player and the enemies and enemy bullets
         _ctx.SwitchPlayerToDashLayer(true);
@@ -25,21 +26,31 @@ public class PlayerDamagedState : PlayerBaseState
 
     public override void UpdateState()
     {
-        throw new System.NotImplementedException();
+        CheckSwitchStates();
+
+        // move the player through the velocity variable
+        _ctx.rb.velocity = _ctx.MovementVector * _ctx.Speed * Time.fixedDeltaTime;
+        _timeInvulnerable -= Time.deltaTime;
     }
 
     public override void ExitState()
     {
-        throw new System.NotImplementedException();
+        _ctx.ResetDamage();
+        _ctx.sr.color = new Color(0f, 0.64869f, 1f, 1f);
+
+        // enable collitions between the player and the enemies and enemy bullets
+        _ctx.SwitchPlayerToDashLayer(false);
     }
 
     public override void CheckSwitchStates()
     {
-        throw new System.NotImplementedException();
+        if (_timeInvulnerable <= 0)
+        {
+            SwitchState(_factory.Running());
+        }
     }
 
     public override void InitializeSubState()
     {
-        throw new System.NotImplementedException();
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5016057023093549993}
   - component: {fileID: 8332492057926085352}
   - component: {fileID: 4009623937757199236}
+  - component: {fileID: -7953687739965594213}
   m_Layer: 9
   m_Name: Heart
   m_TagString: Untagged
@@ -27,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3143609924716889574}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.99999994, w: -0.0003611995}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.200075, y: 1.7113321, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.07, y: 0.07, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180.041}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5016057023093549993
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 1100340957
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 1487288301, guid: b2165e91b5895fb4babc65850ffafb66, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -133,3 +134,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.01}
   serializedVersion: 2
   m_Radius: 0.63
+--- !u!114 &-7953687739965594213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3143609924716889574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f9e23617d790eb4180864c3b4e08250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSprite: {fileID: 0}
+  sprite0: {fileID: 1487288301, guid: b2165e91b5895fb4babc65850ffafb66, type: 3}
+  sprite1: {fileID: -907243066, guid: b2165e91b5895fb4babc65850ffafb66, type: 3}
+  sprite2: {fileID: -2043257251, guid: b2165e91b5895fb4babc65850ffafb66, type: 3}
+  sprite3: {fileID: -1365399069, guid: b2165e91b5895fb4babc65850ffafb66, type: 3}
+  sprite4: {fileID: -465395259, guid: b2165e91b5895fb4babc65850ffafb66, type: 3}
+  sprite5: {fileID: 533098308, guid: b2165e91b5895fb4babc65850ffafb66, type: 3}
+  timeToChange: 0.1

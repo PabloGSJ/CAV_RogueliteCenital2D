@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BulletRound : BaseConsumables
 {
+    protected override void PlaySound()
+    {
+        // TODO: play correct sound from sc
+    }
+
     // number of bullets
     public int NumBullets = 10;
 
