@@ -21,14 +21,15 @@ public class PlayerStateMachine : MonoBehaviour
     public SpriteRenderer sr;
     public SpriteRenderer e;
 
-    public const int PlayerLayer = 6;
-    public const int Consumables = 9;
-    public const int WeaponsLayer = 10;
-    public const int EnemiesLayer = 11;
-    public const int EnemyBulletsLayer = 12;
-    public const int ShopItemsLayer = 13;
-    public const int PlayerDashingLayer = 14;
-    public const int GMLayer = 15;
+    private const int PlayerLayer = 6;
+    private const int Consumables = 9;
+    private const int WeaponsLayer = 10;
+    private const int EnemiesLayer = 11;
+    private const int EnemyBulletsLayer = 12;
+    private const int ShopItemsLayer = 13;
+    private const int PlayerDashingLayer = 14;
+    private const int GMLayer = 15;
+    private const int ClassSelectorLayer = 16;
 
     // Statistics variables
     public int MaxHealth = 10;  // constant
@@ -203,6 +204,7 @@ public class PlayerStateMachine : MonoBehaviour
         switch (collision.gameObject.layer)
         {
             case ShopItemsLayer:
+            case ClassSelectorLayer:
             case WeaponsLayer:
                 _interacted = false;    // reset actions and listen
                 e.enabled = true;
@@ -242,6 +244,14 @@ public class PlayerStateMachine : MonoBehaviour
                         // Player has enough coins to buy 
                         shopItem.BuyItem(this);
                     }
+                }
+                break;
+
+            case ClassSelectorLayer:
+                if (_interacted)
+                {
+                    Class c = collision.gameObject.GetComponent<Class>();
+                    c.SelectClass(this);
                 }
                 break;
 
