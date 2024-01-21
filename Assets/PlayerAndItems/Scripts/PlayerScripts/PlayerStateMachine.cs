@@ -14,7 +14,7 @@ public class PlayerStateMachine : MonoBehaviour
     // CONTEXT:
 
     public Rigidbody2D rb;
-    public Camera cam;
+    private Camera cam;
     private PlayerInput _input;
     private Vector2 _mousePos;
     private DisplayManager ui;
@@ -146,7 +146,22 @@ public class PlayerStateMachine : MonoBehaviour
         PickupWeapon(go.GetComponent<BaseWeapon>());
 
         // setup dash
-        _dashCooldownCounter = DashCooldown;
+        _dashCooldownCounter = 0;
+
+        // get the camera
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        if (cam == null)
+        {
+            Debug.LogError("PLAYER: Camera not found");
+        }
+
+        // check that there is a proper EMPTY game object for the bullets
+        GameObject empty = GameObject.FindGameObjectWithTag("Empty");
+        if (empty == null)
+        {
+            Debug.LogError("PLAYER: \"Empty\" game object not found");
+        }
+        
     }
 
     // setup input system
@@ -265,6 +280,7 @@ public class PlayerStateMachine : MonoBehaviour
         switch (collision.gameObject.layer)
         {
             case ShopItemsLayer:
+            case ClassSelectorLayer:
             case WeaponsLayer:
                 _interacted = false;    // reset actions and listen
                 e.enabled = false;
