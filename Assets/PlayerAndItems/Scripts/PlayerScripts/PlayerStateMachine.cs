@@ -280,6 +280,11 @@ public class PlayerStateMachine : MonoBehaviour
         Weapon = weapon;
     }
 
+    public bool TryBorrowBullet()
+    {
+        return _numBullets > 0;
+    }
+
     public bool BorrowBullet()
     {
         bool borrow = false;

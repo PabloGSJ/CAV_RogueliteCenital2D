@@ -811,6 +811,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 134845424}
     m_Modifications:
     - target: {fileID: 582363003709042902, guid: 527ece974d3dff843adc964c0f0808f0, type: 3}
+      propertyPath: Cadence
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 582363003709042902, guid: 527ece974d3dff843adc964c0f0808f0, type: 3}
       propertyPath: HandOffset.x
       value: 0
       objectReference: {fileID: 0}
@@ -1491,7 +1495,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.20558918, g: 0.5660378, b: 0.21917918, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3119,6 +3123,10 @@ PrefabInstance:
       propertyPath: HandOffset.x
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7013937268698095700, guid: 76911c0fc3e027541adcca2ea9b80bf0, type: 3}
+      propertyPath: ShootingForce
+      value: 75
+      objectReference: {fileID: 0}
     - target: {fileID: 7378922150399054558, guid: 76911c0fc3e027541adcca2ea9b80bf0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.05
@@ -3961,9 +3969,13 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2251923739610827617, guid: 63e6a053adf9aab4c96af6322f4aefc0, type: 3}
+      propertyPath: ShootingForce
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 4722121175707967963, guid: 63e6a053adf9aab4c96af6322f4aefc0, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4722121175707967963, guid: 63e6a053adf9aab4c96af6322f4aefc0, type: 3}
       propertyPath: m_SortingOrder

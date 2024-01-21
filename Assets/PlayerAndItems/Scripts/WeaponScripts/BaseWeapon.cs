@@ -18,7 +18,8 @@ public abstract class BaseWeapon : MonoBehaviour
     protected float _originalYScale;
 
     // Shoot variables
-    public float Cadence = 0f;  // TODO
+    public float Cadence;   // seconds between shots
+    protected float _cadenceCounter;
 
     // MONO BEHAVIOUR FUNCTION:
 
@@ -33,6 +34,7 @@ public abstract class BaseWeapon : MonoBehaviour
 
         // initialize y scale
         _originalYScale = this.transform.localScale.y;
+        _cadenceCounter = 0;
     }
 
     // update for interactions involving physics engine
@@ -44,6 +46,9 @@ public abstract class BaseWeapon : MonoBehaviour
             // rotate the weapon
             _shootingVector = _holder.MousePos - rb.position;
             FollowPointer();
+            // Update cadence variables
+            if (_cadenceCounter > 0)
+                _cadenceCounter -= Time.deltaTime;
         }
     }
 

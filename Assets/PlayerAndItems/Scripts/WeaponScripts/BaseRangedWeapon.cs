@@ -41,22 +41,26 @@ public class BaseRangedWeapon : BaseWeapon
     // Spawn a bullet at the tip of the weapon
     public override void Shoot(float dmgMod)
     {
-        if (TryShoot())
+        if ((TryShoot() || _holder.TryBorrowBullet()) && _cadenceCounter <= 0)
         {
+            if (NumBullets > 0)
+            {
+                NumBullets--;
+                ui.DisplayNewWNBullets(NumBullets);
+            }
+            else
+            {
+                _holder.BorrowBullet();
+            }
+            
             BulletSpawner.spawnBullet(BulletType, _shootingVector.normalized, ShootingForce, dmgMod, this.transform.rotation);
+            _cadenceCounter = Cadence;
         }
     }
 
     protected bool TryShoot()
     {
-        if (NumBullets > 0)
-        {
-            NumBullets--;
-            ui.DisplayNewWNBullets(NumBullets);
-            return true;
-        }
-
-        return _holder.BorrowBullet();
+        return NumBullets > 0;
     }
 
     protected override void DisplayUp()
