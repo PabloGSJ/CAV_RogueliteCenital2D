@@ -10,6 +10,11 @@ public abstract class BaseConsumables : MonoBehaviour
 
     protected abstract void PlaySound();
 
+    public void Start()
+    {
+        sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerStateMachine player = collision.gameObject.GetComponent<PlayerStateMachine>();

@@ -6,7 +6,7 @@ public class Coin : BaseConsumables
 {
     protected override void PlaySound()
     {
-        // TODO: play correct sound from sc
+        sc.playCoinSoundEffect();
     }
 
     public override void UseConsumable(PlayerStateMachine player)
