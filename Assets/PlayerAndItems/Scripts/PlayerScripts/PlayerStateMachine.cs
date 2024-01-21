@@ -19,6 +19,7 @@ public class PlayerStateMachine : MonoBehaviour
     private Vector2 _mousePos;
     private DisplayManager ui;
     public SpriteRenderer sr;
+    public SpriteRenderer e;
 
     public const int PlayerLayer = 6;
     public const int Consumables = 9;
@@ -204,6 +205,7 @@ public class PlayerStateMachine : MonoBehaviour
             case ShopItemsLayer:
             case WeaponsLayer:
                 _interacted = false;    // reset actions and listen
+                e.enabled = true;
                 break;
 
             case GMLayer:
@@ -241,6 +243,21 @@ public class PlayerStateMachine : MonoBehaviour
                         shopItem.BuyItem(this);
                     }
                 }
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        switch (collision.gameObject.layer)
+        {
+            case ShopItemsLayer:
+            case WeaponsLayer:
+                _interacted = false;    // reset actions and listen
+                e.enabled = false;
                 break;
 
             default:

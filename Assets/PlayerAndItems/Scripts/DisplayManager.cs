@@ -12,8 +12,8 @@ public class DisplayManager : MonoBehaviour
     public Text DashCooldownDisplay;
 
     // Health display
-    public Image[] healthImages;        // Images in the canvas to allocate the 
-    public Sprite[] heartSprites;       // Posible heart sprites (Empty, Half and Full)
+    public Image[] healthImages;            // Images in the canvas to allocate the 
+    public Sprite[] heartSprites;           // Posible heart sprites (Empty, Half and Full)
     private const int Empty = 2;
     private const int Half = 1;
     private const int Full = 0;

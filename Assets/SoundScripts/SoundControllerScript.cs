@@ -13,7 +13,12 @@ public class SoundControllerScript : MonoBehaviour
     {
         coinSound = GameObject.Find("CoinSound").GetComponent<AudioSource>();
         heartSound = GameObject.Find("HeartSound").GetComponent<AudioSource>();
-        heartSound = GameObject.Find("HealthPotionSound").GetComponent<AudioSource>();
+        healthPotionSound = GameObject.Find("HealthPotionSound").GetComponent<AudioSource>();
+
+        if (coinSound != null && heartSound != null&& heartSound != null)
+        {
+            Debug.Log("No problem here");
+        }
     }
 
 
