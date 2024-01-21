@@ -116,11 +116,12 @@ public class PlayerStateMachine : MonoBehaviour
 
         // setup logic manager
         ui = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<DisplayManager>();
-        ui.DisplayNewHealth(Health);
         ui.DisplayNewPNBullets(_numBullets);
         ui.EnableWeaponNBullets(false);
         ui.DisplayNewPCoins(_coins);
-        ui.DisplayNewMaxHealth(MaxHealth);
+        ui.MaxHealth = this.MaxHealth;
+        ui.ActiveHearts = 5;
+        ui.DisplayNewHealth(Health);
 
         // setup input system
         _input = new PlayerInput();

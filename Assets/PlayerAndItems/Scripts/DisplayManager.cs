@@ -5,16 +5,53 @@ using UnityEngine.UI;
 
 public class DisplayManager : MonoBehaviour
 {
-    public Text PlayerHealthDisplay;
+    // Displays
     public Text PlayerNumBulletsDisplay;
     public Text WeaponNumBulletsDisplay;
     public Text PlayerCoinsDisplay;
     public Text DashCooldownDisplay;
-    public Text PlayerMaxHealthDisplay;
+
+    // Health display
+    public Image[] healthImages;        // Images in the canvas to allocate the 
+    public Sprite[] heartSprites;       // Posible heart sprites (Empty, Half and Full)
+    private const int Empty = 2;
+    private const int Half = 1;
+    private const int Full = 0;
+    public int MaxHealth;
+    private int _activeHearts;
+    private const int HealthPerHeart = 2;
+
+    public int ActiveHearts { set { _activeHearts = value; } }
 
     public void DisplayNewHealth(int newHealth)
     {
-        PlayerHealthDisplay.text = newHealth.ToString();
+        int i = 0;
+        foreach (Image image in healthImages)
+        {
+            if (i > _activeHearts)
+            {
+                // Heart is not active
+                image.enabled = false;
+            }
+            else
+            {
+                image.enabled = true;
+                // check which heart it has to draw
+                if (newHealth - i * HealthPerHeart > 1)
+                {
+                    image.sprite = heartSprites[Full];
+                }
+                else if (newHealth - i * HealthPerHeart == 1)
+                {
+                    image.sprite = heartSprites[Half];
+                }
+                else
+                {
+                    image.sprite = heartSprites[Empty];
+                }
+            }
+            i++;
+        }
     }
 
     public void DisplayNewPNBullets(int newNumBullets)
@@ -45,10 +82,5 @@ public class DisplayManager : MonoBehaviour
     public void EnableDashCooldown(bool enable)
     {
         DashCooldownDisplay.gameObject.SetActive(enable);
-    }
-
-    public void DisplayNewMaxHealth(int newMaxHealth)
-    {
-        PlayerMaxHealthDisplay.text = newMaxHealth.ToString();
     }
 }
