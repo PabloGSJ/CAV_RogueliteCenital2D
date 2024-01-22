@@ -19,7 +19,7 @@ public class PlayerDashingState : PlayerBaseState
         _dashActiveCounter = _ctx.DashDuration;
 
         // disable collitions between the player and the enemies and enemy bullets
-        _ctx.SwitchPlayerToInvulnerableLayer(true);
+        _ctx.SwitchPlayerToDashLayer(true);
     }
 
     public override void UpdateState()
@@ -35,7 +35,7 @@ public class PlayerDashingState : PlayerBaseState
         _ctx.ResetDash();
 
         // enable collitions between the player and the enemies and enemy bullets
-        _ctx.SwitchPlayerToInvulnerableLayer(false);
+        _ctx.SwitchPlayerToDashLayer(false);
     }
 
     public override void CheckSwitchStates()

@@ -27,9 +27,17 @@ public class PlayerRunningState : PlayerBaseState
 
     public override void CheckSwitchStates()
     {
-        if (_ctx.IsDashing)
+        if (_ctx.MovementVector == Vector2.zero)
+        {
+            SwitchState(_factory.Idle());
+        }
+        else if (_ctx.IsDashing)
         {
             SwitchState(_factory.Dashing());
+        }
+        else if (_ctx.IsDamaged)
+        {
+            SwitchState(_factory.Damaged());
         }
     }
 

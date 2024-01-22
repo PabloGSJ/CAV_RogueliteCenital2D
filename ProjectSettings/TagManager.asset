@@ -22,7 +22,7 @@ TagManager:
   - Enemies
   - EnemyBullets
   - ShopItems
-  - PlayerInvulnerable
+  - PlayerDashing
   - GameModifiers
   - 
   - 

@@ -12,12 +12,14 @@ using Cinemachine;
 public class PlayerStateMachine : MonoBehaviour
 {
     // CONTEXT:
+
     public Rigidbody2D rb;
     public Camera cam;
     private PlayerInput _input;
     private Vector2 _mousePos;
     private DisplayManager ui;
-    public Collider2D myc;
+    public SpriteRenderer sr;
+    public SpriteRenderer e;
 
     public const int PlayerLayer = 6;
     public const int Consumables = 9;
@@ -25,7 +27,7 @@ public class PlayerStateMachine : MonoBehaviour
     public const int EnemiesLayer = 11;
     public const int EnemyBulletsLayer = 12;
     public const int ShopItemsLayer = 13;
-    public const int PlayerInvulnerableLayer = 14;
+    public const int PlayerDashingLayer = 14;
     public const int GMLayer = 15;
 
     // Statistics variables
@@ -49,8 +51,8 @@ public class PlayerStateMachine : MonoBehaviour
     public int MaxPBullets = 99;
     private int _numBullets = 99;
     private float _dmgMod = 0;
-
-    public int damage = 1;
+    private bool _isDamaged = false;
+    public float InvulnerableTime;
 
     // Actions variables
     private bool _interacted;
@@ -68,10 +70,10 @@ public class PlayerStateMachine : MonoBehaviour
     public float DmgMod { set { _dmgMod = value; } }
     public int Coins { get { return _coins; } set { _coins = value; } }
     public int NumBullets { get { return _numBullets; } set { _numBullets = value; } }
+    public bool IsDamaged { get { return _isDamaged; } }
 
 
     // INPUT HANDLERS:
-
 
     // INPUT: Performed when player moves
     private void OnMovement(InputAction.CallbackContext context)
@@ -90,7 +92,6 @@ public class PlayerStateMachine : MonoBehaviour
         context.action.GetBindingForControl(context.control);
         if (context.ReadValueAsButton() && Weapon != null)
         {
-            Debug.Log("Shoot!");
             Weapon.Shoot(_dmgMod);
         }
     }
@@ -116,11 +117,12 @@ public class PlayerStateMachine : MonoBehaviour
 
         // setup logic manager
         ui = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<DisplayManager>();
-        ui.DisplayNewHealth(Health);
         ui.DisplayNewPNBullets(_numBullets);
         ui.EnableWeaponNBullets(false);
         ui.DisplayNewPCoins(_coins);
-        ui.DisplayNewMaxHealth(MaxHealth);
+        ui.MaxHealth = this.MaxHealth;
+        ui.ActiveHearts = 5;
+        ui.DisplayNewHealth(Health);
 
         // setup input system
         _input = new PlayerInput();
@@ -182,14 +184,18 @@ public class PlayerStateMachine : MonoBehaviour
     }
 
     // Collisions
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        switch (collision.gameObject.layer)
         {
-            if (other.gameObject.GetComponent<BolaDeFuegoScript>())
-            {
-                BolaDeFuegoScript playerHealth = other.gameObject.GetComponent<BolaDeFuegoScript>();
-                playerHealth.TakeDamage(damage);
-            }
+            case EnemiesLayer:
+            case EnemyBulletsLayer:
+                _isDamaged = true;
+                break;
+            default:
+                break;
         }
+    }
 
     // Triggers
     private void OnTriggerEnter2D(Collider2D collision)
@@ -199,6 +205,7 @@ public class PlayerStateMachine : MonoBehaviour
             case ShopItemsLayer:
             case WeaponsLayer:
                 _interacted = false;    // reset actions and listen
+                e.enabled = true;
                 break;
 
             case GMLayer:
@@ -243,6 +250,21 @@ public class PlayerStateMachine : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        switch (collision.gameObject.layer)
+        {
+            case ShopItemsLayer:
+            case WeaponsLayer:
+                _interacted = false;    // reset actions and listen
+                e.enabled = false;
+                break;
+
+            default:
+                break;
+        }
+    }
+
 
     // AUXILIARY FUNCTION DECLARATIONS:
 
@@ -253,8 +275,6 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
-        Debug.Log("Recieving Damage");
-
         Health -= damageTaken;
         if (Health <= 0)
         {
@@ -278,6 +298,11 @@ public class PlayerStateMachine : MonoBehaviour
         Weapon = weapon;
     }
 
+    public bool TryBorrowBullet()
+    {
+        return _numBullets > 0;
+    }
+
     public bool BorrowBullet()
     {
         bool borrow = false;
@@ -290,12 +315,6 @@ public class PlayerStateMachine : MonoBehaviour
         return borrow;
     }
 
-    public void ResetDash()
-    {
-        _dashing = false;
-        _dashCooldownCounter = DashCooldown;
-    }
-
     public void UpdateConsumables()
     {
         ui.DisplayNewHealth(Health);
@@ -303,11 +322,22 @@ public class PlayerStateMachine : MonoBehaviour
         ui.DisplayNewPNBullets(_numBullets);
     }
 
-    public void SwitchPlayerToInvulnerableLayer(bool switchToInvulnerableLayer)
+    public void ResetDamage()
     {
-        if (switchToInvulnerableLayer)
+        _isDamaged = false;
+    }
+
+    public void ResetDash()
+    {
+        _dashing = false;
+        _dashCooldownCounter = DashCooldown;
+    }
+
+    public void SwitchPlayerToDashLayer(bool switchToDashLayer)
+    {
+        if (switchToDashLayer)
         {
-            this.gameObject.layer = PlayerInvulnerableLayer;
+            this.gameObject.layer = PlayerDashingLayer;
         }
         else
         {

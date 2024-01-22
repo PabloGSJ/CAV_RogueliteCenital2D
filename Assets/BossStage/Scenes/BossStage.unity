@@ -45877,7 +45877,7 @@ MonoBehaviour:
   bullet: {fileID: 1457892809}
   bulletLife: 10
   speed: 10
-  spawnerType: 1
+  spawnerType: 0
   firingRate: 0.1
 --- !u!212 &1005800151
 SpriteRenderer:
@@ -47287,7 +47287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1358984885}
   cam: {fileID: 1590231417}
-  myc: {fileID: 0}
+  sr: {fileID: 0}
   MaxHealth: 10
   Health: 10
   MaxCoins: 99
@@ -47298,7 +47298,7 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   DefaultWeapon: {fileID: 8143044070160544798, guid: d77a9cf7f3d0c3c4abf46871c2a80b78, type: 3}
   MaxPBullets: 99
-  damage: 1
+  InvulnerableTime: 0
 --- !u!50 &1358984885
 Rigidbody2D:
   serializedVersion: 4

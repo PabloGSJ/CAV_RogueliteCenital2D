@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Heart : BaseConsumables
 {
+    protected override void PlaySound()
+    {
+        sc.playHeartSoundEffect();
+    }
+
     public override void UseConsumable(PlayerStateMachine player)
     {
         if (player.Health < player.MaxHealth)
