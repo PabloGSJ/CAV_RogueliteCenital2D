@@ -152,11 +152,11 @@ MonoBehaviour:
   Cadence: 1
   BulletType: {fileID: 1224280175503306348, guid: 324c17661fdda5a4c8382285efafa1a3, type: 3}
   BulletSpawner: {fileID: 5825041603950613342}
-  NumBullets: 4
+  NumBullets: 8
   ShootingForce: 15
   NumBuckshots: 5
-  BulletSpreadFactor: 0
-  BulletSpeedFactor: 0
+  BulletSpreadFactor: 15
+  BulletSpeedFactor: 3
 --- !u!50 &4832154119501156754
 Rigidbody2D:
   serializedVersion: 4

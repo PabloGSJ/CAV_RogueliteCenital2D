@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 567329379718694153}
   m_Layer: 0
-  m_Name: EsteObjetoTieneQueIrJuntoAlJugador
+  m_Name: Empty
   m_TagString: Empty
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

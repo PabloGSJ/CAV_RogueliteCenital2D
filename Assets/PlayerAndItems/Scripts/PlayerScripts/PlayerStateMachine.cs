@@ -30,6 +30,7 @@ public class PlayerStateMachine : MonoBehaviour
     private const int PlayerDashingLayer = 14;
     private const int GMLayer = 15;
     private const int ClassSelectorLayer = 16;
+    private const int ChestLayer = 17;
 
     // Statistics variables
     public int MaxHealth = 10;  // constant
@@ -220,6 +221,7 @@ public class PlayerStateMachine : MonoBehaviour
         {
             case ShopItemsLayer:
             case ClassSelectorLayer:
+            case ChestLayer:
             case WeaponsLayer:
                 _interacted = false;    // reset actions and listen
                 e.enabled = true;
@@ -241,37 +243,36 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        switch (collision.gameObject.layer)
+        if (_interacted)
         {
-            case WeaponsLayer:    // weapons layer
-                if (_interacted)
-                {
+            switch (collision.gameObject.layer)
+            {
+                case WeaponsLayer:    // weapons layer
                     PickupWeapon(collision.gameObject.GetComponent<BaseWeapon>());
-                }
-                break;
+                    break;
 
-            case ShopItemsLayer:
-                if (_interacted)
-                {
+                case ShopItemsLayer:
                     BaseShopItem shopItem = collision.gameObject.GetComponent<BaseShopItem>();
                     if (shopItem.TryBuy(_coins))
                     {
                         // Player has enough coins to buy 
                         shopItem.BuyItem(this);
                     }
-                }
-                break;
+                    break;
 
-            case ClassSelectorLayer:
-                if (_interacted)
-                {
+                case ClassSelectorLayer:
                     Class c = collision.gameObject.GetComponent<Class>();
                     c.SelectClass(this);
-                }
-                break;
+                    break;
 
-            default:
-                break;
+                case ChestLayer:
+                    Chest chest = collision.gameObject.GetComponent<Chest>();
+                    chest.OpenChest(this);
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 
