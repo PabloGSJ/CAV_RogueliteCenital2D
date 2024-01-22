@@ -14,102 +14,26 @@ public class BossStateMachine : MonoBehaviour
     // CONTEXT:
 
 
-    // General combat variables
-    public float TimeBetweenAttacks;
+    // Health
+    public int Health;
+    public int MaxHealth;
+
+    // State machine
+    private BossBaseState _currentState;
+    private BossStateFactory _states;
 
 
 
-    // CONTEXT (Player):
-    public Rigidbody2D rb;
-    public Camera cam;
-    private PlayerInput _input;
-    private Vector2 _mousePos;
-    private DisplayManager ui;
-    public Collider2D myc;
+    // Phase variables
+    private float _phase1Counter;
+    private float _phase2Counter;
+    private float _phase3Counter;
 
-    public const int PlayerLayer = 6;
-    public const int Consumables = 9;
-    public const int WeaponsLayer = 10;
-    public const int EnemiesLayer = 11;
-    public const int EnemyBulletsLayer = 12;
-    public const int ShopItemsLayer = 13;
-    public const int PlayerInvulnerableLayer = 14;
-    public const int GMLayer = 15;
-
-    // Statistics variables
-    public int MaxHealth = 10;  // constant
-    public int Health = 3;
-    public int MaxCoins = 99;
-    private int _coins = 0;
-
-    // Movement variables
-    public float Speed = 500;
-    private Vector2 _movementVector;
-    private bool _dashing = false;
-    public float DashSpeed = 750;
-    public float DashCooldown;
-    private float _dashCooldownCounter;
-    public float DashDuration;
-
-    // Combat variables
-    public BaseWeapon Weapon = null;
-    public GameObject DefaultWeapon = null;
-    public int MaxPBullets = 99;
-    private int _numBullets = 99;
-    private float _dmgMod = 0;
-
-    public int damage = 1;
-
-    // Actions variables
-    private bool _interacted;
-
-    // States variables
-    BossBaseState _currentState;
-    BossStateFactory _states;
-
-    // getters-setters
-    public BossBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
-    public bool IsInteracting { get { return _interacted; } }
-    public bool IsDashing { get { return _dashing; } }
-    public Vector2 MovementVector { get { return _movementVector; } }
-    public Vector2 MousePos { get { return _mousePos; } }
-    public float DmgMod { set { _dmgMod = value; } }
-    public int Coins { get { return _coins; } set { _coins = value; } }
-    public int NumBullets { get { return _numBullets; } set { _numBullets = value; } }
-
-
-    // INPUT HANDLERS:
-
-
-    // INPUT: Performed when player moves
-    private void OnMovement(InputAction.CallbackContext context)
-    {
-        _movementVector = context.ReadValue<Vector2>();
-    }
-
-    // INPUT: Performed when player interacts with something
-    private void OnInteract(InputAction.CallbackContext context)
-    {
-        _interacted = context.ReadValueAsButton();
-    }
-
-    private void OnShoot(InputAction.CallbackContext context)
-    {
-        context.action.GetBindingForControl(context.control);
-        if (context.ReadValueAsButton() && Weapon != null)
-        {
-            Debug.Log("Shoot!");
-            Weapon.Shoot(_dmgMod);
-        }
-    }
-
-    private void OnDash(InputAction.CallbackContext context)
-    {
-        if (_dashCooldownCounter <= 0)
-        {
-            _dashing = true;
-        }
-    }
+    // Getters setters
+    public float Phase1Counter { get { return _phase1Counter; } set { _phase1Counter = value; } }
+    public float Phase2Counter { get { return _phase2Counter; } set { _phase2Counter = value; } }
+    public float Phase3Counter { get { return _phase3Counter; } set { _phase3Counter = value; } }
+    
 
 
     // MONO BEHABIOUR FUNCTIONS:
@@ -119,7 +43,7 @@ public class BossStateMachine : MonoBehaviour
     {
         // setup state
         _states = new BossStateFactory(this);
-        _currentState = _states.Running();
+        _currentState = _states.Phase1();
         _currentState.EnterState();
 
         // setup logic manager

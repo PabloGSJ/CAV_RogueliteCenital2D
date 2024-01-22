@@ -8,13 +8,8 @@ public class BossStateFactory
         _context = currentContext;
     }
 
-    public BossBaseState Idle()
+    public BossBaseState Phase1()
     {
-        return new BossIdleState(_context, this);
-    }
-
-    public BossBaseState Running() 
-    {
-        return new BossRunningState(_context, this);
+        return new BossPhase1State(_context, this);
     }
 }
