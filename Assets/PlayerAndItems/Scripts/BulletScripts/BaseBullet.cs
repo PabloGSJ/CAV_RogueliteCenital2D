@@ -5,7 +5,6 @@ public abstract class BaseBullet : BaseAmmo
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Bullet hit");
         Destroy(gameObject);
     }
 

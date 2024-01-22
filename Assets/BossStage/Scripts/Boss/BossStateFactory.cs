@@ -12,4 +12,9 @@ public class BossStateFactory
     {
         return new BossPhase1State(_context, this);
     }
+
+    public BossBaseState Phase2()
+    {
+        return new BossPhase2State(_context, this);
+    }
 }
