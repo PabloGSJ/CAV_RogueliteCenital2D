@@ -17,4 +17,9 @@ public class BossStateFactory
     {
         return new BossPhase2State(_context, this);
     }
+
+    public BossBaseState Phase3()
+    {
+        return new BossPhase3State(_context, this);
+    }
 }

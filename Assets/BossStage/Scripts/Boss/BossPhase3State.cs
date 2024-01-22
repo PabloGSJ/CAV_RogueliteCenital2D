@@ -2,25 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Active arsenal:
+// Active arsenal
 // - Cannon
 // - Hands
-public class BossPhase2State : BossBaseState
+// - Pillars
+public class BossPhase3State : BossBaseState
 {
     // Active arsenal
-    private const int Radius    = 0;
-    private const int Cone      = 1;
-    private const int Straight  = 2;
-    private const int Giant     = 3;
+    private const int Radius = 0;
+    private const int Cone = 1;
+    private const int Straight = 2;
+    private const int Giant = 3;
     // Cannon
     private CannonController _cc;
     private float _cannonCounter;
     // Hands
     private HandsController _hc;
     private float _handsCounter;
+    // Pillars
+    private PillarsController _pc;
+    private float _pillarsCounter;
 
 
-    public BossPhase2State(BossStateMachine currentContext, BossStateFactory bossStateFactory) 
+    public BossPhase3State(BossStateMachine currentContext, BossStateFactory bossStateFactory)
     : base(currentContext, bossStateFactory)
     {
     }
@@ -29,8 +33,10 @@ public class BossPhase2State : BossBaseState
     {
         _cc = _ctx.cc;
         _hc = _ctx.hc;
+        _pc = _ctx.pc;
         _cannonCounter = 0;
         _handsCounter = 0;
+        _pillarsCounter = 0;
 
         if (_ctx.LoadArsenalStatic)
         {
@@ -46,6 +52,8 @@ public class BossPhase2State : BossBaseState
             _cc.StraightRepeats = 5;
             // Hands
             _ctx.HandsCooldown = 1;
+            // Pillars
+            _ctx.PillarsCooldown = 1;
         }
     }
 
@@ -54,7 +62,7 @@ public class BossPhase2State : BossBaseState
         CheckSwitchStates();
 
         // Try attack with the cannon
-        if (_cannonCounter <= 0)
+        if (false)
         {
             _cannonCounter = _ctx.CannonCooldown;
 
@@ -78,7 +86,7 @@ public class BossPhase2State : BossBaseState
         }
 
         // Try attack with the hands
-        if (_handsCounter <= 0)
+        if (false)
         {
             _handsCounter = _ctx.HandsCooldown;
             // Select an random attack to perform
@@ -102,21 +110,30 @@ public class BossPhase2State : BossBaseState
                     break;
             }
         }
+
+        // Try attack with the pillars
+        if (_pillarsCounter <= 0)
+        {
+            _pillarsCounter = _ctx.PillarsCooldown;
+            _pc.FireInAllDirections();
+        }
+
         _cannonCounter -= Time.deltaTime;
         _handsCounter -= Time.deltaTime;
+        _pillarsCounter -= Time.deltaTime;
     }
 
     public override void CheckSwitchStates()
     {
-        if (_ctx.Health < _ctx.MaxHealth / 3)
+        if (_ctx.Health <= 0)
         {
-            SwitchState(_factory.Phase3());
+            Debug.Log("Ded");
         }
     }
 
     public override void ExitState()
     {
-        
+
     }
 
     public override void InitializeSubState()

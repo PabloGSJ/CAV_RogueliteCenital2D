@@ -220,6 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0edf45589ecf44f99f72d2d94438ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet: {fileID: 4584931024326252064, guid: 9c3927e7aa5ad1b48a16591137dbb491, type: 3}
+  Speed: 6
 --- !u!1 &93295010
 GameObject:
   m_ObjectHideFlags: 0
@@ -17659,6 +17661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0edf45589ecf44f99f72d2d94438ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet: {fileID: 4584931024326252064, guid: 9c3927e7aa5ad1b48a16591137dbb491, type: 3}
+  Speed: 6
 --- !u!1 &479076974
 GameObject:
   m_ObjectHideFlags: 0
@@ -50319,6 +50323,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0edf45589ecf44f99f72d2d94438ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet: {fileID: 4584931024326252064, guid: 9c3927e7aa5ad1b48a16591137dbb491, type: 3}
+  Speed: 6
 --- !u!1 &1805093419
 GameObject:
   m_ObjectHideFlags: 0
@@ -50648,14 +50654,14 @@ MonoBehaviour:
   ui: {fileID: 1089928802}
   cc: {fileID: 1854526428}
   hc: {fileID: 1854526427}
-  pc: {fileID: 0}
+  pc: {fileID: 1854526426}
   LoadArsenalStatic: 0
   Health: 2
   MaxHealth: 3
   ActivePhase: 0
   CannonCooldown: 2
   HandsCooldown: 1
-  PillarsCooldown: 0
+  PillarsCooldown: 2
 --- !u!114 &1854526426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50668,6 +50674,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5acb81be6769e74aa0972ba823806f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pillars:
+  - {fileID: 2042923215}
+  - {fileID: 77204054}
+  - {fileID: 1797754993}
+  - {fileID: 462202336}
+  Step: 0.1
+  RadialBullets: 26
+  RadialRepeats: 3
 --- !u!114 &1854526427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52574,6 +52588,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0edf45589ecf44f99f72d2d94438ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet: {fileID: 4584931024326252064, guid: 9c3927e7aa5ad1b48a16591137dbb491, type: 3}
+  Speed: 6
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

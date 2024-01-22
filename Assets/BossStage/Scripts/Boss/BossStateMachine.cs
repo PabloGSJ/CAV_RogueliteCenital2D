@@ -58,7 +58,7 @@ public class BossStateMachine : MonoBehaviour
     {
         // setup state
         _states = new BossStateFactory(this);
-        _currentState = _states.Phase2();
+        _currentState = _states.Phase3();
         _currentState.EnterState();
 
         // setup health
