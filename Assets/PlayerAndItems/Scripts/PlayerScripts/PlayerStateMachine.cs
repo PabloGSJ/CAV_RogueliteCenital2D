@@ -14,21 +14,23 @@ public class PlayerStateMachine : MonoBehaviour
     // CONTEXT:
 
     public Rigidbody2D rb;
-    public Camera cam;
+    private Camera cam;
     private PlayerInput _input;
     private Vector2 _mousePos;
     private DisplayManager ui;
     public SpriteRenderer sr;
     public SpriteRenderer e;
 
-    public const int PlayerLayer = 6;
-    public const int Consumables = 9;
-    public const int WeaponsLayer = 10;
-    public const int EnemiesLayer = 11;
-    public const int EnemyBulletsLayer = 12;
-    public const int ShopItemsLayer = 13;
-    public const int PlayerDashingLayer = 14;
-    public const int GMLayer = 15;
+    private const int PlayerLayer = 6;
+    private const int Consumables = 9;
+    private const int WeaponsLayer = 10;
+    private const int EnemiesLayer = 11;
+    private const int EnemyBulletsLayer = 12;
+    private const int ShopItemsLayer = 13;
+    private const int PlayerDashingLayer = 14;
+    private const int GMLayer = 15;
+    private const int ClassSelectorLayer = 16;
+    private const int ChestLayer = 17;
 
     // Statistics variables
     public int MaxHealth = 10;  // constant
@@ -145,7 +147,22 @@ public class PlayerStateMachine : MonoBehaviour
         PickupWeapon(go.GetComponent<BaseWeapon>());
 
         // setup dash
-        _dashCooldownCounter = DashCooldown;
+        _dashCooldownCounter = 0;
+
+        // get the camera
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        if (cam == null)
+        {
+            Debug.LogError("PLAYER: Camera not found");
+        }
+
+        // check that there is a proper EMPTY game object for the bullets
+        GameObject empty = GameObject.FindGameObjectWithTag("Empty");
+        if (empty == null)
+        {
+            Debug.LogError("PLAYER: \"Empty\" game object not found");
+        }
+        
     }
 
     // setup input system
@@ -203,6 +220,8 @@ public class PlayerStateMachine : MonoBehaviour
         switch (collision.gameObject.layer)
         {
             case ShopItemsLayer:
+            case ClassSelectorLayer:
+            case ChestLayer:
             case WeaponsLayer:
                 _interacted = false;    // reset actions and listen
                 e.enabled = true;
@@ -224,29 +243,36 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        switch (collision.gameObject.layer)
+        if (_interacted)
         {
-            case WeaponsLayer:    // weapons layer
-                if (_interacted)
-                {
+            switch (collision.gameObject.layer)
+            {
+                case WeaponsLayer:    // weapons layer
                     PickupWeapon(collision.gameObject.GetComponent<BaseWeapon>());
-                }
-                break;
+                    break;
 
-            case ShopItemsLayer:
-                if (_interacted)
-                {
+                case ShopItemsLayer:
                     BaseShopItem shopItem = collision.gameObject.GetComponent<BaseShopItem>();
                     if (shopItem.TryBuy(_coins))
                     {
                         // Player has enough coins to buy 
                         shopItem.BuyItem(this);
                     }
-                }
-                break;
+                    break;
 
-            default:
-                break;
+                case ClassSelectorLayer:
+                    Class c = collision.gameObject.GetComponent<Class>();
+                    c.SelectClass(this);
+                    break;
+
+                case ChestLayer:
+                    Chest chest = collision.gameObject.GetComponent<Chest>();
+                    chest.OpenChest(this);
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 
@@ -255,6 +281,7 @@ public class PlayerStateMachine : MonoBehaviour
         switch (collision.gameObject.layer)
         {
             case ShopItemsLayer:
+            case ClassSelectorLayer:
             case WeaponsLayer:
                 _interacted = false;    // reset actions and listen
                 e.enabled = false;
