@@ -1,0 +1,52 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BossBulletGiant : BaseBullet
+{
+    public Rigidbody2D rb;
+
+    public GameObject Bullet;
+    public int Speed;
+
+    public float ShootStep;
+    public float AngleStep;
+    private float _counter;
+    private float _angle;
+
+    public float SpinningSpeed;
+
+
+    private void Awake()
+    {
+        _counter = 0;
+        _angle = 0;
+    }
+
+    private void FixedUpdate()
+    {
+        rb.rotation += SpinningSpeed;      // spin the bullet
+
+        // Shoot bullets in spinning pattern
+        if (_counter <= 0)
+        {
+            _counter = ShootStep;
+            
+            Vector2 shootingVector = new Vector2(Mathf.Cos(_angle), Mathf.Sin(_angle));
+            Shoot(shootingVector);
+            _angle += AngleStep;
+        }
+        _counter -= Time.deltaTime;
+    }
+
+
+    public void Shoot(Vector2 shootingVector)
+    {
+        GameObject go = Instantiate(Bullet,
+                                    this.transform.position,
+                                    this.transform.rotation) as GameObject;
+        Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
+        //rb.MoveRotation(Mathf.Atan2(shootingVector.y, shootingVector.x) * Mathf.Rad2Deg);
+        rb.velocity = shootingVector * Speed;
+    }
+}

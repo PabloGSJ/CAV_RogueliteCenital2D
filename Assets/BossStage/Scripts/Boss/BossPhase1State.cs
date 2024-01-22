@@ -21,11 +21,14 @@ public class BossPhase1State : BossBaseState
 
     public override void EnterState()
     {
+        _cc = _ctx.cc;
+        _cannonCounter = 0;
+
         if (_ctx.LoadArsenalStatic)
         {
             // Statically load information into active arsenal:
             // Cannon
-            _cc = _ctx.cc;
+            _ctx.CannonCooldown = 1;
             _cc.Step = 0.1f;
             _cc.RadialBullets = 13;
             _cc.RadialRepeats = 3;
@@ -34,8 +37,6 @@ public class BossPhase1State : BossBaseState
             _cc.ConeRepeats = 5;
             _cc.StraightRepeats = 5;
         }
-
-        _cannonCounter = 0;
     }
 
     public override void UpdateState()
@@ -44,7 +45,7 @@ public class BossPhase1State : BossBaseState
         
         if (_cannonCounter <= 0)
         {
-            _cannonCounter = _ctx.Phase1AttackCooldown;
+            _cannonCounter = _ctx.CannonCooldown;
 
             // Select an random attack to perform
             switch (Random.Range(0, 3))

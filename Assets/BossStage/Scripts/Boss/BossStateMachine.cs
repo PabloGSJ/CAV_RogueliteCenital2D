@@ -38,9 +38,9 @@ public class BossStateMachine : MonoBehaviour
     public enum Phases { PHASE1, PHASE2, PHASE3 };
     public Phases ActivePhase;
     // cooldowns
-    public float Phase1AttackCooldown;
-    public float Phase2AttackCooldown;
-    public float Phase3AttackCooldown;
+    public float CannonCooldown;
+    public float HandsCooldown;
+    public float PillarsCooldown;
 
 
 
@@ -58,14 +58,11 @@ public class BossStateMachine : MonoBehaviour
     {
         // setup state
         _states = new BossStateFactory(this);
-        _currentState = _states.Phase1();
+        _currentState = _states.Phase2();
         _currentState.EnterState();
 
         // setup health
         Health = MaxHealth;
-        ActivePhase = Phases.PHASE1;
-
-        // setup phase
 
         // setup player
         player = GameObject.FindGameObjectWithTag("Player");

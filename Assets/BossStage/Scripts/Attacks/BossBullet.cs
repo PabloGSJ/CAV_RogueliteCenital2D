@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CannonBullet : BaseBullet
+public class BossBullet : BaseBullet
 {
     
 }
