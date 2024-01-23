@@ -29,7 +29,7 @@ public class SoundControllerScript : MonoBehaviour
     private AudioSource pickupBulletsSound;
 
 
-    public void Start()
+    public void Awake()
     {
         coinSound = GameObject.Find("CoinSound").GetComponent<AudioSource>();
         heartSound = GameObject.Find("HeartSound").GetComponent<AudioSource>();
