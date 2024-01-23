@@ -108,7 +108,7 @@ public class BossPhase2State : BossBaseState
 
     public override void CheckSwitchStates()
     {
-        if (_ctx.Health < _ctx.MaxHealth / 3)
+        if (_ctx.Health <= _ctx.MaxHealth / 3)
         {
             SwitchState(_factory.Phase3());
         }

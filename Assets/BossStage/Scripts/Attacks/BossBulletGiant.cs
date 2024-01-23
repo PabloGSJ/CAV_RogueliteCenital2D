@@ -6,6 +6,12 @@ public class BossBulletGiant : BaseBullet
 {
     public Rigidbody2D rb;
 
+    // Invulnerability
+    private const int GhostBulletLayer = 20;
+    private const int EnemyBulletsLayer = 12;
+    public float GhostTime = 0.1f;
+    private float _iCounter;
+
     public GameObject Bullet;
     public int Speed;
 
@@ -37,6 +43,16 @@ public class BossBulletGiant : BaseBullet
             _angle += AngleStep;
         }
         _counter -= Time.deltaTime;
+
+        if (_iCounter > 0)
+        {
+            _iCounter -= Time.deltaTime;
+            this.gameObject.layer = GhostBulletLayer;
+        }
+        else
+        {
+            this.gameObject.layer = EnemyBulletsLayer;
+        }
     }
 
 

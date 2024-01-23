@@ -35,8 +35,7 @@ public class BossStateMachine : MonoBehaviour
     public int MaxHealth;
 
     // Phase variables
-    public enum Phases { PHASE1, PHASE2, PHASE3 };
-    public Phases ActivePhase;
+    private bool _isSleeping;
     // cooldowns
     public float CannonCooldown;
     public float HandsCooldown;
@@ -48,6 +47,7 @@ public class BossStateMachine : MonoBehaviour
     public BossBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
     public Camera Cam { get { return cam; } }
     public GameObject Player { get { return player; } }
+    public bool IsSleeping { get { return _isSleeping; } set { _isSleeping = value; } }
 
 
 
@@ -58,8 +58,9 @@ public class BossStateMachine : MonoBehaviour
     {
         // setup state
         _states = new BossStateFactory(this);
-        _currentState = _states.Phase3();
+        _currentState = _states.Sleeping();
         _currentState.EnterState();
+        IsSleeping = true;
 
         // setup health
         Health = MaxHealth;

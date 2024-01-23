@@ -22,4 +22,9 @@ public class BossStateFactory
     {
         return new BossPhase3State(_context, this);
     }
+
+    public BossBaseState Sleeping()
+    {
+        return new BossSleepingState(_context, this);
+    }
 }
