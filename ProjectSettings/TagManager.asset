@@ -59,11 +59,11 @@ TagManager:
   - name: Standing
     uniqueID: 3255799635
     locked: 0
-  - name: Bullets
-    uniqueID: 925837795
-    locked: 0
   - name: Walls
     uniqueID: 1256072927
+    locked: 0
+  - name: Bullets
+    uniqueID: 925837795
     locked: 0
   - name: Hover
     uniqueID: 3261729333

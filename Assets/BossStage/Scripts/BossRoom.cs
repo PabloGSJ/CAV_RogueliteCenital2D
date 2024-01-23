@@ -7,6 +7,9 @@ public class BossRoom : MonoBehaviour
 {
     public CinemachineVirtualCamera cmvcam;
     public BossStateMachine boss;
+    public GameObject cat;
+    public GameObject wincanvas;
+    public Animator transition;
 
     private const int PlayerLayer = 6;
     private const int PlayerDashingLayer = 14;
@@ -20,6 +23,8 @@ public class BossRoom : MonoBehaviour
         cmvcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
         Door.SetActive(false);
         _doorClosed = false;
+        cat.SetActive(false);
+        wincanvas.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -31,5 +36,17 @@ public class BossRoom : MonoBehaviour
             _doorClosed = true;
             boss.IsSleeping = false;
         }
+    }
+
+    public void BossDead()
+    {
+        cat.SetActive(true);
+    }
+
+    public void WinGame()
+    {
+        Time.timeScale = 0;
+        wincanvas.SetActive(true);
+        transition.SetTrigger("Fade");
     }
 }

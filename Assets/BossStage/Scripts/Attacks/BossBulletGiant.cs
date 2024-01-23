@@ -27,10 +27,21 @@ public class BossBulletGiant : BaseBullet
     {
         _counter = 0;
         _angle = 0;
+        _iCounter = GhostTime;
     }
 
     private void FixedUpdate()
     {
+        if (_counter > 0)
+        {
+            _counter -= Time.deltaTime;
+            this.gameObject.layer = GhostBulletLayer;
+        }
+        else
+        {
+            this.gameObject.layer = EnemyBulletsLayer;
+        }
+
         rb.rotation += SpinningSpeed;      // spin the bullet
 
         // Shoot bullets in spinning pattern

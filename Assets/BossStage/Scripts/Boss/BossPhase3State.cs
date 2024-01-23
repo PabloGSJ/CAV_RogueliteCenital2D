@@ -128,6 +128,8 @@ public class BossPhase3State : BossBaseState
         if (_ctx.Health <= 0)
         {
             Debug.Log("Ded");
+            _ctx.room.BossDead();
+            SwitchState(_factory.Sleeping());
         }
     }
 

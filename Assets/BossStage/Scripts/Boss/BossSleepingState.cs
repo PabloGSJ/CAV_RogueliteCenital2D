@@ -18,12 +18,12 @@ public class BossSleepingState : BossBaseState
 
     public override void EnterState()
     {
-        
+        _ctx.IsSleeping = true;
     }
 
     public override void ExitState()
     {
-        
+
     }
 
     public override void InitializeSubState()

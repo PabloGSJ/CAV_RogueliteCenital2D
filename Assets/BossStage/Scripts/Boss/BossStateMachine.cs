@@ -18,7 +18,7 @@ public class BossStateMachine : MonoBehaviour
     public HandsController hc;
     public PillarsController pc;
     private GameObject player;
-    private Camera cam;
+    public BossRoom room;
 
     private const int PlayerLayer = 6;
     private const int PlayerBulletsLayer = 8;
@@ -45,7 +45,6 @@ public class BossStateMachine : MonoBehaviour
 
     // Getters setters
     public BossBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
-    public Camera Cam { get { return cam; } }
     public GameObject Player { get { return player; } }
     public bool IsSleeping { get { return _isSleeping; } set { _isSleeping = value; } }
 
@@ -69,13 +68,6 @@ public class BossStateMachine : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         if (player == null)
             Debug.LogError("BOSS: player not found");
-
-        // setup camera
-        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
-        if (cam == null)
-        {
-            Debug.LogError("BOSS: Camera not found");
-        }
 
         // setup display manager
         ui.DisplayNewBossHealth(Health);

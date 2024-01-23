@@ -42,5 +42,6 @@ public class Hand : MonoBehaviour
         Rigidbody2D rb = go.GetComponent<Rigidbody2D>();
         //rb.MoveRotation(Mathf.Atan2(shootingVector.y, shootingVector.x) * Mathf.Rad2Deg);
         rb.velocity = shootingVector * SpeedGiant;
+        
     }
 }
