@@ -15,6 +15,8 @@ public class PlayerDashingState : PlayerBaseState
 
     public override void EnterState()
     {
+        _ctx.SoundController.playDashSoundEffect();
+
         _ctx.a.SetBool(_ctx.AnimIsDashing, true);
 
         _dashMovVector = _ctx.MovementVector;

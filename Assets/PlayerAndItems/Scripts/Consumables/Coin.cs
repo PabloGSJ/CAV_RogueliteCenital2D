@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Coin : BaseConsumables
 {
-    protected override void PlaySound()
-    {
-        sc.playCoinSoundEffect();
-    }
-
     public override void UseConsumable(PlayerStateMachine player)
     {
+        sc.playCoinSoundEffect();
+
         if (player.Coins < player.MaxCoins)
             player.Coins++;
     }

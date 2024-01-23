@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class BulletRound : BaseConsumables
 {
-    protected override void PlaySound()
-    {
-        // TODO: play correct sound from sc
-    }
-
     // number of bullets
     public int NumBullets = 10;
 
     public override void UseConsumable(PlayerStateMachine player)
-    { 
+    {
+        sc.playBulletRoundSoundEffect();
+
         player.NumBullets += NumBullets;
 
         if (player.NumBullets > player.MaxPBullets)

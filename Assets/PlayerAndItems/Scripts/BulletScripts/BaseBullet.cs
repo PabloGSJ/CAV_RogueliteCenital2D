@@ -5,6 +5,8 @@ public abstract class BaseBullet : BaseAmmo
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        SoundControllerScript sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
+        sc.playBulletImpactSoundEffect();
         Destroy(gameObject);
     }
 

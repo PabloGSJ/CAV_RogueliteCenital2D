@@ -8,6 +8,7 @@ public abstract class BaseShopItem : MonoBehaviour
 
     public Collider2D mycoll;
     public SpriteRenderer sr;
+    private SoundControllerScript sc;
 
     // layer variables
     private const int PlayerLayer = 6;
@@ -23,6 +24,8 @@ public abstract class BaseShopItem : MonoBehaviour
     // setup shop item
     private void Awake()
     {
+        sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
+
         _soldItem = Instantiate(Item,
                                 new Vector3(this.transform.position.x,
                                             this.transform.position.y,
@@ -50,6 +53,8 @@ public abstract class BaseShopItem : MonoBehaviour
     // give the item to the player
     public void BuyItem(PlayerStateMachine player)
     {
+        sc.playBuyShopSoundEffect();
+
         SellItem(player);
         player.Coins -= Price;
         player.UpdateConsumables();

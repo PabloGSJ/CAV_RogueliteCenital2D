@@ -6,6 +6,7 @@ public class Chest : MonoBehaviour
 {
     public Collider2D mycol;
     public SpriteRenderer sr;
+    private SoundControllerScript sc;
 
     public Sprite[] spriteList;
     private const int Open = 1;
@@ -18,11 +19,15 @@ public class Chest : MonoBehaviour
     private void Awake()
     {
         sr.sprite = spriteList[Closed];
+
+        sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
     }
 
     // called when opening the chest
     public void OpenChest(PlayerStateMachine player)
     {
+        sc.playChestOpenSoundEffect();
+
         mycol.enabled = false;
         sr.sprite = spriteList[Open];
 

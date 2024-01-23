@@ -10,6 +10,7 @@ public class PlayerRunningState : PlayerBaseState
     public override void EnterState()
     {
         _ctx.a.SetBool(_ctx.AnimIsMoving, true);
+        _ctx.SoundController.playRunSoundEffect();
     }
 
     public override void UpdateState()
@@ -38,6 +39,7 @@ public class PlayerRunningState : PlayerBaseState
     public override void ExitState()
     {
         _ctx.a.SetBool(_ctx.AnimIsMoving, false);
+        _ctx.SoundController.playRunSoundEffect();
     }
 
     public override void CheckSwitchStates()

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pillar : MonoBehaviour
 {
     private GameObject empty;
+    private SoundControllerScript sc;
 
     // VARIABLES:
     public GameObject Bullet;
@@ -12,6 +13,8 @@ public class Pillar : MonoBehaviour
 
     private void Awake()
     {
+        sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
+
         // preserve the bullets absolute proportions
         empty = GameObject.FindGameObjectWithTag("Empty");
         if (empty == null)
@@ -20,6 +23,8 @@ public class Pillar : MonoBehaviour
 
     public void Shoot(Vector2 shootingVector)
     {
+        sc.playEnergyProjectileShotSoundEffect();
+
         GameObject go = Instantiate(Bullet,
                                     this.transform.position,
                                     empty.transform.rotation,

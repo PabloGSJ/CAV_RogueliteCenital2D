@@ -26,4 +26,9 @@ public class WeaponCrowbar : BaseMeleeWeapon
     {
         realsr.sortingOrder = -1;
     }
+
+    protected override void PlayMySoundEffect()
+    {
+        sc.playSwordSwingSoundEffect();
+    }
 }

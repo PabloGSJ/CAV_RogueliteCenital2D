@@ -25,6 +25,7 @@ public class PlayerStateMachine : MonoBehaviour
     private SoundControllerScript sc;
 
     private const int PlayerLayer           = 6;
+    private const int WallsLayer            = 7;
     private const int Consumables           = 9;
     private const int WeaponsLayer          = 10;
     private const int EnemiesLayer          = 11;
@@ -124,6 +125,27 @@ public class PlayerStateMachine : MonoBehaviour
     // Setup player systems
     private void Awake()            // called earlier thant Start()
     {
+        // get the camera
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        if (cam == null)
+        {
+            Debug.LogError("PLAYER: Camera not found");
+        }
+
+        // check that there is a proper EMPTY game object for the bullets
+        GameObject empty = GameObject.FindGameObjectWithTag("Empty");
+        if (empty == null)
+        {
+            Debug.LogError("PLAYER: \"Empty\" game object not found");
+        }
+
+        // get the sound controller
+        sc = GameObject.FindGameObjectWithTag("SoundControl").GetComponent<SoundControllerScript>();
+        if (sc == null)
+        {
+            Debug.LogError("PLAYER: Sound controller not found");
+        }
+
         // setup state
         _states = new PlayerStateFactory(this);
         _currentState = _states.Running();
@@ -166,28 +188,6 @@ public class PlayerStateMachine : MonoBehaviour
 
         // setup dash
         _dashCooldownCounter = 0;
-
-        // get the camera
-        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
-        if (cam == null)
-        {
-            Debug.LogError("PLAYER: Camera not found");
-        }
-
-        // check that there is a proper EMPTY game object for the bullets
-        GameObject empty = GameObject.FindGameObjectWithTag("Empty");
-        if (empty == null)
-        {
-            Debug.LogError("PLAYER: \"Empty\" game object not found");
-        }
-
-        // get the sound controller
-        sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
-        if (sc == null)
-        {
-            Debug.LogError("PLAYER: Sound controller not found");
-        }
-
     }
 
     // setup input system
@@ -249,6 +249,11 @@ public class PlayerStateMachine : MonoBehaviour
             case EnemiesLayer:
             case EnemyBulletsLayer:
                 break;
+
+            case WallsLayer:
+                sc.playHitAWallSoundEffect();
+                break;
+
             default:
                 break;
         }
@@ -342,17 +347,18 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
-        sc.playPlayerDamagedSoundEffect();
-
         Health -= damageTaken;
         if (Health <= 0)
         {
             // die
             ui.DisplayNewHealth(0);
-            Destroy(gameObject);
+            sc.playGameOverTuneSoundEffect();
+            a.SetBool(AIsDead, true);
+            Time.timeScale = 0;
         }
         _isDamaged = true;
         ui.DisplayNewHealth(Health);
+        sc.playPlayerDamagedSoundEffect();
     }
 
     public void PickupWeapon(BaseWeapon weapon)

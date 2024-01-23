@@ -41,6 +41,8 @@ public class BaseRangedWeapon : BaseWeapon
     // Spawn a bullet at the tip of the weapon
     public override void Shoot(float dmgMod)
     {
+        PlayMySoundEffect();
+
         if ((TryShoot() || _holder.TryBorrowBullet()) && _cadenceCounter <= 0)
         {
             if (NumBullets > 0)
@@ -56,6 +58,11 @@ public class BaseRangedWeapon : BaseWeapon
             BulletSpawner.spawnBullet(BulletType, _shootingVector.normalized, ShootingForce, dmgMod, this.transform.rotation);
             _cadenceCounter = Cadence;
         }
+    }
+
+    protected override void PlayMySoundEffect()
+    {
+        sc.playGunshotSoundEffect();
     }
 
     protected bool TryShoot()

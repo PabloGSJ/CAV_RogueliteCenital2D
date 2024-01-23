@@ -10,6 +10,7 @@ public abstract class BaseWeapon : MonoBehaviour
     public CircleCollider2D trig;
     protected DisplayManager ui;
     public SpriteRenderer sr;
+    protected SoundControllerScript sc;
 
     // Holding variables
     protected PlayerStateMachine _holder = null;
@@ -35,6 +36,8 @@ public abstract class BaseWeapon : MonoBehaviour
         // initialize y scale
         _originalYScale = this.transform.localScale.y;
         _cadenceCounter = 0;
+
+        sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
     }
 
     // update for interactions involving physics engine
@@ -60,6 +63,7 @@ public abstract class BaseWeapon : MonoBehaviour
 
     // Shoot a bullet
     public abstract void Shoot(float dmgMod);
+    protected abstract void PlayMySoundEffect();
 
     // Each child manages display independently
     protected abstract void DisplayUp();
@@ -68,6 +72,8 @@ public abstract class BaseWeapon : MonoBehaviour
     // Sets a new holder for the weapon
     public void Pickedup(PlayerStateMachine player)
     {
+        sc.playPickupWeaponSoundEffect();
+
         trig.enabled = false;
         this._holder = player;
         this.transform.parent = player.transform;

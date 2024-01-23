@@ -7,11 +7,14 @@ public class Cannon : MonoBehaviour
     // VARIABLES:
     public GameObject CannonBullet;
     private GameObject empty;
+    private SoundControllerScript sc;
 
     public float Speed;
 
     private void Awake()
     {
+        sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
+
         // preserve the bullets absolute proportions
         empty = GameObject.FindGameObjectWithTag("Empty");
         if (empty == null)
@@ -20,6 +23,7 @@ public class Cannon : MonoBehaviour
 
     public void Shoot(Vector2 shootingVector)
     {
+        sc.playEnergyProjectileShotSoundEffect();
         GameObject go = Instantiate(CannonBullet,
                                     this.transform.position,
                                     empty.transform.rotation,

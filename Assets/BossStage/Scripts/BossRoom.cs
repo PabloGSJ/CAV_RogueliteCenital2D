@@ -10,6 +10,7 @@ public class BossRoom : MonoBehaviour
     public GameObject cat;
     public GameObject wincanvas;
     public Animator transition;
+    private SoundControllerScript sc;
 
     private const int PlayerLayer = 6;
     private const int PlayerDashingLayer = 14;
@@ -21,6 +22,7 @@ public class BossRoom : MonoBehaviour
     private void Awake()
     {
         cmvcam.Follow = GameObject.FindGameObjectWithTag("Player").transform;
+        sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
         Door.SetActive(false);
         _doorClosed = false;
         cat.SetActive(false);
@@ -31,6 +33,8 @@ public class BossRoom : MonoBehaviour
     {
         if(other.gameObject.tag.CompareTo("Player") == 0) // PlayerLayer
         {
+            sc.playEvilLaughSoundEffect();
+
             cmvcam.Follow = this.transform;
             Door.SetActive(true);
             _doorClosed = true;

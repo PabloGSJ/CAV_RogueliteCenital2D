@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class GroundBullet : BaseConsumables
 {
-    protected override void PlaySound()
-    {
-        // TODO: play correct sound from sc
-    }
-
     public override void UseConsumable(PlayerStateMachine player)
     {
+        sc.playBulletsGroundSoundEffect();
+
         if (player.NumBullets < player.MaxPBullets)
             player.NumBullets++;
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossBulletGiant : BaseBullet
 {
     public Rigidbody2D rb;
+    private SoundControllerScript sc;
 
     // Invulnerability
     private const int GhostBulletLayer = 20;
@@ -25,6 +26,8 @@ public class BossBulletGiant : BaseBullet
 
     private void Awake()
     {
+        sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
+
         _counter = 0;
         _angle = 0;
         _iCounter = GhostTime;
@@ -69,6 +72,8 @@ public class BossBulletGiant : BaseBullet
 
     public void Shoot(Vector2 shootingVector)
     {
+        sc.playEnergyProjectileShotSoundEffect();
+
         GameObject go = Instantiate(Bullet,
                                     this.transform.position,
                                     this.transform.rotation) as GameObject;
