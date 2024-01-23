@@ -13,7 +13,7 @@ public class Heart : BaseConsumables
     {
         if (player.Health < player.MaxHealth)
         {
-            player.Health++;
+            player.Health += 2;
         }
     }
 }

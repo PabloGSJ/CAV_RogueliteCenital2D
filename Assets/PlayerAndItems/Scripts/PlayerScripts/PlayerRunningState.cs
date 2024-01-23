@@ -9,7 +9,7 @@ public class PlayerRunningState : PlayerBaseState
 
     public override void EnterState()
     {
-
+        _ctx.a.SetBool(_ctx.AnimIsMoving, true);
     }
 
     public override void UpdateState()
@@ -18,11 +18,26 @@ public class PlayerRunningState : PlayerBaseState
 
         // move the player through the velocity variable
         _ctx.rb.velocity = _ctx.MovementVector * _ctx.Speed * Time.fixedDeltaTime;
+
+        if (_ctx.MovementVector.x < 0)
+        {
+            // facing left
+            _ctx.pr.transform.localScale = new Vector3(_ctx.gameObject.transform.localScale.x * -1,
+                                                       _ctx.gameObject.transform.localScale.y,
+                                                       _ctx.gameObject.transform.localScale.z);
+        }
+        else
+        {
+            // facing right
+            _ctx.pr.transform.localScale = new Vector3(_ctx.gameObject.transform.localScale.x * 1,
+                                                       _ctx.gameObject.transform.localScale.y,
+                                                       _ctx.gameObject.transform.localScale.z);
+        }
     }
 
     public override void ExitState()
     {
-
+        _ctx.a.SetBool(_ctx.AnimIsMoving, false);
     }
 
     public override void CheckSwitchStates()
@@ -34,10 +49,6 @@ public class PlayerRunningState : PlayerBaseState
         else if (_ctx.IsDashing)
         {
             SwitchState(_factory.Dashing());
-        }
-        else if (_ctx.IsDamaged)
-        {
-            SwitchState(_factory.Damaged());
         }
     }
 

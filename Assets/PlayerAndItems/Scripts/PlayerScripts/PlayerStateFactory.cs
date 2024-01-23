@@ -21,9 +21,4 @@ public class PlayerStateFactory
     {
         return new PlayerDashingState(_context, this);
     }
-
-    public PlayerBaseState Damaged()
-    {
-        return new PlayerDamagedState(_context, this);
-    }
 }

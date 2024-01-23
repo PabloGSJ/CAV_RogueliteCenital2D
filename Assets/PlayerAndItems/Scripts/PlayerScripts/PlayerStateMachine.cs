@@ -20,17 +20,24 @@ public class PlayerStateMachine : MonoBehaviour
     private DisplayManager ui;
     public SpriteRenderer sr;
     public SpriteRenderer e;
+    public Animator a;
+    public GameObject pr;
+    private SoundControllerScript sc;
 
-    private const int PlayerLayer = 6;
-    private const int Consumables = 9;
-    private const int WeaponsLayer = 10;
-    private const int EnemiesLayer = 11;
-    private const int EnemyBulletsLayer = 12;
-    private const int ShopItemsLayer = 13;
-    private const int PlayerDashingLayer = 14;
-    private const int GMLayer = 15;
-    private const int ClassSelectorLayer = 16;
-    private const int ChestLayer = 17;
+    private const int PlayerLayer           = 6;
+    private const int Consumables           = 9;
+    private const int WeaponsLayer          = 10;
+    private const int EnemiesLayer          = 11;
+    private const int EnemyBulletsLayer     = 12;
+    private const int ShopItemsLayer        = 13;
+    private const int PlayerDashingLayer    = 14;
+    private const int GMLayer               = 15;
+    private const int ClassSelectorLayer    = 16;
+    private const int ChestLayer            = 17;
+
+    private const string AIsMoving    = "IsMoving";
+    private const string AIsDashing   = "IsDashing";
+    private const string AIsDead      = "IsDead";
 
     // Statistics variables
     public int MaxHealth = 10;  // constant
@@ -54,6 +61,7 @@ public class PlayerStateMachine : MonoBehaviour
     private int _numBullets = 99;
     private float _dmgMod = 0;
     private bool _isDamaged = false;
+    private float _isDamagedCounter;
     public float InvulnerableTime;
 
     // Actions variables
@@ -73,6 +81,10 @@ public class PlayerStateMachine : MonoBehaviour
     public int Coins { get { return _coins; } set { _coins = value; } }
     public int NumBullets { get { return _numBullets; } set { _numBullets = value; } }
     public bool IsDamaged { get { return _isDamaged; } }
+    public string AnimIsMoving { get { return AIsMoving; } }
+    public string AnimIsDashing { get { return AIsDashing; } }
+    public string AnimIsDead { get { return AIsDead; } }
+    public SoundControllerScript SoundController { get { return sc; } }
 
 
     // INPUT HANDLERS:
@@ -116,6 +128,10 @@ public class PlayerStateMachine : MonoBehaviour
         _states = new PlayerStateFactory(this);
         _currentState = _states.Running();
         _currentState.EnterState();
+        a.SetBool(AIsMoving, false);
+        a.SetBool(AIsDashing, false);
+        a.SetBool(AIsDead, false);
+
 
         // setup logic manager
         ui = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<DisplayManager>();
@@ -123,8 +139,10 @@ public class PlayerStateMachine : MonoBehaviour
         ui.EnableWeaponNBullets(false);
         ui.DisplayNewPCoins(_coins);
         ui.MaxHealth = this.MaxHealth;
+        this.Health = this.MaxHealth;
         ui.ActiveHearts = 5;
         ui.DisplayNewHealth(Health);
+        _isDamagedCounter = InvulnerableTime;
 
         // setup input system
         _input = new PlayerInput();
@@ -162,7 +180,14 @@ public class PlayerStateMachine : MonoBehaviour
         {
             Debug.LogError("PLAYER: \"Empty\" game object not found");
         }
-        
+
+        // get the sound controller
+        sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
+        if (sc == null)
+        {
+            Debug.LogError("PLAYER: Sound controller not found");
+        }
+
     }
 
     // setup input system
@@ -185,12 +210,28 @@ public class PlayerStateMachine : MonoBehaviour
         if (!_dashing && _dashCooldownCounter > 0)
         {
             _dashCooldownCounter -= Time.deltaTime;
-            ui.EnableDashCooldown(true);
-            ui.DisplayNewDashCooldown(_dashCooldownCounter);
         }
-        else
+
+        if (_isDamaged)
         {
-            ui.EnableDashCooldown(false);
+            // player damaged
+            _isDamagedCounter -= Time.deltaTime;
+
+            SwitchPlayerToDashLayer(true);
+            sr.color = Color.gray;
+
+            if (_isDamagedCounter <= 0)
+            {
+                // player no longer damaged
+                _isDamagedCounter = InvulnerableTime;
+                sr.color = Color.white;
+
+                if (!_dashing)
+                {
+                    _isDamaged = false;
+                    SwitchPlayerToDashLayer(false);
+                }
+            }
         }
     }
 
@@ -207,7 +248,6 @@ public class PlayerStateMachine : MonoBehaviour
         {
             case EnemiesLayer:
             case EnemyBulletsLayer:
-                _isDamaged = true;
                 break;
             default:
                 break;
@@ -302,6 +342,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
+        sc.playPlayerDamagedSoundEffect();
+
         Health -= damageTaken;
         if (Health <= 0)
         {
@@ -309,6 +351,7 @@ public class PlayerStateMachine : MonoBehaviour
             ui.DisplayNewHealth(0);
             Destroy(gameObject);
         }
+        _isDamaged = true;
         ui.DisplayNewHealth(Health);
     }
 
@@ -349,11 +392,6 @@ public class PlayerStateMachine : MonoBehaviour
         ui.DisplayNewPNBullets(_numBullets);
     }
 
-    public void ResetDamage()
-    {
-        _isDamaged = false;
-    }
-
     public void ResetDash()
     {
         _dashing = false;
@@ -364,6 +402,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         if (switchToDashLayer)
         {
+            
             this.gameObject.layer = PlayerDashingLayer;
         }
         else
