@@ -107,13 +107,12 @@ public class BossStateMachine : MonoBehaviour
     public void TakeDamage(int damageTaken)
     {
         Health -= damageTaken;
+        ui.DisplayNewBossHealth(Health);
         if (Health <= 0)
         {
             // die
             ui.DisplayNewBossHealth(0);
-            Destroy(gameObject);
         }
-        ui.DisplayNewBossHealth(Health);
     }
 
     public void SwitchBossToInvulnerableLayer(bool switchToInvulnerableLayer)

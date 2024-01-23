@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 223585407936221917}
   - component: {fileID: 3424358198318613804}
   m_Layer: 8
-  m_Name: CrowbarSlash
+  m_Name: KnucledusterSlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.75, y: 2.75, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6372761015047463503}
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42cd5e9687387724c8488c0c9639ad49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseDamage: 2
+  BaseDamage: 1
   TTL: 0.3
 --- !u!114 &1288489827297646516
 MonoBehaviour:

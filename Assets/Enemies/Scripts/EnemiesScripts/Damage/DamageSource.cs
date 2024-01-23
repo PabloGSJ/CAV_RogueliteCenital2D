@@ -11,5 +11,10 @@ public class DamageSource : MonoBehaviour
             EnemyHealth enemyHealt = other.gameObject.GetComponent<EnemyHealth>();
             enemyHealt.TakeDamage(damageAmount);
         }
+        else if (other.gameObject.GetComponent<BossStateMachine>())
+        {
+            BossStateMachine bossStateMachine = other.gameObject.GetComponent<BossStateMachine>();
+            bossStateMachine.TakeDamage(damageAmount);
+        }
     }
 }
