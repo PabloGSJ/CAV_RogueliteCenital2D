@@ -45986,6 +45986,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1626353810}
   bulletSpeed: 10
   firingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+<<<<<<< HEAD
+  health: 8
+=======
+>>>>>>> GameRelease
 --- !u!50 &1005800156
 Rigidbody2D:
   serializedVersion: 4
@@ -46070,7 +46074,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91991b5371613644afd882d3cca91d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+  moveDuration: 1
+  shootDuration: 2
+  bulletPrefab: {fileID: 1626353810}
+  bulletSpeed: 10
+  margin: 150
+  firingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  health: 100
+=======
   damage: 1
+>>>>>>> GameRelease
 --- !u!1 &1089073202
 GameObject:
   m_ObjectHideFlags: 0
