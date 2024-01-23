@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -2455966839398180059}
   m_Layer: 0
   m_Name: SoundControl
-  m_TagString: Untagged
+  m_TagString: Empty
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,5 +44,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3086e24df6576946850b33e68f1878b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinSound: {fileID: 3054993872894069701, guid: 28f6cd4fc8bf3c94ca2f595dffd095bb, type: 3}
-  heartSound: {fileID: 0}
