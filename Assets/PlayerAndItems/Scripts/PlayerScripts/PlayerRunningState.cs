@@ -52,6 +52,10 @@ public class PlayerRunningState : PlayerBaseState
         {
             SwitchState(_factory.Dashing());
         }
+        else if (_ctx.IsDead)
+        {
+            SwitchState(_factory.Dead());
+        }
     }
 
     public override void InitializeSubState()

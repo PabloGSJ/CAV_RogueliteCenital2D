@@ -23,6 +23,10 @@ public class PlayerStateMachine : MonoBehaviour
     public Animator a;
     public GameObject pr;
     private SoundControllerScript sc;
+    public GameObject gameOverCanvas;
+    public Animator gameOverAnim;
+    public GameObject pauseMenuCanvas;
+    private bool _isPaused;
 
     private const int PlayerLayer           = 6;
     private const int WallsLayer            = 7;
@@ -64,6 +68,7 @@ public class PlayerStateMachine : MonoBehaviour
     private bool _isDamaged = false;
     private float _isDamagedCounter;
     public float InvulnerableTime;
+    private bool _isDead;
 
     // Actions variables
     private bool _interacted;
@@ -86,6 +91,7 @@ public class PlayerStateMachine : MonoBehaviour
     public string AnimIsDashing { get { return AIsDashing; } }
     public string AnimIsDead { get { return AIsDead; } }
     public SoundControllerScript SoundController { get { return sc; } }
+    public bool IsDead { get { return _isDead; } }
 
 
     // INPUT HANDLERS:
@@ -105,7 +111,7 @@ public class PlayerStateMachine : MonoBehaviour
     private void OnShoot(InputAction.CallbackContext context)
     {
         context.action.GetBindingForControl(context.control);
-        if (context.ReadValueAsButton() && Weapon != null)
+        if (context.ReadValueAsButton() && Weapon != null && !_isPaused)
         {
             Weapon.Shoot(_dmgMod);
         }
@@ -116,6 +122,24 @@ public class PlayerStateMachine : MonoBehaviour
         if (_dashCooldownCounter <= 0)
         {
             _dashing = true;
+        }
+    }
+
+    private void OnPause(InputAction.CallbackContext context)
+    {
+        if (_isPaused)
+        {
+            // unpause
+            pauseMenuCanvas.SetActive(false);
+            Time.timeScale = 1;
+            _isPaused = false;
+        }
+        else
+        {
+            // pause
+            Time.timeScale = 0;
+            pauseMenuCanvas.SetActive(true);
+            _isPaused = true;
         }
     }
 
@@ -147,6 +171,8 @@ public class PlayerStateMachine : MonoBehaviour
         }
 
         // setup state
+        _isDead = false;
+        _isPaused = false;
         _states = new PlayerStateFactory(this);
         _currentState = _states.Running();
         _currentState.EnterState();
@@ -154,6 +180,9 @@ public class PlayerStateMachine : MonoBehaviour
         a.SetBool(AIsDashing, false);
         a.SetBool(AIsDead, false);
 
+        // Setup canvases
+        gameOverCanvas.SetActive(false);
+        pauseMenuCanvas.SetActive(false);
 
         // setup logic manager
         ui = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<DisplayManager>();
@@ -176,6 +205,7 @@ public class PlayerStateMachine : MonoBehaviour
         _input.Gameplay.Shooting.canceled += OnShoot;
         _input.Gameplay.Dash.performed += OnDash;
         _input.Gameplay.Dash.canceled += OnDash;
+        _input.Gameplay.Pause.performed += OnPause;
 
         // setup default weapon
         GameObject go = Instantiate(DefaultWeapon,
@@ -312,7 +342,11 @@ public class PlayerStateMachine : MonoBehaviour
 
                 case ChestLayer:
                     Chest chest = collision.gameObject.GetComponent<Chest>();
-                    chest.OpenChest(this);
+                    BaseGM gm = chest.OpenChest(this);
+                    if (gm != null)
+                    {
+                        
+                    }
                     break;
 
                 default:
@@ -352,9 +386,7 @@ public class PlayerStateMachine : MonoBehaviour
         {
             // die
             ui.DisplayNewHealth(0);
-            sc.playGameOverTuneSoundEffect();
-            a.SetBool(AIsDead, true);
-            Time.timeScale = 0;
+            _isDead = true;
         }
         _isDamaged = true;
         ui.DisplayNewHealth(Health);
@@ -415,5 +447,15 @@ public class PlayerStateMachine : MonoBehaviour
         {
             this.gameObject.layer = PlayerLayer;
         }
+    }
+
+    public void Wait(float seconds)
+    {
+        StartCoroutine(wait(seconds));
+    }
+
+    private IEnumerator wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
 }

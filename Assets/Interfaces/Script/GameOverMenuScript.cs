@@ -7,5 +7,6 @@ public class GameOverMenuScript : MonoBehaviour
     public void TryAgain()
     {
         //SceneManager.LoadScene()
+        Debug.Log("I work!");
     }
 }

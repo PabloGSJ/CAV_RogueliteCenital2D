@@ -24,7 +24,7 @@ public class Chest : MonoBehaviour
     }
 
     // called when opening the chest
-    public void OpenChest(PlayerStateMachine player)
+    public BaseGM OpenChest(PlayerStateMachine player)
     {
         sc.playChestOpenSoundEffect();
 
@@ -38,11 +38,13 @@ public class Chest : MonoBehaviour
                                 this.transform.position.z),
                     this.transform.rotation);
 
-        
+        BaseGM gm = null;
         if (Random.Range(0, 100) < 50)
         {
             // Give game modifier
-            // TODO
+            
         }
+
+        return gm;
     }
 }

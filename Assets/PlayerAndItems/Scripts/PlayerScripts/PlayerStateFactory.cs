@@ -21,4 +21,9 @@ public class PlayerStateFactory
     {
         return new PlayerDashingState(_context, this);
     }
+
+    public PlayerBaseState Dead()
+    {
+        return new PlayerDeadState(_context, this);
+    }
 }
