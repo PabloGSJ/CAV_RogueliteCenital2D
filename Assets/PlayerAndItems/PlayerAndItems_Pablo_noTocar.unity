@@ -4948,9 +4948,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3271475334269069216, guid: 7e57fcacae3a75342b96c2ef2891ba6d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3645336022860634789, guid: 7e57fcacae3a75342b96c2ef2891ba6d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7255628507382142712, guid: 7e57fcacae3a75342b96c2ef2891ba6d, type: 3}
       propertyPath: m_IsActive
@@ -4962,7 +4966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7562413847891125928, guid: 7e57fcacae3a75342b96c2ef2891ba6d, type: 3}
       propertyPath: gms.Array.size
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7562413847891125928, guid: 7e57fcacae3a75342b96c2ef2891ba6d, type: 3}
       propertyPath: gms.Array.data[0]
@@ -4989,7 +4993,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 402476749764721323, guid: 7e57fcacae3a75342b96c2ef2891ba6d, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2933080019284327569, guid: 7e57fcacae3a75342b96c2ef2891ba6d, type: 3}
       insertIndex: 1

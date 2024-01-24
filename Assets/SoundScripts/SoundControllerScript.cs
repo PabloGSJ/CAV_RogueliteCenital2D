@@ -97,7 +97,7 @@ public class SoundControllerScript : MonoBehaviour
     }
     public void playPickupWeaponSoundEffect() 
     {
-        //pickupWeaponSound.Play();   
+        pickupWeaponSound.Play();   
     }
     public void playBulletImpactSoundEffect() 
     { 

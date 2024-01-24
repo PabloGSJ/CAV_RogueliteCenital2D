@@ -152,7 +152,7 @@ public class PlayerStateMachine : MonoBehaviour
     // MONO BEHABIOUR FUNCTIONS:
 
     // Setup player systems
-    private void Awake()            // called earlier thant Start()
+    private void Start()            // called last during initialization
     {
         // get the camera
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -200,18 +200,6 @@ public class PlayerStateMachine : MonoBehaviour
         ui.DisplayNewHealth(Health);
         _isDamagedCounter = InvulnerableTime;
 
-        // setup input system
-        _input = new PlayerInput();
-        _input.Gameplay.Movement.performed += OnMovement;
-        _input.Gameplay.Movement.canceled += OnMovement;
-        _input.Gameplay.Interact.performed += OnInteract;
-        _input.Gameplay.Interact.canceled += OnInteract;
-        _input.Gameplay.Shooting.performed += OnShoot;
-        _input.Gameplay.Shooting.canceled += OnShoot;
-        _input.Gameplay.Dash.performed += OnDash;
-        _input.Gameplay.Dash.canceled += OnDash;
-        _input.Gameplay.Pause.performed += OnPause;
-
         // setup default weapon
         GameObject go = Instantiate(DefaultWeapon,
                                     new Vector3(transform.position.x,
@@ -223,6 +211,21 @@ public class PlayerStateMachine : MonoBehaviour
 
         // setup dash
         _dashCooldownCounter = 0;
+    }
+
+    private void Awake()
+    {
+        // setup input system
+        _input = new PlayerInput();
+        _input.Gameplay.Movement.performed += OnMovement;
+        _input.Gameplay.Movement.canceled += OnMovement;
+        _input.Gameplay.Interact.performed += OnInteract;
+        _input.Gameplay.Interact.canceled += OnInteract;
+        _input.Gameplay.Shooting.performed += OnShoot;
+        _input.Gameplay.Shooting.canceled += OnShoot;
+        _input.Gameplay.Dash.performed += OnDash;
+        _input.Gameplay.Dash.canceled += OnDash;
+        _input.Gameplay.Pause.performed += OnPause;
     }
 
     // setup input system
