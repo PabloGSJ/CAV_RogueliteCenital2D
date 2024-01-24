@@ -27,6 +27,7 @@ public class PlayerStateMachine : MonoBehaviour
     public Animator gameOverAnim;
     public GameObject pauseMenuCanvas;
     private bool _isPaused;
+    public BaseGM[] gms;
 
     private const int PlayerLayer           = 6;
     private const int WallsLayer            = 7;
@@ -77,6 +78,9 @@ public class PlayerStateMachine : MonoBehaviour
     PlayerBaseState _currentState;
     PlayerStateFactory _states;
 
+    // GM variables
+    private int _damageModifier = 1;
+
     // getters-setters
     public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
     public bool IsInteracting { get { return _interacted; } }
@@ -92,6 +96,7 @@ public class PlayerStateMachine : MonoBehaviour
     public string AnimIsDead { get { return AIsDead; } }
     public SoundControllerScript SoundController { get { return sc; } }
     public bool IsDead { get { return _isDead; } }
+    public int DamageModifier { set { _damageModifier = value; } }
 
 
     // INPUT HANDLERS:
@@ -342,10 +347,12 @@ public class PlayerStateMachine : MonoBehaviour
 
                 case ChestLayer:
                     Chest chest = collision.gameObject.GetComponent<Chest>();
-                    BaseGM gm = chest.OpenChest(this);
-                    if (gm != null)
+                    int gmid = chest.OpenChest(this);
+                    if (gmid != -1)
                     {
-                        
+                        gms[gmid].UseGM(this);
+                        _coins += 10;
+                        _numBullets += 25;
                     }
                     break;
 
@@ -381,7 +388,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
-        Health -= damageTaken;
+        Health -= (damageTaken * _damageModifier);
         if (Health <= 0)
         {
             // die
@@ -428,6 +435,17 @@ public class PlayerStateMachine : MonoBehaviour
         ui.DisplayNewHealth(Health);
         ui.DisplayNewPCoins(_coins);
         ui.DisplayNewPNBullets(_numBullets);
+    }
+
+    public void UpdateMaxHealth()
+    {
+        ui.ActiveHearts = MaxHealth / ui.HealthPerHeart;
+
+        if (Health > MaxHealth)
+        {
+            Health = MaxHealth;
+        }
+        ui.DisplayNewHealth(Health);
     }
 
     public void ResetDash()

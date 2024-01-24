@@ -13,7 +13,7 @@ public class Chest : MonoBehaviour
     private const int Closed = 0;
 
     public GameObject[] possibleWeapons;
-    public GameObject[] possibleGameModifiers;
+    public int MaxGMS;
 
 
     private void Awake()
@@ -24,7 +24,7 @@ public class Chest : MonoBehaviour
     }
 
     // called when opening the chest
-    public BaseGM OpenChest(PlayerStateMachine player)
+    public int OpenChest(PlayerStateMachine player)
     {
         sc.playChestOpenSoundEffect();
 
@@ -38,13 +38,12 @@ public class Chest : MonoBehaviour
                                 this.transform.position.z),
                     this.transform.rotation);
 
-        BaseGM gm = null;
+        int gmid = -1;
         if (Random.Range(0, 100) < 50)
         {
-            // Give game modifier
-            
+            gmid = Random.Range(0, MaxGMS);
         }
-
-        return gm;
+        gmid = 0;
+        return gmid;
     }
 }

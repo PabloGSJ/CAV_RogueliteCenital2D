@@ -19,9 +19,9 @@ public class DisplayManager : MonoBehaviour
     private const int Full = 0;
     public int MaxHealth;
     private int _activeHearts;
-    private const int HealthPerHeart = 2;
+    public int HealthPerHeart = 2;
 
-    public int ActiveHearts { set { _activeHearts = value; } }
+    public int ActiveHearts { get { return _activeHearts; } set { _activeHearts = value; } }
 
     public void DisplayNewHealth(int newHealth)
     {
