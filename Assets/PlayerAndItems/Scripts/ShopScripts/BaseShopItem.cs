@@ -26,6 +26,7 @@ public abstract class BaseShopItem : MonoBehaviour
     {
         sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
 
+        Item = DecideShopItem();
         _soldItem = Instantiate(Item,
                                 new Vector3(this.transform.position.x,
                                             this.transform.position.y,
@@ -43,6 +44,9 @@ public abstract class BaseShopItem : MonoBehaviour
 
 
     // AUXILIARY FUNCTIONS DECLARATIONS:
+
+    // only makes sense in ShopItemWeapon
+    protected abstract GameObject DecideShopItem();
 
     // Ask if the item can be bought with the coins provided
     public bool TryBuy(int coins)
