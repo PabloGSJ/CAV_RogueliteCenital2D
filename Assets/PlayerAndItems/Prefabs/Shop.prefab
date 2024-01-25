@@ -273,7 +273,7 @@ MonoBehaviour:
   mycoll: {fileID: 4892554677377902455}
   sr: {fileID: 4555574786993610265}
   Item: {fileID: 8143044070160544798, guid: 76911c0fc3e027541adcca2ea9b80bf0, type: 3}
-  Price: 5
+  Price: 10
 --- !u!212 &4555574786993610265
 SpriteRenderer:
   m_ObjectHideFlags: 0
