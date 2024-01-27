@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SoundControllerScript : MonoBehaviour
 {
+    //SoundEffects
     private AudioSource coinSound;
     private AudioSource heartSound;
     private AudioSource healthPotionSound;
@@ -27,6 +28,17 @@ public class SoundControllerScript : MonoBehaviour
     private AudioSource carStartingSound;
     private AudioSource evilLaughSound;
     private AudioSource pickupBulletsSound;
+    private AudioSource enemyDeathSound;
+    private AudioSource enemyAttackSound;
+
+    //Music
+    private AudioSource forestMusic;
+    private AudioSource cityMusic;
+    private AudioSource houseMusic;
+    private AudioSource sewersMusic;
+    private AudioSource airMusic;
+    private AudioSource bossMusic;
+    private AudioSource mainMenuMusic;
 
 
     public void Awake()
@@ -53,7 +65,18 @@ public class SoundControllerScript : MonoBehaviour
         carStartingSound = GameObject.Find("CarStartingSound").GetComponent<AudioSource>();
         evilLaughSound = GameObject.Find("EvilLaughSound").GetComponent<AudioSource>();
         pickupBulletsSound = GameObject.Find("PickupBulletsSound").GetComponent<AudioSource>();
+        enemyDeathSound = GameObject.Find("EnemyDeathSound").GetComponent<AudioSource>();
+        enemyAttackSound = GameObject.Find("EnemyAttackSound").GetComponent<AudioSource>();
 
+
+        //Music
+        forestMusic = GameObject.Find("ForestMusic").GetComponent<AudioSource>();
+        cityMusic = GameObject.Find("CityMusic").GetComponent<AudioSource>();
+        houseMusic = GameObject.Find("HouseMusic").GetComponent<AudioSource>();
+        sewersMusic = GameObject.Find("SewersMusic").GetComponent<AudioSource>();
+        airMusic = GameObject.Find("AirMusic").GetComponent<AudioSource>();
+        bossMusic = GameObject.Find("BossMusic").GetComponent<AudioSource>();
+        mainMenuMusic = GameObject.Find("MainMenuMusic").GetComponent<AudioSource>();
     }
 
     // PLAYER
@@ -176,4 +199,73 @@ public class SoundControllerScript : MonoBehaviour
     }
 
     // more may come in the future, when the boss is finished
+
+    //Common Enmies
+    public void playEnemyDeathSound()
+    {
+        enemyDeathSound.Play();
+    }
+
+    public void playEnemyAttackSound()
+    {
+        enemyAttackSound.Play();
+    }
+
+    //Music 
+    public void playForestMusic()
+    {
+        forestMusic.Play();
+    }
+    public void stopForestMusic()
+    {
+        forestMusic.Stop();
+    }
+    public void playCityMusic()
+    {
+        cityMusic.Play();
+    }
+    public void stopCityMusic()
+    {
+        cityMusic.Stop();
+    }
+    public void playSewersMusic()
+    {
+        sewersMusic.Play();
+    }
+    public void stopSewersMusic()
+    {
+        sewersMusic.Stop();
+    }
+    public void playHouseMusic()
+    {
+        houseMusic.Play();
+    }
+    public void stopHouseMusic()
+    {
+        houseMusic.Stop();
+    }
+    public void playAirMusic()
+    {
+        airMusic.Play();
+    }
+    public void stopAirMusic()
+    {
+        airMusic.Stop();
+    }
+    public void playBossMusic()
+    {
+        bossMusic.Play();   
+    }
+    public void stopBossMusic()
+    {
+        bossMusic.Stop();
+    }
+    public void playMainMenuMusic()
+    {
+        mainMenuMusic.Play();
+    }
+    public void StopMainMenuMusic()
+    {
+        mainMenuMusic.Stop();
+    }
 }
