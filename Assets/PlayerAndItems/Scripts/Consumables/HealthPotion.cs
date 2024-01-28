@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class HealthPotion : BaseConsumables
 { 
-    protected override void PlaySound()
-    {
-        sc.playHealthPotionSoundEffect();
-    }
-
     public override void UseConsumable(PlayerStateMachine player)
     {
+        sc.playHealthPotionSoundEffect();
+
         Debug.Log("consumed potion");
         player.Health = player.MaxHealth;
     }

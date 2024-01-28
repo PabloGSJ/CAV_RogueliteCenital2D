@@ -9,7 +9,7 @@ public class PlayerIdleState : PlayerBaseState
 
     public override void EnterState()
     {
-
+        
     }
 
     public override void UpdateState()
@@ -32,9 +32,9 @@ public class PlayerIdleState : PlayerBaseState
         {
             SwitchState(_factory.Dashing());
         }
-        else if (_ctx.IsDamaged)
+        else if (_ctx.IsDead)
         {
-            SwitchState(_factory.Damaged());
+            SwitchState(_factory.Dead());
         }
     }
 

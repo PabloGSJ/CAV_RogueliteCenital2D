@@ -4,13 +4,16 @@ using UnityEngine;
 
 public abstract class BaseConsumables : MonoBehaviour
 {
-    public SoundControllerScript sc;
+    protected SoundControllerScript sc;
 
     public abstract void UseConsumable(PlayerStateMachine player);
 
-    protected abstract void PlaySound();
-
     public void Start()
+    {
+        sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
+    }
+
+    private void Awake()
     {
         sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
     }
@@ -21,7 +24,6 @@ public abstract class BaseConsumables : MonoBehaviour
         if (player != null)
         {
             UseConsumable(player);
-            PlaySound();
             Debug.Log("Picked me up");
             Destroy(gameObject);
         }

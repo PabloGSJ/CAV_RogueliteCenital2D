@@ -45877,7 +45877,7 @@ MonoBehaviour:
   bullet: {fileID: 1457892809}
   bulletLife: 10
   speed: 10
-  spawnerType: 1
+  spawnerType: 0
   firingRate: 0.1
 --- !u!212 &1005800151
 SpriteRenderer:
@@ -45986,6 +45986,10 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1626353810}
   bulletSpeed: 10
   firingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+<<<<<<< HEAD
+  health: 8
+=======
+>>>>>>> GameRelease
 --- !u!50 &1005800156
 Rigidbody2D:
   serializedVersion: 4
@@ -46070,7 +46074,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91991b5371613644afd882d3cca91d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+  moveDuration: 1
+  shootDuration: 2
+  bulletPrefab: {fileID: 1626353810}
+  bulletSpeed: 10
+  margin: 150
+  firingColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  health: 100
+=======
   damage: 1
+>>>>>>> GameRelease
 --- !u!1 &1089073202
 GameObject:
   m_ObjectHideFlags: 0
@@ -47273,7 +47287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1358984885}
   cam: {fileID: 1590231417}
-  myc: {fileID: 0}
+  sr: {fileID: 0}
   MaxHealth: 10
   Health: 10
   MaxCoins: 99
@@ -47284,7 +47298,7 @@ MonoBehaviour:
   Weapon: {fileID: 0}
   DefaultWeapon: {fileID: 8143044070160544798, guid: d77a9cf7f3d0c3c4abf46871c2a80b78, type: 3}
   MaxPBullets: 99
-  damage: 1
+  InvulnerableTime: 0
 --- !u!50 &1358984885
 Rigidbody2D:
   serializedVersion: 4

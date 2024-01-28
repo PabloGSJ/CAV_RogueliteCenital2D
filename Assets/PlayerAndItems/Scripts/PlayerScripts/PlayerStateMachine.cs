@@ -14,20 +14,36 @@ public class PlayerStateMachine : MonoBehaviour
     // CONTEXT:
 
     public Rigidbody2D rb;
-    public Camera cam;
+    private Camera cam;
     private PlayerInput _input;
     private Vector2 _mousePos;
     private DisplayManager ui;
     public SpriteRenderer sr;
+    public SpriteRenderer e;
+    public Animator a;
+    public GameObject pr;
+    private SoundControllerScript sc;
+    public GameObject gameOverCanvas;
+    public Animator gameOverAnim;
+    public GameObject pauseMenuCanvas;
+    private bool _isPaused;
+    public BaseGM[] gms;
 
-    public const int PlayerLayer = 6;
-    public const int Consumables = 9;
-    public const int WeaponsLayer = 10;
-    public const int EnemiesLayer = 11;
-    public const int EnemyBulletsLayer = 12;
-    public const int ShopItemsLayer = 13;
-    public const int PlayerDashingLayer = 14;
-    public const int GMLayer = 15;
+    private const int PlayerLayer           = 6;
+    private const int WallsLayer            = 7;
+    private const int Consumables           = 9;
+    private const int WeaponsLayer          = 10;
+    private const int EnemiesLayer          = 11;
+    private const int EnemyBulletsLayer     = 12;
+    private const int ShopItemsLayer        = 13;
+    private const int PlayerDashingLayer    = 14;
+    private const int GMLayer               = 15;
+    private const int ClassSelectorLayer    = 16;
+    private const int ChestLayer            = 17;
+
+    private const string AIsMoving    = "IsMoving";
+    private const string AIsDashing   = "IsDashing";
+    private const string AIsDead      = "IsDead";
 
     // Statistics variables
     public int MaxHealth = 10;  // constant
@@ -51,7 +67,9 @@ public class PlayerStateMachine : MonoBehaviour
     private int _numBullets = 99;
     private float _dmgMod = 0;
     private bool _isDamaged = false;
+    private float _isDamagedCounter;
     public float InvulnerableTime;
+    private bool _isDead;
 
     // Actions variables
     private bool _interacted;
@@ -59,6 +77,9 @@ public class PlayerStateMachine : MonoBehaviour
     // States variables
     PlayerBaseState _currentState;
     PlayerStateFactory _states;
+
+    // GM variables
+    private int _damageModifier = 1;
 
     // getters-setters
     public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
@@ -70,6 +91,12 @@ public class PlayerStateMachine : MonoBehaviour
     public int Coins { get { return _coins; } set { _coins = value; } }
     public int NumBullets { get { return _numBullets; } set { _numBullets = value; } }
     public bool IsDamaged { get { return _isDamaged; } }
+    public string AnimIsMoving { get { return AIsMoving; } }
+    public string AnimIsDashing { get { return AIsDashing; } }
+    public string AnimIsDead { get { return AIsDead; } }
+    public SoundControllerScript SoundController { get { return sc; } }
+    public bool IsDead { get { return _isDead; } }
+    public int DamageModifier { set { _damageModifier = value; } }
 
 
     // INPUT HANDLERS:
@@ -89,7 +116,7 @@ public class PlayerStateMachine : MonoBehaviour
     private void OnShoot(InputAction.CallbackContext context)
     {
         context.action.GetBindingForControl(context.control);
-        if (context.ReadValueAsButton() && Weapon != null)
+        if (context.ReadValueAsButton() && Weapon != null && !_isPaused)
         {
             Weapon.Shoot(_dmgMod);
         }
@@ -103,35 +130,75 @@ public class PlayerStateMachine : MonoBehaviour
         }
     }
 
+    private void OnPause(InputAction.CallbackContext context)
+    {
+        if (_isPaused)
+        {
+            // unpause
+            pauseMenuCanvas.SetActive(false);
+            Time.timeScale = 1;
+            _isPaused = false;
+        }
+        else
+        {
+            // pause
+            Time.timeScale = 0;
+            pauseMenuCanvas.SetActive(true);
+            _isPaused = true;
+        }
+    }
+
 
     // MONO BEHABIOUR FUNCTIONS:
 
     // Setup player systems
-    private void Awake()            // called earlier thant Start()
+    private void Start()            // called last during initialization
     {
+        // get the camera
+        cam = GameObject.Find("Main Camera").GetComponent<Camera>();
+        if (cam == null)
+        {
+            Debug.LogError("PLAYER: Camera not found");
+        }
+
+        // check that there is a proper EMPTY game object for the bullets
+        GameObject empty = GameObject.FindGameObjectWithTag("Empty");
+        if (empty == null)
+        {
+            Debug.LogError("PLAYER: \"Empty\" game object not found");
+        }
+
+        // get the sound controller
+        sc = GameObject.FindGameObjectWithTag("SoundControl").GetComponent<SoundControllerScript>();
+        if (sc == null)
+        {
+            Debug.LogError("PLAYER: Sound controller not found");
+        }
+
         // setup state
+        _isDead = false;
+        _isPaused = false;
         _states = new PlayerStateFactory(this);
         _currentState = _states.Running();
         _currentState.EnterState();
+        a.SetBool(AIsMoving, false);
+        a.SetBool(AIsDashing, false);
+        a.SetBool(AIsDead, false);
+
+        // Setup canvases
+        gameOverCanvas.SetActive(false);
+        pauseMenuCanvas.SetActive(false);
 
         // setup logic manager
         ui = GameObject.FindGameObjectWithTag("LogicManager").GetComponent<DisplayManager>();
-        ui.DisplayNewHealth(Health);
         ui.DisplayNewPNBullets(_numBullets);
         ui.EnableWeaponNBullets(false);
         ui.DisplayNewPCoins(_coins);
-        ui.DisplayNewMaxHealth(MaxHealth);
-
-        // setup input system
-        _input = new PlayerInput();
-        _input.Gameplay.Movement.performed += OnMovement;
-        _input.Gameplay.Movement.canceled += OnMovement;
-        _input.Gameplay.Interact.performed += OnInteract;
-        _input.Gameplay.Interact.canceled += OnInteract;
-        _input.Gameplay.Shooting.performed += OnShoot;
-        _input.Gameplay.Shooting.canceled += OnShoot;
-        _input.Gameplay.Dash.performed += OnDash;
-        _input.Gameplay.Dash.canceled += OnDash;
+        ui.MaxHealth = this.MaxHealth;
+        this.Health = this.MaxHealth;
+        ui.ActiveHearts = 5;
+        ui.DisplayNewHealth(Health);
+        _isDamagedCounter = InvulnerableTime;
 
         // setup default weapon
         GameObject go = Instantiate(DefaultWeapon,
@@ -143,7 +210,22 @@ public class PlayerStateMachine : MonoBehaviour
         PickupWeapon(go.GetComponent<BaseWeapon>());
 
         // setup dash
-        _dashCooldownCounter = DashCooldown;
+        _dashCooldownCounter = 0;
+    }
+
+    private void Awake()
+    {
+        // setup input system
+        _input = new PlayerInput();
+        _input.Gameplay.Movement.performed += OnMovement;
+        _input.Gameplay.Movement.canceled += OnMovement;
+        _input.Gameplay.Interact.performed += OnInteract;
+        _input.Gameplay.Interact.canceled += OnInteract;
+        _input.Gameplay.Shooting.performed += OnShoot;
+        _input.Gameplay.Shooting.canceled += OnShoot;
+        _input.Gameplay.Dash.performed += OnDash;
+        _input.Gameplay.Dash.canceled += OnDash;
+        _input.Gameplay.Pause.performed += OnPause;
     }
 
     // setup input system
@@ -166,12 +248,28 @@ public class PlayerStateMachine : MonoBehaviour
         if (!_dashing && _dashCooldownCounter > 0)
         {
             _dashCooldownCounter -= Time.deltaTime;
-            ui.EnableDashCooldown(true);
-            ui.DisplayNewDashCooldown(_dashCooldownCounter);
         }
-        else
+
+        if (_isDamaged)
         {
-            ui.EnableDashCooldown(false);
+            // player damaged
+            _isDamagedCounter -= Time.deltaTime;
+
+            SwitchPlayerToDashLayer(true);
+            sr.color = Color.gray;
+
+            if (_isDamagedCounter <= 0)
+            {
+                // player no longer damaged
+                _isDamagedCounter = InvulnerableTime;
+                sr.color = Color.white;
+
+                if (!_dashing)
+                {
+                    _isDamaged = false;
+                    SwitchPlayerToDashLayer(false);
+                }
+            }
         }
     }
 
@@ -188,8 +286,12 @@ public class PlayerStateMachine : MonoBehaviour
         {
             case EnemiesLayer:
             case EnemyBulletsLayer:
-                _isDamaged = true;
                 break;
+
+            case WallsLayer:
+                sc.playHitAWallSoundEffect();
+                break;
+
             default:
                 break;
         }
@@ -201,8 +303,11 @@ public class PlayerStateMachine : MonoBehaviour
         switch (collision.gameObject.layer)
         {
             case ShopItemsLayer:
+            case ClassSelectorLayer:
+            case ChestLayer:
             case WeaponsLayer:
                 _interacted = false;    // reset actions and listen
+                e.enabled = true;
                 break;
 
             case GMLayer:
@@ -221,25 +326,54 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        switch (collision.gameObject.layer)
+        if (_interacted)
         {
-            case WeaponsLayer:    // weapons layer
-                if (_interacted)
-                {
+            switch (collision.gameObject.layer)
+            {
+                case WeaponsLayer:    // weapons layer
                     PickupWeapon(collision.gameObject.GetComponent<BaseWeapon>());
-                }
-                break;
+                    break;
 
-            case ShopItemsLayer:
-                if (_interacted)
-                {
+                case ShopItemsLayer:
                     BaseShopItem shopItem = collision.gameObject.GetComponent<BaseShopItem>();
                     if (shopItem.TryBuy(_coins))
                     {
                         // Player has enough coins to buy 
                         shopItem.BuyItem(this);
                     }
-                }
+                    break;
+
+                case ClassSelectorLayer:
+                    Class c = collision.gameObject.GetComponent<Class>();
+                    c.SelectClass(this);
+                    break;
+
+                case ChestLayer:
+                    Chest chest = collision.gameObject.GetComponent<Chest>();
+                    int gmid = chest.OpenChest(this);
+                    if (gmid != -1)
+                    {
+                        gms[gmid].UseGM(this);
+                        _coins += 10;
+                        _numBullets += 25;
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        switch (collision.gameObject.layer)
+        {
+            case ShopItemsLayer:
+            case ClassSelectorLayer:
+            case WeaponsLayer:
+                _interacted = false;    // reset actions and listen
+                e.enabled = false;
                 break;
 
             default:
@@ -257,14 +391,16 @@ public class PlayerStateMachine : MonoBehaviour
 
     public void TakeDamage(int damageTaken)
     {
-        Health -= damageTaken;
+        Health -= (damageTaken * _damageModifier);
         if (Health <= 0)
         {
             // die
             ui.DisplayNewHealth(0);
-            Destroy(gameObject);
+            _isDead = true;
         }
+        _isDamaged = true;
         ui.DisplayNewHealth(Health);
+        sc.playPlayerDamagedSoundEffect();
     }
 
     public void PickupWeapon(BaseWeapon weapon)
@@ -278,6 +414,11 @@ public class PlayerStateMachine : MonoBehaviour
         // pick up the new weapon
         weapon.Pickedup(gameObject.GetComponent<PlayerStateMachine>());
         Weapon = weapon;
+    }
+
+    public bool TryBorrowBullet()
+    {
+        return _numBullets > 0;
     }
 
     public bool BorrowBullet()
@@ -299,14 +440,15 @@ public class PlayerStateMachine : MonoBehaviour
         ui.DisplayNewPNBullets(_numBullets);
     }
 
-    public void ShowSprite(bool showSprite)
+    public void UpdateMaxHealth()
     {
-        sr.enabled = showSprite;
-    }
+        ui.ActiveHearts = MaxHealth / ui.HealthPerHeart;
 
-    public void ResetDamage()
-    {
-        _isDamaged = false;
+        if (Health > MaxHealth)
+        {
+            Health = MaxHealth;
+        }
+        ui.DisplayNewHealth(Health);
     }
 
     public void ResetDash()
@@ -319,11 +461,22 @@ public class PlayerStateMachine : MonoBehaviour
     {
         if (switchToDashLayer)
         {
+            
             this.gameObject.layer = PlayerDashingLayer;
         }
         else
         {
             this.gameObject.layer = PlayerLayer;
         }
+    }
+
+    public void Wait(float seconds)
+    {
+        StartCoroutine(wait(seconds));
+    }
+
+    private IEnumerator wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
     }
 }

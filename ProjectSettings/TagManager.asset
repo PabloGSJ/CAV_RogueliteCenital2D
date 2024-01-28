@@ -7,6 +7,7 @@ TagManager:
   - LogicManager
   - Empty
   - GameModifiersManager
+  - SoundControl
   layers:
   - Default
   - TransparentFX
@@ -22,13 +23,13 @@ TagManager:
   - Enemies
   - EnemyBullets
   - ShopItems
-  - PlayerInvulnerable
+  - PlayerDashing
   - GameModifiers
-  - 
-  - 
-  - 
-  - 
-  - 
+  - ClassSelector
+  - Chest
+  - Boss
+  - BossInvulnerable
+  - GhostBullet
   - 
   - 
   - 
@@ -50,9 +51,6 @@ TagManager:
   - name: Background
     uniqueID: 2097871979
     locked: 0
-  - name: Walls
-    uniqueID: 1256072927
-    locked: 0
   - name: Floor
     uniqueID: 1100340957
     locked: 0
@@ -61,6 +59,9 @@ TagManager:
     locked: 0
   - name: Standing
     uniqueID: 3255799635
+    locked: 0
+  - name: Walls
+    uniqueID: 1256072927
     locked: 0
   - name: Bullets
     uniqueID: 925837795

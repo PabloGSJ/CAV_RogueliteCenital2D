@@ -2790,6 +2790,80 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &908808324
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2118535606}
+    m_Modifications:
+    - target: {fileID: 1387661628725242673, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_Name
+      value: ClassSelector
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261540267454515335, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261540267454515335, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261540267454515335, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261540267454515335, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261540267454515335, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261540267454515335, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261540267454515335, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261540267454515335, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261540267454515335, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3261540267454515335, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490607149528354747, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4892554677377902455, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336313899623183321, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+--- !u!4 &908808325 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3261540267454515335, guid: 5c587eab9e981b743b99fcfda51101af, type: 3}
+  m_PrefabInstance: {fileID: 908808324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1321785247
 GameObject:
   m_ObjectHideFlags: 0
@@ -3251,7 +3325,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.75}
   m_EdgeRadius: 0
 --- !u!1 &1840584946
 GameObject:
@@ -3888,6 +3962,7 @@ Transform:
   - {fileID: 1841269393}
   - {fileID: 1943075159}
   - {fileID: 1715002330}
+  - {fileID: 908808325}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2118535607
@@ -3897,7 +3972,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118535605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aea17986aea51bc4fa87d7d0e5dc1cc0, type: 3}
   m_Name: 
@@ -3918,7 +3993,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2118535605}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

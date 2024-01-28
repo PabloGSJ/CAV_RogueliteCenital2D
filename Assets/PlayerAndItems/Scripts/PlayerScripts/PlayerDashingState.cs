@@ -15,6 +15,10 @@ public class PlayerDashingState : PlayerBaseState
 
     public override void EnterState()
     {
+        _ctx.SoundController.playDashSoundEffect();
+
+        _ctx.a.SetBool(_ctx.AnimIsDashing, true);
+
         _dashMovVector = _ctx.MovementVector;
         _dashActiveCounter = _ctx.DashDuration;
 
@@ -32,6 +36,8 @@ public class PlayerDashingState : PlayerBaseState
 
     public override void ExitState()
     {
+        _ctx.a.SetBool(_ctx.AnimIsDashing, false);
+
         _ctx.ResetDash();
 
         // enable collitions between the player and the enemies and enemy bullets

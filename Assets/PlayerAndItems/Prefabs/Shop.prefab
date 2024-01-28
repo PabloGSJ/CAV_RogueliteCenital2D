@@ -273,7 +273,12 @@ MonoBehaviour:
   mycoll: {fileID: 4892554677377902455}
   sr: {fileID: 4555574786993610265}
   Item: {fileID: 8143044070160544798, guid: 76911c0fc3e027541adcca2ea9b80bf0, type: 3}
-  Price: 5
+  Price: 10
+  possibleWeapons:
+  - {fileID: 8143044070160544798, guid: 527ece974d3dff843adc964c0f0808f0, type: 3}
+  - {fileID: 8143044070160544798, guid: 63e6a053adf9aab4c96af6322f4aefc0, type: 3}
+  - {fileID: 8143044070160544798, guid: 2ca0b7756766141489caaf5f6ca275b0, type: 3}
+  - {fileID: 8143044070160544798, guid: 76911c0fc3e027541adcca2ea9b80bf0, type: 3}
 --- !u!212 &4555574786993610265
 SpriteRenderer:
   m_ObjectHideFlags: 0

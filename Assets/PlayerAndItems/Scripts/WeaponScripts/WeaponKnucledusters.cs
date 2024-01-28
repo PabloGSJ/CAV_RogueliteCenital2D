@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class WeaponKnucledusters : BaseMeleeWeapon
 {
-    
+    protected override void PlayMySoundEffect()
+    {
+        sc.playPunchSoundEffect();
+    }
 }
