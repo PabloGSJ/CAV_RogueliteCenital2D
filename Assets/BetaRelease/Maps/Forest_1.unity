@@ -274,6 +274,7 @@ GameObject:
   - component: {fileID: 591769690}
   - component: {fileID: 591769691}
   - component: {fileID: 591769692}
+  - component: {fileID: 591769693}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -301,6 +302,7 @@ Transform:
   - {fileID: 944577968}
   - {fileID: 1753391801}
   - {fileID: 2124598558}
+  - {fileID: 754441304}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &591769691
@@ -369,6 +371,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 33, y: 17}
   m_EdgeRadius: 0
+--- !u!114 &591769693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591769689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea9f141d9c443b24fbea36de8cfcb53f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grid: {fileID: 754441305}
+  SpawnerData:
+  - name: TowerEnemy
+    spawnerData: {fileID: 11400000, guid: 13c20adbd17baca4ca217d25fda6e320, type: 2}
+  - name: SniperEnemy
+    spawnerData: {fileID: 11400000, guid: a82c19b94cad5a94d9d28d016894f6e4, type: 2}
+  - name: ChaserEnemy
+    spawnerData: {fileID: 11400000, guid: 7931c52d29ae1e54aa79c996433c6240, type: 2}
 --- !u!1 &689815902
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,6 +702,58 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &754441303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 754441304}
+  - component: {fileID: 754441305}
+  m_Layer: 11
+  m_Name: enemygrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &754441304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754441303}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 591769690}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &754441305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754441303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b545e49f6e6baf42badf050e588e73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 0}
+  grid:
+    columns: 0
+    rows: 0
+    verticalOffset: 9
+    horizontalOffset: 17
+  gridTile: {fileID: 3810708543871990702, guid: 93f0af2785c30ac44bcf2bbb4a24c4ab, type: 3}
+  availablePoints: []
 --- !u!1001 &944577967
 PrefabInstance:
   m_ObjectHideFlags: 0

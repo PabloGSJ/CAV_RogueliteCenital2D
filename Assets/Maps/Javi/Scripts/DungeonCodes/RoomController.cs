@@ -92,7 +92,7 @@ public class RoomController : MonoBehaviour
             Destroy(finalRoom.gameObject);
             var roomToRemove = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
             loadedRooms.Remove(roomToRemove);
-            LoadRoom("CopiaFin", tempRoom.X, tempRoom.Y);
+            LoadRoom("Finish", tempRoom.X, tempRoom.Y);
         }
     }
 
@@ -161,6 +161,21 @@ public class RoomController : MonoBehaviour
     public Room FindRoom(int x, int y)
     {
         return loadedRooms.Find(item => item.X == x && item.Y == y);
+    }
+
+    public string GetRandomRegularRoomName()
+    {
+        string[] possibleRooms = new string[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
+        };
+
+        return possibleRooms[Random.Range(0, possibleRooms.Length)];
     }
 
     public void OnPlayerEnterRoom(Room room)
