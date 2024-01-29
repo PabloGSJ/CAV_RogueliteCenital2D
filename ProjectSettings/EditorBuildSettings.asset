@@ -6,21 +6,39 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/BetaRelease/Maps/Forest_CopiaFin.unity
-    guid: ebd93f9656446c14eaf4c0d752091fa7
-  - enabled: 1
-    path: Assets/BetaRelease/Maps/Forest_CopiaIni.unity
-    guid: c2d5b4e201e13184084c34a77c99969a
-  - enabled: 1
+    path: Assets/GameRelease/Maps/Forest/Forest_1.unity
+    guid: 4c88fa2c88942d94aba4fb172a415965
+  - enabled: 0
     path: Assets/BetaRelease/Maps/Forest_1.unity
     guid: 2480d90c75014484d92b9c08418d10a5
   - enabled: 1
-    path: Assets/BetaRelease/Maps/Forest_2.unity
-    guid: 34b929426e9a8c44eb410f3ea6dd6a75
+    path: Assets/GameRelease/Maps/Forest/Forest_2.unity
+    guid: c016d7d25b34f01489ee908409ff2440
   - enabled: 1
-    path: Assets/BetaRelease/Maps/Forest_3.unity
-    guid: 6862f970ae2e82c47934fde8785ad5a8
+    path: Assets/GameRelease/Maps/Forest/Forest_3.unity
+    guid: 2d4db8221eda0664f9393268e9e8c6d4
   - enabled: 1
-    path: Assets/BetaRelease/Maps/Forest_4.unity
-    guid: d206f323591209149b41985ba78f669c
+    path: Assets/GameRelease/Maps/Forest/Forest_4.unity
+    guid: bbdd18bfa43651b45bdedb90efec4cef
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Forest/Forest_5.unity
+    guid: b5b8daaba159fa04c933e4c173de0905
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Forest/Forest_6.unity
+    guid: fd217b6eee250184fa29453624632ec4
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Forest/Forest_7.unity
+    guid: 57fd7d580b0f25147bbb2d790c98f098
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Forest/Forest_Chest.unity
+    guid: 22329fbd225a8034ab92b84ed81798e6
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Forest/Forest_Finish.unity
+    guid: 07c109226af268a4888bb5f92aac8ac0
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Forest/Forest_Shop.unity
+    guid: e337e0e22b899774d869eda735011078
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Forest/Forest_Start.unity
+    guid: 0c8663434860dfc4d80f5eac0db19a70
   m_configObjects: {}

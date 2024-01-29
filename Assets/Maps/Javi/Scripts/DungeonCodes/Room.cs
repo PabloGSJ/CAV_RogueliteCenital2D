@@ -22,9 +22,16 @@ public class Room : MonoBehaviour
     public Door topDoor;
     public Door bottomDoor;
 
-    public List<Door> doors = new List<Door>();
+    public Corridor leftCorridor;
+    public Corridor rightCorridor;
+    public Corridor topCorridor;
+    public Corridor bottomCorridor;
 
-    // Start is called before the first frame update
+
+    public List<Door> doors = new List<Door>();
+    public List<Corridor> corridors = new List<Corridor>();
+    public List<Door> lockableDoors = new List<Door>();
+
     void Start()
     {
         if(RoomController.instance == null)
@@ -54,12 +61,33 @@ public class Room : MonoBehaviour
             }
         }
 
+        Corridor[] cs = GetComponentsInChildren<Corridor>();
+        foreach(Corridor c in cs)
+        {
+            corridors.Add(c);
+            switch(c.corridorType)
+            {
+                case Corridor.CorridorType.left:
+                    leftCorridor = c;
+                    break;
+                case Corridor.CorridorType.right:
+                    rightCorridor = c;
+                    break;
+                case Corridor.CorridorType.top:
+                    topCorridor = c;
+                    break;
+                case Corridor.CorridorType.bottom:
+                    bottomCorridor = c;
+                    break;
+            }
+        }
+
         RoomController.instance.RegisterRoom(this);
     }
 
     void Update()
     {
-        if(name.Contains("CopiaFin") && !updatedDoors)
+        if(name.Contains("Finish") && !updatedDoors)
         {
             RemoveConnectedDoors();
             updatedDoors = true;
@@ -68,39 +96,75 @@ public class Room : MonoBehaviour
 
     public void RemoveConnectedDoors()
     {
-        foreach(Door door in doors)
+        foreach(Corridor corridor in corridors)
         {
-            switch(door.doorType)
+            switch(corridor.corridorType)
             {
-                case Door.DoorType.left:
-                    if(GetLeft() != null)
+                case Corridor.CorridorType.left:
+                    if(GetLeft() == null)
                     {
-                        door.gameObject.SetActive(false);
+                        corridor.gameObject.SetActive(false);
                         //GetLeft().rightDoor.gameObject.SetActive(false);
                     }
-                    break;
-                case Door.DoorType.right:
-                    if(GetRight() != null)
+                    else
                     {
-                        door.gameObject.SetActive(false);
+                        lockableDoors.Add(leftDoor);
+                        leftDoor.gameObject.SetActive(false);
+                    }
+                    break;
+                case Corridor.CorridorType.right:
+                    if(GetRight() == null)
+                    {
+                        corridor.gameObject.SetActive(false);
                         //GetRight().leftDoor.gameObject.SetActive(false);
                     }
-                    break;
-                case Door.DoorType.top:
-                    if(GetTop() != null)
+                    else
                     {
-                        door.gameObject.SetActive(false);
-                        //GetTop().bottomDoor.gameObject.SetActive(false);
+                        lockableDoors.Add(rightDoor);
+                        rightDoor.gameObject.SetActive(false);
                     }
                     break;
-                case Door.DoorType.bottom:
-                    if(GetBottom() != null)
+                case Corridor.CorridorType.top:
+                    if(GetTop() == null)
                     {
-                        door.gameObject.SetActive(false);
+                        corridor.gameObject.SetActive(false);
+                        //GetTop().bottomDoor.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        lockableDoors.Add(topDoor);
+                        topDoor.gameObject.SetActive(false);
+                    }
+                    break;
+                case Corridor.CorridorType.bottom:
+                    if(GetBottom() == null)
+                    {
+                        corridor.gameObject.SetActive(false);
                         //GetBottom().topDoor.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        lockableDoors.Add(bottomDoor);
+                        bottomDoor.gameObject.SetActive(false);
                     }
                     break;
             }
+        }
+    }
+
+    public void LockDoors()
+    {
+        foreach(Door door in lockableDoors)
+        {
+            door.gameObject.SetActive(true);
+        }
+    }
+
+    public void UnlockDoors()
+    {
+        foreach(Door door in lockableDoors)
+        {
+            door.gameObject.SetActive(false);
         }
     }
 
