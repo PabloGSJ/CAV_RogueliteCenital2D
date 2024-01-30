@@ -7932,6 +7932,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   room: {fileID: 0}
   gridController: {fileID: 1715002333}
+  horizontalMargin: 4
+  verticalMargin: 4
   grid:
     columns: 0
     rows: 0
@@ -10419,6 +10421,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecee1c40400e3624f94790ba361d7398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemies: []
+  items: []
+  numEnemies: 0
 --- !u!114 &1715002333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10432,13 +10437,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  horizontalMargin: 6
-  verticalMargin: 7
+  horizontalMargin: 10
+  verticalMargin: 11
   grid:
     columns: 0
     rows: 0
-    verticalOffset: 7
-    horizontalOffset: 15
+    verticalOffset: 5
+    horizontalOffset: 13
   gridTile: {fileID: 3810708543871990702, guid: 93f0af2785c30ac44bcf2bbb4a24c4ab, type: 3}
   availablePoints: []
 --- !u!1 &1750382543
@@ -11976,6 +11981,7 @@ GameObject:
   - component: {fileID: 2118535607}
   - component: {fileID: 2118535608}
   - component: {fileID: 2118535609}
+  - component: {fileID: 2118535610}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -12084,9 +12090,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2118535605}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea9f141d9c443b24fbea36de8cfcb53f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c2f3df661742424a81f060c03ad66a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: {fileID: 0}
   grid: {fileID: 1715002333}
   SpawnerData:
   - name: Carrot
@@ -12095,6 +12102,27 @@ MonoBehaviour:
     spawnerData: {fileID: 11400000, guid: a82c19b94cad5a94d9d28d016894f6e4, type: 2}
   - name: Tomato
     spawnerData: {fileID: 11400000, guid: 7931c52d29ae1e54aa79c996433c6240, type: 2}
+  fightController: {fileID: 1715002332}
+--- !u!114 &2118535610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118535605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9f5c8cbc1777848b76b9be367a71eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 0}
+  grid: {fileID: 1715002333}
+  SpawnerData:
+  - name: Bullets
+    spawnerData: {fileID: 11400000, guid: 3f3b6fda02bdd6649990e99c65344ffb, type: 2}
+  - name: Life
+    spawnerData: {fileID: 11400000, guid: a418e91cb2f5f4840af1eab4dead396f, type: 2}
+  fightController: {fileID: 1715002332}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

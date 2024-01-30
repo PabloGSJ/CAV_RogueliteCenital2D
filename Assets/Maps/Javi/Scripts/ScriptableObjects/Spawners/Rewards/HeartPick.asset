@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bea5c627bbbd99f4eb73c0908294e420, type: 3}
-  m_Name: DungeonGenerationData
+  m_Script: {fileID: 11500000, guid: bdb46216e68c2c74896bfb6eeb3a6a1a, type: 3}
+  m_Name: HeartPick
   m_EditorClassIdentifier: 
-  numberOfCrawlers: 2
-  iterationMin: 16
-  iterationMax: 20
+  itemToSpawn: {fileID: 3143609924716889574, guid: 4023de7171e3d4848b622f5c5c9a3c4e, type: 3}
+  minSpawn: 0
+  maxSpawn: 1

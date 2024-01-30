@@ -56,15 +56,15 @@ public class GridController : MonoBehaviour
                     //Debug.Log("Available point at " + go.transform.position);
                     availablePoints.Add(go.transform.position);
                 }
-                //else
-                //{
-                //    go.SetActive(false);
-                //}
+                // else
+                // {
+                    go.SetActive(false);
+                // }
                 //availablePoints.Add(go.transform.position);
-                go.SetActive(false);
+                // TODO go.SetActive(false);
             }
         }
 
-        GetComponentInParent<ObjectRoomSpawner>().InitialiseObjectSpawning();
+        GetComponentInParent<EnemyRoomSpawner>().InitialiseObjectSpawning();
     }
 }

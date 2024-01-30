@@ -14,7 +14,27 @@ public class RoomInfo
 public class RoomController : MonoBehaviour
 {
     public static RoomController instance;
-    string currentWorldName = "Forest";
+    //string currentWorldName = "Forest";
+
+    string[] levelNames = new string[]
+    {
+        "Forest",
+        "City",
+        "Building",
+        "Sewers"
+    };
+
+    public enum LevelType
+    {
+        Forest,
+        City,
+        Building,
+        Sewers
+    }
+
+    public LevelType levelType;
+
+    string currentWorldName;
 
     RoomInfo currentLoadRoomData;
 
@@ -26,12 +46,14 @@ public class RoomController : MonoBehaviour
     public List<Room> loadedRooms = new List<Room>();
 
     bool isLoadingRoom = false;
-    bool spawnedFinalRoom = false;
+    bool spawnedSpecialRooms = false;
+    bool loadedSpecialRooms = false;
     bool updatedRooms = false;
 
     void Awake()
     {
         instance = this;
+        currentWorldName = levelNames[(int)levelType];
     }
 
     void Start()
@@ -60,11 +82,11 @@ public class RoomController : MonoBehaviour
 
         if (loadRoomQueue.Count == 0)
         {
-            if (!spawnedFinalRoom)
+            if (!spawnedSpecialRooms && !loadedSpecialRooms)
             {
-                StartCoroutine(SpawnFinalRoom());
+                StartCoroutine(SpawnSpecialRooms());
             }
-            else if (spawnedFinalRoom && !updatedRooms)
+            else if (spawnedSpecialRooms && loadedSpecialRooms && !updatedRooms)
             {
                 foreach (Room room in loadedRooms)
                 {
@@ -81,19 +103,40 @@ public class RoomController : MonoBehaviour
         StartCoroutine(LoadRoomRoutine(currentLoadRoomData));
     }
 
-    IEnumerator SpawnFinalRoom()
+    IEnumerator SpawnSpecialRooms()
     {
-        spawnedFinalRoom = true;
+        spawnedSpecialRooms = true;
         yield return new WaitForSeconds(0.5f);
         if (loadRoomQueue.Count == 0)
         {
-            Room finalRoom = loadedRooms[loadedRooms.Count - 1];
-            Room tempRoom = new Room(finalRoom.X, finalRoom.Y);
-            Destroy(finalRoom.gameObject);
-            var roomToRemove = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
-            loadedRooms.Remove(roomToRemove);
-            LoadRoom("Finish", tempRoom.X, tempRoom.Y);
+            //Room finalRoom = loadedRooms[loadedRooms.Count - 1];
+            int shopRoom, chestRoom, exitRoom;
+            exitRoom = loadedRooms.Count - 1;
+            shopRoom = Random.Range(1, loadedRooms.Count - 2);
+            do
+            {
+                chestRoom = Random.Range(1, loadedRooms.Count - 2);
+            } while (shopRoom == chestRoom);
+            //Room tempRoom = new Room(finalRoom.X, finalRoom.Y);
+            //Destroy(finalRoom.gameObject);
+            //var roomToRemove = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
+            //loadedRooms.Remove(roomToRemove);
+            //LoadRoom("Finish", tempRoom.X, tempRoom.Y);
+            generateSpecialRoom(exitRoom, "Finish");
+            generateSpecialRoom(shopRoom, "Shop");
+            generateSpecialRoom(chestRoom, "Chest");
+            loadedSpecialRooms = true;
         }
+    }
+
+    void generateSpecialRoom(int index, string roomName)
+    {
+        Room room = loadedRooms[index];
+        Room tempRoom = new Room(room.X, room.Y);
+        Destroy(room.gameObject);
+        var roomToRemove = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
+        loadedRooms.Remove(roomToRemove);
+        LoadRoom(roomName, tempRoom.X, tempRoom.Y);
     }
 
     public void LoadRoom(string name, int x, int y)
@@ -161,21 +204,6 @@ public class RoomController : MonoBehaviour
     public Room FindRoom(int x, int y)
     {
         return loadedRooms.Find(item => item.X == x && item.Y == y);
-    }
-
-    public string GetRandomRegularRoomName()
-    {
-        string[] possibleRooms = new string[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7"
-        };
-
-        return possibleRooms[Random.Range(0, possibleRooms.Length)];
     }
 
     public void OnPlayerEnterRoom(Room room)

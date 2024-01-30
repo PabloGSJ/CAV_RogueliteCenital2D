@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameRelease/Maps/Forest/Forest_1.unity
     guid: 4c88fa2c88942d94aba4fb172a415965
-  - enabled: 0
-    path: Assets/BetaRelease/Maps/Forest_1.unity
-    guid: 2480d90c75014484d92b9c08418d10a5
   - enabled: 1
     path: Assets/GameRelease/Maps/Forest/Forest_2.unity
     guid: c016d7d25b34f01489ee908409ff2440
@@ -41,4 +38,37 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameRelease/Maps/Forest/Forest_Start.unity
     guid: 0c8663434860dfc4d80f5eac0db19a70
+  - enabled: 1
+    path: Assets/GameRelease/Maps/City/City_1.unity
+    guid: 2f5c8abe42642284ea1a7355f301d8f7
+  - enabled: 1
+    path: Assets/GameRelease/Maps/City/City_2.unity
+    guid: ce82eda6f68f5424f98f42091a6c9875
+  - enabled: 1
+    path: Assets/GameRelease/Maps/City/City_3.unity
+    guid: 3afcc56817e4b81418878397c66ba5f0
+  - enabled: 1
+    path: Assets/GameRelease/Maps/City/City_4.unity
+    guid: c49476fa5ac497b41929c2cb40ffb82a
+  - enabled: 1
+    path: Assets/GameRelease/Maps/City/City_5.unity
+    guid: b01d89943ec9f7b4bad86e4863b726f8
+  - enabled: 1
+    path: Assets/GameRelease/Maps/City/City_6.unity
+    guid: c90fb66bea9c93e4bb30d795c4acb900
+  - enabled: 1
+    path: Assets/GameRelease/Maps/City/City_7.unity
+    guid: 8442ab7a26a74e846a27c6745d0c5dad
+  - enabled: 1
+    path: Assets/GameRelease/Maps/City/City_Chest.unity
+    guid: 5c134decf6827af4f86491d98e7c42d0
+  - enabled: 1
+    path: Assets/GameRelease/Maps/City/City_Finish.unity
+    guid: f86b537b623cc204897a4b59c959c1da
+  - enabled: 1
+    path: Assets/GameRelease/Maps/City/City_Shop.unity
+    guid: 1147972cde7263746a6ca34de55e3e96
+  - enabled: 1
+    path: Assets/GameRelease/Maps/City/City_Start.unity
+    guid: 35850361bc6eb7e4f888a123f76702d5
   m_configObjects: {}

@@ -16,6 +16,10 @@ public class ColisionCoords : MonoBehaviour
     }
 
     public GridController gridController;
+
+    public int horizontalMargin;
+    public int verticalMargin;
+
     public ColGrid grid;
     public GameObject gridTile;
     public List<Vector2> availablePoints = new List<Vector2>();
@@ -23,12 +27,12 @@ public class ColisionCoords : MonoBehaviour
     void Awake() 
     {
         room = GetComponentInParent<Room>();
-        grid.columns = room.Width - 4;
-        grid.rows = room.Height - 4;
+        grid.columns = room.Width - horizontalMargin;
+        grid.rows = room.Height - verticalMargin;
         GetCoords();
     }
 
-    void GetCoords()
+    public void GetCoords()
     {
         grid.verticalOffset += room.transform.localPosition.y;
         grid.horizontalOffset += room.transform.localPosition.x;
