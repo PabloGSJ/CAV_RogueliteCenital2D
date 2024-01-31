@@ -82,8 +82,6 @@ public class Room : MonoBehaviour
             }
         }
 
-        // Debug.Log("Registering room");
-
         RoomController.instance.RegisterRoom(this);
     }
 
@@ -106,7 +104,6 @@ public class Room : MonoBehaviour
                     if(GetLeft() == null)
                     {
                         corridor.gameObject.SetActive(false);
-                        //GetLeft().rightDoor.gameObject.SetActive(false);
                     }
                     else
                     {
@@ -118,7 +115,6 @@ public class Room : MonoBehaviour
                     if(GetRight() == null)
                     {
                         corridor.gameObject.SetActive(false);
-                        //GetRight().leftDoor.gameObject.SetActive(false);
                     }
                     else
                     {
@@ -130,7 +126,6 @@ public class Room : MonoBehaviour
                     if(GetTop() == null)
                     {
                         corridor.gameObject.SetActive(false);
-                        //GetTop().bottomDoor.gameObject.SetActive(false);
                     }
                     else
                     {
@@ -142,7 +137,6 @@ public class Room : MonoBehaviour
                     if(GetBottom() == null)
                     {
                         corridor.gameObject.SetActive(false);
-                        //GetBottom().topDoor.gameObject.SetActive(false);
                     }
                     else
                     {

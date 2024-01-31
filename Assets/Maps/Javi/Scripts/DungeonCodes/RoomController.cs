@@ -14,7 +14,6 @@ public class RoomInfo
 public class RoomController : MonoBehaviour
 {
     public static RoomController instance;
-    //string currentWorldName = "Forest";
 
     string[] levelNames = new string[]
     {
@@ -58,12 +57,6 @@ public class RoomController : MonoBehaviour
     {
         instance = this;
         currentWorldName = levelNames[(int)levelType];
-        // GameObject player = GameObject.FindGameObjectWithTag("Player");
-        // sc = player.GetComponent<PlayerStateMachine>().SoundController;
-        // while (sc == null)
-        // {
-            // sc = player.GetComponent<PlayerStateMachine>().SoundController;
-        // }
     }
 
     void Start()
@@ -72,27 +65,11 @@ public class RoomController : MonoBehaviour
         {
             sc = GameObject.FindGameObjectWithTag("SoundControl").GetComponent<SoundControllerScript>();
         }
-        // sc = GameObject.Find("SoundController").GetComponent<SoundControllerScript>();
         PlayLevelMusic();
         if (levelType == LevelType.Beginning)
         {
-            // Debug.Log("Starting room");
             LoadRoom("Start", 0, 0);
-            // LoadRoom("Start", 1, 0);
-            // LoadRoom("Start", 0, 1);
-            // LoadRoom("Start", 1, 1);
-
-            
         }
-        // Debug.Log(loadedRooms.Count);
-        //LoadRoom("Start", 0, 0);
-        //LoadRoom("Empty", 1, 0);
-        //LoadRoom("Empty", -1, 0);
-        //LoadRoom("Empty", 0, -1);
-        //LoadRoom("Empty", 2, 0);
-        //LoadRoom("Empty", 2, -1);
-        //LoadRoom("Empty", 2, 1);
-        //LoadRoom("Empty", -1, -1);
     }
 
     void Update()
@@ -120,7 +97,6 @@ public class RoomController : MonoBehaviour
                     room.RemoveConnectedDoors();
                 }
                 updatedRooms = true;
-                // DespawnRoomScenes();
             }
             return;
         }
@@ -130,41 +106,6 @@ public class RoomController : MonoBehaviour
 
         StartCoroutine(LoadRoomRoutine(currentLoadRoomData));
     }
-
-    // void DespawnRoomScenes()
-    // {
-    //     SceneManager.UnloadSceneAsync(levelNames[(int)levelType] + "_Start");
-    //     SceneManager.UnloadSceneAsync(levelNames[(int)levelType] + "_Chest");
-    //     SceneManager.UnloadSceneAsync(levelNames[(int)levelType] + "_Shop");
-    //     SceneManager.UnloadSceneAsync(levelNames[(int)levelType] + "_Finish");
-    //     int despawnedRooms = 0;
-    //     string sceneName = levelNames[(int)levelType] + "_";
-    //     for (int i = 4; i < 10; i++)
-    //     {
-    //         // string sceneName = levelNames[(int)levelType] + "_" + i;
-    //         try
-    //         {
-    //             // string sceneName = levelNames[(int)levelType] + "_" + i;
-    //             do
-    //             {
-    //                 // Debug.Log(SceneManager.GetSceneByName(sceneName).isLoaded);
-    //                 // SceneManager.UnloadSceneAsync(i);
-    //                 Scene unloadScene = SceneManager.GetSceneByName(sceneName + i);
-    //                 SceneManager.UnloadSceneAsync(unloadScene);
-    //                 despawnedRooms++;
-    //                 Debug.Log(SceneManager.GetSceneByBuildIndex(i).name);
-    //                 Debug.Log("Unloading " + sceneName);
-    //                 // Scene
-    //             } while (SceneManager.GetSceneByName(sceneName + i) != null);
-    //             // SceneManager.UnloadSceneAsync(levelNames[(int)levelType] + "_" + i);
-    //         }
-    //         catch (System.Exception)
-    //         {
-    //             Debug.LogError("No empty room " + i);
-    //         }
-    //     }
-    //     Debug.Log("Despawned " + despawnedRooms + " rooms");
-    // }
 
     IEnumerator SpawnSpecialRooms()
     {
@@ -180,11 +121,6 @@ public class RoomController : MonoBehaviour
             {
                 chestRoom = Random.Range(1, loadedRooms.Count - 2);
             } while (shopRoom == chestRoom);
-            //Room tempRoom = new Room(finalRoom.X, finalRoom.Y);
-            //Destroy(finalRoom.gameObject);
-            //var roomToRemove = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
-            //loadedRooms.Remove(roomToRemove);
-            //LoadRoom("Finish", tempRoom.X, tempRoom.Y);
             Room shop, chest, exit;
             shop = loadedRooms[shopRoom];
             chest = loadedRooms[chestRoom];
@@ -198,7 +134,6 @@ public class RoomController : MonoBehaviour
 
     void generateSpecialRoom(Room room, string roomName)
     {
-        // Room room = loadedRooms[index];
         Room tempRoom = new Room(room.X, room.Y);
         Destroy(room.gameObject);
         var roomToRemove = loadedRooms.Single(r => r.X == tempRoom.X && r.Y == tempRoom.Y);
@@ -217,7 +152,6 @@ public class RoomController : MonoBehaviour
         newRoomData.name = name;
         newRoomData.X = x;
         newRoomData.Y = y;
-        // Debug.Log("Loading room: " + name + " " + x + ", " + y);
 
         loadRoomQueue.Enqueue(newRoomData);
     }
@@ -233,7 +167,6 @@ public class RoomController : MonoBehaviour
             yield return null;
         }
 
-        // Debug.Log("Loading room " + info.name + " " + info.X + ", " + info.Y);
     }
 
     public void RegisterRoom(Room room)
@@ -284,10 +217,6 @@ public class RoomController : MonoBehaviour
 
     void PlayLevelMusic()
     {
-        // if (sc == null)
-        // {
-        //     Debug.Log("SoundController is null");
-        // }
         switch (levelType)
         {
             case LevelType.Beginning:

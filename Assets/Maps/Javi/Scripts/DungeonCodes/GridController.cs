@@ -53,15 +53,9 @@ public class GridController : MonoBehaviour
                 go.name = "X: " + x + ", Y: " + y;
                 if (!obstacles.Contains(go.transform.position))
                 {
-                    //Debug.Log("Available point at " + go.transform.position);
                     availablePoints.Add(go.transform.position);
                 }
-                // else
-                // {
-                    go.SetActive(false);
-                // }
-                //availablePoints.Add(go.transform.position);
-                // TODO go.SetActive(false);
+                go.SetActive(false);
             }
         }
 

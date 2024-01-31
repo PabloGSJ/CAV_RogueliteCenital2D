@@ -52,18 +52,11 @@ public class ColisionCoords : MonoBehaviour
                 if (tile != null) 
                 {
                     GameObject go = Instantiate(gridTile, transform);
-                    //Debug.Log("x:" + x + " y:" + y + " tile:" + tile.name);
-
                     go.GetComponent<Transform>().position = new Vector2(x - (grid.columns - grid.horizontalOffset), y - (grid.rows - grid.verticalOffset));
                     go.name = "X: " + x + ", Y: " + y;
                     availablePoints.Add(go.transform.position);
                     go.SetActive(false);
                 }
-
-                
-                //else {
-                //    Debug.Log("x:" + x + " y:" + y + " tile: (null)");
-                //}
             }
         }  
 

@@ -5,7 +5,6 @@ using UnityEngine;
 public class FightController : MonoBehaviour
 {
 
-    //public ColisionCoords grid;
     public List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> items = new List<GameObject>();
     public int numEnemies = 0;
@@ -15,9 +14,6 @@ public class FightController : MonoBehaviour
         {
             RoomController.instance.CurrentRoom.LockDoors();
             SpawnEnemies();
-            //grid.GenerateGrid();
-            //grid.GetCoords();
-            //GetComponentInParent<ObjectRoomSpawner>().InitialiseObjectSpawning();
         }
     }
 
