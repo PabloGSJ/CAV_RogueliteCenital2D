@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 /*
  * This class serves 2 purposes:
@@ -62,6 +63,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     // Combat variables
     public BaseWeapon Weapon = null;
+    private GameObject _nowWeapon = null;
     public GameObject DefaultWeapon = null;
     public int MaxPBullets = 99;
     private int _numBullets = 99;
@@ -80,6 +82,8 @@ public class PlayerStateMachine : MonoBehaviour
 
     // GM variables
     private int _damageModifier = 1;
+    private bool[] _activeGM = { false, false, false, false, false };
+    private enum GMnames { EnemyDamageUp, MaxHealthHalved, ShorterDash, SpeedDown, Take10Bullets };
 
     // getters-setters
     public PlayerBaseState CurrentState { get { return _currentState; } set { _currentState = value; } }
@@ -211,6 +215,9 @@ public class PlayerStateMachine : MonoBehaviour
 
         // setup dash
         _dashCooldownCounter = 0;
+
+        // read state from PlayerData
+        LoadState();
     }
 
     private void Awake()
@@ -332,6 +339,7 @@ public class PlayerStateMachine : MonoBehaviour
             {
                 case WeaponsLayer:    // weapons layer
                     PickupWeapon(collision.gameObject.GetComponent<BaseWeapon>());
+                    _nowWeapon = collision.gameObject;
                     break;
 
                 case ShopItemsLayer:
@@ -354,8 +362,9 @@ public class PlayerStateMachine : MonoBehaviour
                     if (gmid != -1)
                     {
                         gms[gmid].UseGM(this);
+                        _activeGM[gmid] = true;
                         _coins += 10;
-                        _numBullets += 25;
+                        UpdateConsumables();
                     }
                     break;
 
@@ -478,5 +487,47 @@ public class PlayerStateMachine : MonoBehaviour
     private IEnumerator wait(float seconds)
     {
         yield return new WaitForSeconds(seconds);
+    }
+
+    public void SaveState()
+    {
+        PlayerData pd = SceneManager.GetSceneByName("MainScene").GetRootGameObjects()[0].GetComponent<PlayerData>();
+
+        pd.SetWeapon(this._nowWeapon);
+        pd.Health = this.Health;
+        pd.Coins = this._coins;
+        pd.Bullets = this._numBullets;
+        pd.ActiveGM = this._activeGM;
+    }
+
+    public void LoadState()
+    {
+        PlayerData pd = SceneManager.GetSceneByName("MainScene").GetRootGameObjects()[0].GetComponent<PlayerData>();
+
+        GameObject loadedWeapon = pd.GetWeapon();
+
+        if (loadedWeapon != null)
+        {
+            GameObject go = Instantiate(loadedWeapon,
+                                    new Vector3(transform.position.x,
+                                                transform.position.y,
+                                                transform.position.z),
+                                    Quaternion.identity,
+                                    this.transform) as GameObject;
+            PickupWeapon(go.GetComponent<BaseWeapon>());
+        }
+        this.Health = pd.Health;
+        this._coins = pd.Coins;
+        this._numBullets = pd.Bullets;
+        UpdateConsumables();
+        this._activeGM = pd.ActiveGM;
+
+        for (int i = 0; i < gms.Length; i++)
+        {
+            if (_activeGM[i])
+            {
+                gms[i].UseGM(this);
+            }
+        }
     }
 }
