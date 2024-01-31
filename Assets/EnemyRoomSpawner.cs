@@ -48,7 +48,7 @@ public class EnemyRoomSpawner : MonoBehaviour
             grid.availablePoints.RemoveAt(randomPos);
             fightController.AddEnemy(go);
             go.SetActive(false);
-            Debug.Log("Spawned Enemy");
+            // Debug.Log("Spawned Enemy");
         }
 
         //TODO: Hacer que llame al spawner de objetos

@@ -63,7 +63,6 @@ public class PlayerStateMachine : MonoBehaviour
 
     // Combat variables
     public BaseWeapon Weapon = null;
-    private GameObject _nowWeapon = null;
     public GameObject DefaultWeapon = null;
     public int MaxPBullets = 99;
     private int _numBullets = 99;
@@ -339,7 +338,6 @@ public class PlayerStateMachine : MonoBehaviour
             {
                 case WeaponsLayer:    // weapons layer
                     PickupWeapon(collision.gameObject.GetComponent<BaseWeapon>());
-                    _nowWeapon = collision.gameObject;
                     break;
 
                 case ShopItemsLayer:
@@ -493,7 +491,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         PlayerData pd = SceneManager.GetSceneByName("MainScene").GetRootGameObjects()[0].GetComponent<PlayerData>();
 
-        pd.SetWeapon(this._nowWeapon);
+        pd.SetWeapon(this.Weapon);
         pd.Health = this.Health;
         pd.Coins = this._coins;
         pd.Bullets = this._numBullets;

@@ -46,7 +46,7 @@ public class ItemRoomSpawner : MonoBehaviour
             grid.availablePoints.RemoveAt(randomPos);
             fightController.AddItem(go);
             go.SetActive(false);
-            Debug.Log("Item Object");
+            // Debug.Log("Item Object");
         }
 
         //TODO: Hacer que llame al spawner de objetos

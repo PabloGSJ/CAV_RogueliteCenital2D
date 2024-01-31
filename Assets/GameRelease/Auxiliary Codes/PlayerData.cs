@@ -34,9 +34,9 @@ public class PlayerData : MonoBehaviour
 
     // Preservable player context
     private GameObject weapon = null;
-    private int health = 1000;
-    private int coins = 1000;
-    private int bullets = 1000;
+    private int health = 10;
+    private int coins = 0;
+    private int bullets = 10;
     private bool[] activeGM = {false, false, false, false, false};
 
     // getters-setters
@@ -45,16 +45,112 @@ public class PlayerData : MonoBehaviour
     public int Bullets { get {return bullets;} set{bullets = value;} }
     public bool[] ActiveGM { get {return activeGM;} set{activeGM = value;} }
 
-    public void SetWeapon(GameObject playerWeapon)
+    public void SetWeapon(BaseWeapon playerWeapon)
     {
         // comparar playerWeapon con weapons[]
+        // foreach (GameObject weapon in weapons)
+        // {
+        //     if (playerWeapon.name == weapon.name)
+        //     {
+        //         this.weapon = weapon;
+        //         Debug.Log("Weapon set");
+        //         break;
+        //     }
+        //     else
+        //     {
+        //         this.weapon = null;
+        //     }
+        // }
+
+        // BaseWeapon bw =  weapons[0].GetComponent<BaseWeapon>();
+
+        // if (bw is WeaponCrowbar)
+        // {
+        //     Debug.Log("Si lo es");
+        // }
+
+        // if (bw is WeaponGun)
+        // {
+        //     Debug.Log("Si lo es");
+        // }
+        // else
+        // {
+        //     Debug.Log("No lo es");
+        // }
+
+        // Debug.Log("Writing weapon");
+
+        // if (playerWeapon == null)
+        // {
+        //     weapon = null; // KnuckleBuster
+        //     Debug.Log("KnuckleBuster set");
+        // }
+        // else if (playerWeapon.GetComponent<WeaponCrowbar>() != null)
+        // {
+        //     weapon = weapons[0];
+        // }
+        // else if (playerWeapon.GetComponent<WeaponGun>() != null)
+        // {
+        //     weapon = weapons[1];
+        //     Debug.Log("Weapon set");
+        // }
+        // else if (playerWeapon.GetComponent<WeaponShotgun>() != null)
+        // {
+        //     weapon = weapons[2];
+        // }
+        // else
+        // {
+        //     weapon = weapons[3];
+        //     Debug.Log("Default weapon set");
+        // }
+
+        if (playerWeapon is WeaponCrowbar)
+        {
+            weapon = weapons[0];
+            // Debug.Log("Crowbar set");
+        }
+        else if (playerWeapon is WeaponGun)
+        {
+            weapon = weapons[1];
+            // Debug.Log("Gun set");
+        }
+        else if (playerWeapon is WeaponShotgun)
+        {
+            weapon = weapons[2];
+            // Debug.Log("Shotgun set");
+        }
+        else if (playerWeapon is WeaponSniper)
+        {
+            weapon = weapons[3];
+            // Debug.Log("Sniper set");
+        }
+        else
+        {
+            weapon = null;
+            // Debug.Log("KnuckleBuster set");
+        }
+
+
+        // for (int i = 0; i < weapons.Length; i++)
+        // {
+        //     if (playerWeapon.name == weapons[i].name)
+        //     {
+        //         weapon = weapons[i];
+        //         Debug.Log("Weapon set");
+        //         break;
+        //     }
+        //     else
+        //     {
+        //         weapon = null;
+        //     }
+        // }
 
         // guardar en weapon el weapons[i] que corresponda
     }
 
     public GameObject GetWeapon()
     {
-        return null;
+        return weapon;
     }
 
     public void ResetPlayerData()

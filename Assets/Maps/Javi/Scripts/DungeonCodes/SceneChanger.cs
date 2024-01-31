@@ -52,8 +52,9 @@ public class SceneChanger : MonoBehaviour
             // if (player != null)
             // {
             //     Debug.Log("Player gotten");
-            player = temp;
+            // player = temp;
             // }
+            temp.GetComponent<PlayerStateMachine>().SaveState();
             loading = true;
 
             // data.Weapon = temp.GetComponent<PlayerStateMachine>().Weapon.GetComponent<BaseWeapon>(); //TODO: No la pilla bien
@@ -61,8 +62,7 @@ public class SceneChanger : MonoBehaviour
             // data.Coins = temp.GetComponent<PlayerStateMachine>().Coins;
             // data.Bullets = temp.GetComponent<PlayerStateMachine>().NumBullets;
             // Debug.Log("Player entered");  
-            // StartSceneChange();          
-
+            StartSceneChange();          
         }
     }
 
