@@ -4598,6 +4598,7 @@ GameObject:
   - component: {fileID: 61656672}
   - component: {fileID: 61656673}
   - component: {fileID: 61656674}
+  - component: {fileID: 61656675}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -4646,6 +4647,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60a0499dfd6aeb4a8639500b36f306a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &61656675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61656671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02f163478ce6b945a47addb6c9c5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corridorType: 1
 --- !u!1 &213961994
 GameObject:
   m_ObjectHideFlags: 0
@@ -5475,6 +5489,7 @@ GameObject:
   - component: {fileID: 409064889}
   - component: {fileID: 409064890}
   - component: {fileID: 409064891}
+  - component: {fileID: 409064892}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -5522,6 +5537,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60a0499dfd6aeb4a8639500b36f306a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &409064892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409064888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c51828aeea2347b7de78ebfc62509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 0
 --- !u!1 &439649655
 GameObject:
   m_ObjectHideFlags: 0
@@ -5536,6 +5564,7 @@ GameObject:
   - component: {fileID: 439649659}
   - component: {fileID: 439649658}
   - component: {fileID: 439649657}
+  - component: {fileID: 439649662}
   m_Layer: 0
   m_Name: Obstacles
   m_TagString: Untagged
@@ -7505,6 +7534,29 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &439649662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439649655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b22666e9b032b4397be470abdd8177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 0}
+  gridController: {fileID: 1715002333}
+  horizontalMargin: 8
+  verticalMargin: 0
+  grid:
+    columns: 0
+    rows: 0
+    verticalOffset: 10
+    horizontalOffset: 14
+  gridTile: {fileID: 3810708543871990702, guid: 93f0af2785c30ac44bcf2bbb4a24c4ab, type: 3}
+  availablePoints: []
 --- !u!1 &466975997
 GameObject:
   m_ObjectHideFlags: 0
@@ -8007,6 +8059,7 @@ GameObject:
   - component: {fileID: 472276431}
   - component: {fileID: 472276432}
   - component: {fileID: 472276433}
+  - component: {fileID: 472276434}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -8054,6 +8107,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60a0499dfd6aeb4a8639500b36f306a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &472276434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472276430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c51828aeea2347b7de78ebfc62509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 1
 --- !u!1 &722712583
 GameObject:
   m_ObjectHideFlags: 0
@@ -8372,6 +8438,7 @@ GameObject:
   - component: {fileID: 754370740}
   - component: {fileID: 754370741}
   - component: {fileID: 754370742}
+  - component: {fileID: 754370743}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -8420,6 +8487,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60a0499dfd6aeb4a8639500b36f306a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &754370743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754370739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02f163478ce6b945a47addb6c9c5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corridorType: 0
 --- !u!1 &778320394
 GameObject:
   m_ObjectHideFlags: 0
@@ -8431,6 +8511,7 @@ GameObject:
   - component: {fileID: 778320395}
   - component: {fileID: 778320396}
   - component: {fileID: 778320397}
+  - component: {fileID: 778320398}
   m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
@@ -8478,6 +8559,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60a0499dfd6aeb4a8639500b36f306a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &778320398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778320394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c51828aeea2347b7de78ebfc62509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 2
 --- !u!1 &874690387
 GameObject:
   m_ObjectHideFlags: 0
@@ -8489,6 +8583,7 @@ GameObject:
   - component: {fileID: 874690388}
   - component: {fileID: 874690389}
   - component: {fileID: 874690390}
+  - component: {fileID: 874690391}
   m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
@@ -8537,6 +8632,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60a0499dfd6aeb4a8639500b36f306a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &874690391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 874690387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02f163478ce6b945a47addb6c9c5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corridorType: 2
 --- !u!1 &1001944002
 GameObject:
   m_ObjectHideFlags: 0
@@ -9258,6 +9366,7 @@ GameObject:
   - component: {fileID: 1317619573}
   - component: {fileID: 1317619574}
   - component: {fileID: 1317619575}
+  - component: {fileID: 1317619576}
   m_Layer: 0
   m_Name: Down
   m_TagString: Untagged
@@ -9306,6 +9415,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60a0499dfd6aeb4a8639500b36f306a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1317619576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317619572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02f163478ce6b945a47addb6c9c5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corridorType: 3
 --- !u!1 &1321785247
 GameObject:
   m_ObjectHideFlags: 0
@@ -9996,6 +10118,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1715002330}
   - component: {fileID: 1715002331}
+  - component: {fileID: 1715002333}
+  - component: {fileID: 1715002332}
   m_Layer: 0
   m_Name: FightTrigg
   m_TagString: Untagged
@@ -10013,7 +10137,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 23, y: 13, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2118535606}
@@ -10061,8 +10185,45 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 22, y: 12}
   m_EdgeRadius: 0
+--- !u!114 &1715002332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715002329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecee1c40400e3624f94790ba361d7398, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies: []
+  items: []
+  numEnemies: 0
+--- !u!114 &1715002333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715002329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b545e49f6e6baf42badf050e588e73b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 0}
+  horizontalMargin: 16
+  verticalMargin: 10
+  grid:
+    columns: 0
+    rows: 0
+    verticalOffset: 5
+    horizontalOffset: 10
+  gridTile: {fileID: 3810708543871990702, guid: 93f0af2785c30ac44bcf2bbb4a24c4ab, type: 3}
+  availablePoints: []
 --- !u!1 &1750382543
 GameObject:
   m_ObjectHideFlags: 0
@@ -11142,6 +11303,7 @@ GameObject:
   - component: {fileID: 1881376121}
   - component: {fileID: 1881376122}
   - component: {fileID: 1881376123}
+  - component: {fileID: 1881376124}
   m_Layer: 0
   m_Name: Down
   m_TagString: Untagged
@@ -11189,6 +11351,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60a0499dfd6aeb4a8639500b36f306a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1881376124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881376120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c51828aeea2347b7de78ebfc62509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 3
 --- !u!1 &1943075157
 GameObject:
   m_ObjectHideFlags: 0
@@ -11605,6 +11780,8 @@ GameObject:
   - component: {fileID: 2118535606}
   - component: {fileID: 2118535607}
   - component: {fileID: 2118535608}
+  - component: {fileID: 2118535610}
+  - component: {fileID: 2118535609}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -11652,7 +11829,13 @@ MonoBehaviour:
   rightDoor: {fileID: 0}
   topDoor: {fileID: 0}
   bottomDoor: {fileID: 0}
+  leftCorridor: {fileID: 0}
+  rightCorridor: {fileID: 0}
+  topCorridor: {fileID: 0}
+  bottomCorridor: {fileID: 0}
   doors: []
+  corridors: []
+  lockableDoors: []
 --- !u!61 &2118535608
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11698,6 +11881,48 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 34, y: 18}
   m_EdgeRadius: 0
+--- !u!114 &2118535609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118535605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf9f5c8cbc1777848b76b9be367a71eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 0}
+  grid: {fileID: 1715002333}
+  SpawnerData:
+  - name: Bullets
+    spawnerData: {fileID: 11400000, guid: 3f3b6fda02bdd6649990e99c65344ffb, type: 2}
+  - name: Life
+    spawnerData: {fileID: 11400000, guid: a418e91cb2f5f4840af1eab4dead396f, type: 2}
+  fightController: {fileID: 1715002332}
+--- !u!114 &2118535610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118535605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c2f3df661742424a81f060c03ad66a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: {fileID: 0}
+  grid: {fileID: 1715002333}
+  SpawnerData:
+  - name: Tower Type
+    spawnerData: {fileID: 11400000, guid: 09eda9a2fde768e4cbc8080d75c8dc6e, type: 2}
+  - name: Sniper Type
+    spawnerData: {fileID: 11400000, guid: c883ced6cdf65bc468013dc2be923b89, type: 2}
+  - name: Stalker Type
+    spawnerData: {fileID: 11400000, guid: 8e90e8b891dd412488537d21c3c29935, type: 2}
+  fightController: {fileID: 1715002332}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -3261,7 +3261,7 @@ GameObject:
   - component: {fileID: 1715002330}
   - component: {fileID: 1715002331}
   - component: {fileID: 1715002332}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: ExitTrigg
   m_TagString: Untagged
   m_Icon: {fileID: 0}

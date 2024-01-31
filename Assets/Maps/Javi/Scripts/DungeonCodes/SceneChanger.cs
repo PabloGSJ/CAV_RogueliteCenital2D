@@ -7,7 +7,7 @@ public class SceneChanger : MonoBehaviour
 {
     public SceneType sceneName;
     bool loading = false;
-    // GameObject player;
+    GameObject player;
     GameObject playerData;
     PlayerData data;
 
@@ -37,9 +37,9 @@ public class SceneChanger : MonoBehaviour
     // }
     void Start()
     {
-        playerData = SceneManager.GetSceneByName("MainScene").GetRootGameObjects()[0];
-        data = playerData.GetComponent<PlayerData>();
-        Debug.Log(playerData.GetComponent<PlayerData>().Bullets);
+        // playerData = SceneManager.GetSceneByName("MainScene").GetRootGameObjects()[0];
+        // data = playerData.GetComponent<PlayerData>();
+        // Debug.Log(playerData.GetComponent<PlayerData>().Bullets);
     }
     
 
@@ -52,18 +52,25 @@ public class SceneChanger : MonoBehaviour
             // if (player != null)
             // {
             //     Debug.Log("Player gotten");
+            player = temp;
             // }
             loading = true;
 
-            data.Weapon = temp.GetComponent<PlayerStateMachine>().Weapon.GetComponent<BaseWeapon>(); //TODO: No la pilla bien
-            data.Health = temp.GetComponent<PlayerStateMachine>().Health;
-            data.Coins = temp.GetComponent<PlayerStateMachine>().Coins;
-            data.Bullets = temp.GetComponent<PlayerStateMachine>().NumBullets;
-            // Debug.Log("Player entered");            
+            // data.Weapon = temp.GetComponent<PlayerStateMachine>().Weapon.GetComponent<BaseWeapon>(); //TODO: No la pilla bien
+            // data.Health = temp.GetComponent<PlayerStateMachine>().Health;
+            // data.Coins = temp.GetComponent<PlayerStateMachine>().Coins;
+            // data.Bullets = temp.GetComponent<PlayerStateMachine>().NumBullets;
+            // Debug.Log("Player entered");  
+            // StartSceneChange();          
 
-            GetComponentInParent<RoomController>().StopLevelMusic();
-            StartCoroutine(LoadNextScene());
         }
+    }
+
+    public void StartSceneChange()
+    {
+
+        GetComponentInParent<RoomController>().StopLevelMusic();
+        StartCoroutine(LoadNextScene());
     }
 
     IEnumerator LoadNextScene()
@@ -74,6 +81,7 @@ public class SceneChanger : MonoBehaviour
             yield return null;
         }
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Loading"));
+        // yield return new WaitForSeconds(0.5f);
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(SceneNames[(int)sceneName]));
 
         // Debug.Log("Reached here");

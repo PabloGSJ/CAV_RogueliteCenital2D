@@ -10437,13 +10437,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  horizontalMargin: 10
-  verticalMargin: 10
+  horizontalMargin: 12
+  verticalMargin: 12
   grid:
     columns: 0
     rows: 0
-    verticalOffset: 5
-    horizontalOffset: 13
+    verticalOffset: 4
+    horizontalOffset: 12
   gridTile: {fileID: 3810708543871990702, guid: 93f0af2785c30ac44bcf2bbb4a24c4ab, type: 3}
   availablePoints: []
 --- !u!1 &1750382543
