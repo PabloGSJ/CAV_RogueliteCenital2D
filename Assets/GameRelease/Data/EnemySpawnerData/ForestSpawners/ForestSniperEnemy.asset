@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdb46216e68c2c74896bfb6eeb3a6a1a, type: 3}
-  m_Name: CarrotEnemy
+  m_Name: ForestSniperEnemy
   m_EditorClassIdentifier: 
-  itemToSpawn: {fileID: 8822695693289226495, guid: 0f9242dbcedfdf743a8d08f5ba32cbfe, type: 3}
+  itemToSpawn: {fileID: 7253303469712153535, guid: e5e1cad42d884a147b0d64be6f97aa01, type: 3}
   minSpawn: 1
   maxSpawn: 3

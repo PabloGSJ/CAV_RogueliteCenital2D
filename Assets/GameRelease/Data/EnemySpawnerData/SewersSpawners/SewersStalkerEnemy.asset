@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdb46216e68c2c74896bfb6eeb3a6a1a, type: 3}
-  m_Name: TomatoEnemy
+  m_Name: SewersStalkerEnemy
   m_EditorClassIdentifier: 
-  itemToSpawn: {fileID: 2438402050777785532, guid: cc5cea51385b6d34682cd42a5013a157, type: 3}
+  itemToSpawn: {fileID: 6831071265251678550, guid: 14578d116d5fcf1469e70538421c0314, type: 3}
   minSpawn: 1
   maxSpawn: 3

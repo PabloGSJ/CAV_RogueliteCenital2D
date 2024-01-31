@@ -478,6 +478,7 @@ GameObject:
   - component: {fileID: 106283608}
   - component: {fileID: 106283610}
   - component: {fileID: 106283609}
+  - component: {fileID: 106283611}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -525,6 +526,19 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &106283611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106283607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c51828aeea2347b7de78ebfc62509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 0
 --- !u!1 &286225901
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +550,7 @@ GameObject:
   - component: {fileID: 286225902}
   - component: {fileID: 286225904}
   - component: {fileID: 286225903}
+  - component: {fileID: 286225905}
   m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
@@ -583,6 +598,19 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &286225905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286225901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c51828aeea2347b7de78ebfc62509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 2
 --- !u!1 &309306676
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,6 +1077,7 @@ GameObject:
   - component: {fileID: 443635126}
   - component: {fileID: 443635128}
   - component: {fileID: 443635127}
+  - component: {fileID: 443635129}
   m_Layer: 0
   m_Name: Down
   m_TagString: Untagged
@@ -1096,6 +1125,19 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &443635129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443635125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c51828aeea2347b7de78ebfc62509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 3
 --- !u!1 &565872783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,6 +2156,7 @@ GameObject:
   - component: {fileID: 888638366}
   - component: {fileID: 888638368}
   - component: {fileID: 888638367}
+  - component: {fileID: 888638369}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -2162,6 +2205,19 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &888638369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888638365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02f163478ce6b945a47addb6c9c5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corridorType: 0
 --- !u!1 &890972699
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,6 +2229,7 @@ GameObject:
   - component: {fileID: 890972700}
   - component: {fileID: 890972702}
   - component: {fileID: 890972701}
+  - component: {fileID: 890972703}
   m_Layer: 0
   m_Name: Down
   m_TagString: Untagged
@@ -2221,6 +2278,19 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &890972703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890972699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02f163478ce6b945a47addb6c9c5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corridorType: 3
 --- !u!1 &971005948
 GameObject:
   m_ObjectHideFlags: 0
@@ -3924,6 +3994,7 @@ GameObject:
   - component: {fileID: 1218134519}
   - component: {fileID: 1218134521}
   - component: {fileID: 1218134520}
+  - component: {fileID: 1218134522}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -3972,6 +4043,19 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &1218134522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218134518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02f163478ce6b945a47addb6c9c5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corridorType: 1
 --- !u!1 &1227447887
 GameObject:
   m_ObjectHideFlags: 0
@@ -6181,6 +6265,7 @@ GameObject:
   - component: {fileID: 1369139328}
   - component: {fileID: 1369139330}
   - component: {fileID: 1369139329}
+  - component: {fileID: 1369139331}
   m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
@@ -6229,6 +6314,19 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &1369139331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369139327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f02f163478ce6b945a47addb6c9c5654, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corridorType: 2
 --- !u!1 &1463650724
 GameObject:
   m_ObjectHideFlags: 0
@@ -6240,6 +6338,7 @@ GameObject:
   - component: {fileID: 1463650725}
   - component: {fileID: 1463650727}
   - component: {fileID: 1463650726}
+  - component: {fileID: 1463650728}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -6287,6 +6386,19 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!114 &1463650728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463650724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959c51828aeea2347b7de78ebfc62509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorType: 1
 --- !u!1 &1554053025
 GameObject:
   m_ObjectHideFlags: 0
@@ -9310,7 +9422,13 @@ MonoBehaviour:
   rightDoor: {fileID: 0}
   topDoor: {fileID: 0}
   bottomDoor: {fileID: 0}
+  leftCorridor: {fileID: 0}
+  rightCorridor: {fileID: 0}
+  topCorridor: {fileID: 0}
+  bottomCorridor: {fileID: 0}
   doors: []
+  corridors: []
+  lockableDoors: []
 --- !u!61 &2118535608
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb46216e68c2c74896bfb6eeb3a6a1a, type: 3}
-  m_Name: TrashEnemy
+  m_Script: {fileID: 11500000, guid: bea5c627bbbd99f4eb73c0908294e420, type: 3}
+  m_Name: DungeonGenerationData
   m_EditorClassIdentifier: 
-  itemToSpawn: {fileID: 8765113695160584823, guid: 8cba7f74bb0c8344284dddfd998c4577, type: 3}
-  minSpawn: 1
-  maxSpawn: 3
+  numberOfCrawlers: 2
+  iterationMin: 16
+  iterationMax: 20

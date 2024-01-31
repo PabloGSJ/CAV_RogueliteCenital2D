@@ -10438,7 +10438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   room: {fileID: 0}
   horizontalMargin: 10
-  verticalMargin: 11
+  verticalMargin: 10
   grid:
     columns: 0
     rows: 0
@@ -12096,11 +12096,11 @@ MonoBehaviour:
   room: {fileID: 0}
   grid: {fileID: 1715002333}
   SpawnerData:
-  - name: Carrot
+  - name: Tower Type
     spawnerData: {fileID: 11400000, guid: 13c20adbd17baca4ca217d25fda6e320, type: 2}
-  - name: Pea
+  - name: Sniper Type
     spawnerData: {fileID: 11400000, guid: a82c19b94cad5a94d9d28d016894f6e4, type: 2}
-  - name: Tomato
+  - name: Stalker Type
     spawnerData: {fileID: 11400000, guid: 7931c52d29ae1e54aa79c996433c6240, type: 2}
   fightController: {fileID: 1715002332}
 --- !u!114 &2118535610

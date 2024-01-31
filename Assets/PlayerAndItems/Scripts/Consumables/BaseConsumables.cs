@@ -8,10 +8,10 @@ public abstract class BaseConsumables : MonoBehaviour
 
     public abstract void UseConsumable(PlayerStateMachine player);
 
-    public void Start()
-    {
-        sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
-    }
+    // public void Start()
+    // {
+    //     sc = GameObject.Find("SoundControl").GetComponent<SoundControllerScript>();
+    // }
 
     private void Awake()
     {

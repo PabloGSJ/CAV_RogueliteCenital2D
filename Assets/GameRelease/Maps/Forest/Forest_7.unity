@@ -12911,13 +12911,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   room: {fileID: 0}
-  horizontalMargin: 8
-  verticalMargin: 9
+  horizontalMargin: 10
+  verticalMargin: 10
   grid:
     columns: 0
     rows: 0
-    verticalOffset: 6
-    horizontalOffset: 14
+    verticalOffset: 5
+    horizontalOffset: 13
   gridTile: {fileID: 3810708543871990702, guid: 93f0af2785c30ac44bcf2bbb4a24c4ab, type: 3}
   availablePoints: []
 --- !u!1 &1750382543
@@ -14500,11 +14500,11 @@ MonoBehaviour:
   room: {fileID: 0}
   grid: {fileID: 1715002333}
   SpawnerData:
-  - name: Carrot
+  - name: Tower Type
     spawnerData: {fileID: 11400000, guid: 13c20adbd17baca4ca217d25fda6e320, type: 2}
-  - name: Pea
+  - name: Sniper Type
     spawnerData: {fileID: 11400000, guid: a82c19b94cad5a94d9d28d016894f6e4, type: 2}
-  - name: Tomato
+  - name: Stalker Type
     spawnerData: {fileID: 11400000, guid: 7931c52d29ae1e54aa79c996433c6240, type: 2}
   fightController: {fileID: 1715002332}
 --- !u!1660057539 &9223372036854775807

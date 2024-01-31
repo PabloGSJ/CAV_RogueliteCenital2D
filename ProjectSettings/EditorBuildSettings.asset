@@ -6,6 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/GameRelease/Scenes/HomeBase.unity
+    guid: 9d5eb2722c4178f44b9fb867bbfcf27b
+  - enabled: 1
+    path: Assets/GameRelease/Scenes/Forest.unity
+    guid: b944ae95a9edfae44af6c7bd3d75f098
+  - enabled: 1
+    path: Assets/GameRelease/Scenes/City.unity
+    guid: 03e88731b6aef29418e1175176d3ae1d
+  - enabled: 1
+    path: Assets/GameRelease/Scenes/Building.unity
+    guid: a0e610810641ebe40ad5477441fe16b4
+  - enabled: 1
+    path: Assets/GameRelease/Scenes/Sewers.unity
+    guid: c49ef613662f6244eb423170c8dbfa64
+  - enabled: 1
+    path: Assets/GameRelease/Scenes/Loading.unity
+    guid: 77de1ed7d2c780f4093b1c4883c888da
+  - enabled: 1
+    path: Assets/GameRelease/Boss/BossBattle.unity
+    guid: e5ef49d7dd5366c41a9c3788f96667a4
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Beginning_Start.unity
+    guid: 5fa0a3ef524f0294bbad3b79fdff4a9f
+  - enabled: 1
     path: Assets/GameRelease/Maps/Forest/Forest_1.unity
     guid: 4c88fa2c88942d94aba4fb172a415965
   - enabled: 1
@@ -71,4 +95,70 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameRelease/Maps/City/City_Start.unity
     guid: 35850361bc6eb7e4f888a123f76702d5
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Building/Building_1.unity
+    guid: eade15e47a6935040a2273886eeb985a
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Building/Building_2.unity
+    guid: db9eec12d474597498566175cbfa5e34
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Building/Building_3.unity
+    guid: 080af6e191a288a448c287a0573d0c96
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Building/Building_4.unity
+    guid: 1e3fc40738ddf944c973d04e4695e742
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Building/Building_5.unity
+    guid: a81d9812b00882d41bb29a5dd41919e6
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Building/Building_6.unity
+    guid: 12cd9f79a64d06e4ba84df61eee6a9de
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Building/Building_7.unity
+    guid: ca3e2ccab303f944184c740e94286a59
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Building/Building_Chest.unity
+    guid: 7eb1b3016c7703b498ae34016e45e287
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Building/Building_Finish.unity
+    guid: 19d81ee047db72d49835d8bd2c78c62d
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Building/Building_Shop.unity
+    guid: dd4ff95de74818e4c85eac667f398b7e
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Building/Building_Start.unity
+    guid: 72d033581251f0d43bbfd3190d8e7799
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Sewers/Sewers_1.unity
+    guid: bc8a9824e9157bb4fb4d5dce4b2d54f4
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Sewers/Sewers_2.unity
+    guid: 8d928971ad024384da68a98bacdb0342
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Sewers/Sewers_3.unity
+    guid: cd2a874c7d0326741b8ce9613a8680b5
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Sewers/Sewers_4.unity
+    guid: 14ec254c7155d1841871db30201076e0
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Sewers/Sewers_5.unity
+    guid: d25adb6a38b8cef4fb02bd01a529a443
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Sewers/Sewers_6.unity
+    guid: 3d0ace58d43a54744918e61c4fef79db
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Sewers/Sewers_7.unity
+    guid: 3e448098e708cbe4b9ed4d5167e717d4
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Sewers/Sewers_Chest.unity
+    guid: 3df8368341df7914082fe8e3c15bb2db
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Sewers/Sewers_Finish.unity
+    guid: 4483ed2ead930e34a8232daaa30bd08d
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Sewers/Sewers_Shop.unity
+    guid: a4b549291be9f86428f5a9520a4e64c7
+  - enabled: 1
+    path: Assets/GameRelease/Maps/Sewers/Sewers_Start.unity
+    guid: e8fdee04aaa27124b8cfcd3b9bedf35e
   m_configObjects: {}

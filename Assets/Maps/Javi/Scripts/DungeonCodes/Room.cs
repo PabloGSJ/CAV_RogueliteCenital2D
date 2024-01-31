@@ -82,6 +82,8 @@ public class Room : MonoBehaviour
             }
         }
 
+        // Debug.Log("Registering room");
+
         RoomController.instance.RegisterRoom(this);
     }
 
