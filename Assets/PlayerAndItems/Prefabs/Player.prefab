@@ -3308,9 +3308,14 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 3271475334269069216}
   gameOverAnim: {fileID: 2273289862144825080}
   pauseMenuCanvas: {fileID: 3645336022860634789}
-  gms: []
+  gms:
+  - {fileID: -2630562597697226158, guid: 33a3cf6250633a44c8a6cf8f94e521cb, type: 3}
+  - {fileID: 8545387021920219222, guid: 036f3ebb3c299b442ad06099f700a39a, type: 3}
+  - {fileID: -3818861522806267188, guid: 2a848218c68f4394b84aea25888af3f0, type: 3}
+  - {fileID: 6970545448157935532, guid: 1b0de52ed819ba242ab769c3420678c2, type: 3}
+  - {fileID: -1952796846641484194, guid: e2fcbb052f9c16d46a03d830ee980bd5, type: 3}
   MaxHealth: 10
-  Health: 3
+  Health: 10
   MaxCoins: 99
   Speed: 500
   DashSpeed: 1500

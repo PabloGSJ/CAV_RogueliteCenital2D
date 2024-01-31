@@ -167,6 +167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b919fe1ff0f13469d27cd025afd12a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NGM: 5
+  weapons:
+  - {fileID: 8143044070160544798, guid: 527ece974d3dff843adc964c0f0808f0, type: 3}
+  - {fileID: 8143044070160544798, guid: 63e6a053adf9aab4c96af6322f4aefc0, type: 3}
+  - {fileID: 8143044070160544798, guid: 2ca0b7756766141489caaf5f6ca275b0, type: 3}
+  - {fileID: 8143044070160544798, guid: 76911c0fc3e027541adcca2ea9b80bf0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

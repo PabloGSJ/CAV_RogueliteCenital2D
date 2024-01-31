@@ -29,12 +29,44 @@ public class PlayerData : MonoBehaviour
         // Debug.Log("HomeBase Loaded");
     }
 
-    public BaseWeapon weapon = null;
-    public int health = 10;
-    public int coins = 0;
-    public int bullets = 99;
-    public BaseWeapon Weapon { get {return weapon;} set{weapon = value;} }
+    public int NGM = 5;
+    public GameObject[] weapons;
+
+    // Preservable player context
+    private GameObject weapon = null;
+    private int health = 1000;
+    private int coins = 1000;
+    private int bullets = 1000;
+    private bool[] activeGM = {false, false, false, false, false};
+
+    // getters-setters
     public int Health { get {return health;} set{health = value;} }
     public int Coins { get {return coins;} set{coins = value;} }
     public int Bullets { get {return bullets;} set{bullets = value;} }
+    public bool[] ActiveGM { get {return activeGM;} set{activeGM = value;} }
+
+    public void SetWeapon(GameObject playerWeapon)
+    {
+        // comparar playerWeapon con weapons[]
+
+        // guardar en weapon el weapons[i] que corresponda
+    }
+
+    public GameObject GetWeapon()
+    {
+        return null;
+    }
+
+    public void ResetPlayerData()
+    {
+        weapon = null;
+        health = 10;
+        coins = 0;
+        bullets = 10;
+        
+        for (int i = 0; i < activeGM.Length; i++)
+        {
+            activeGM[i] = false;
+        }
+    }
 }
