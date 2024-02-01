@@ -44,7 +44,6 @@ public class SceneChanger : MonoBehaviour
 
     public void StartSceneChange()
     {
-
         GetComponentInParent<RoomController>().StopLevelMusic();
         StartCoroutine(LoadNextScene());
     }

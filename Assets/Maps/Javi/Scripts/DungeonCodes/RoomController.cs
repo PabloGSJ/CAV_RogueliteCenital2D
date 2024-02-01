@@ -53,6 +53,8 @@ public class RoomController : MonoBehaviour
 
     public SoundControllerScript sc;
 
+    private HashSet<string> possibleSceneNames = new HashSet<string>();
+
     void Awake()
     {
         instance = this;
@@ -69,7 +71,10 @@ public class RoomController : MonoBehaviour
         if (levelType == LevelType.Beginning)
         {
             LoadRoom("Start", 0, 0);
+            spawnedSpecialRooms = true;
+            loadedSpecialRooms = true;
         }
+        GenerateSceneNames();
     }
 
     void Update()
@@ -97,6 +102,7 @@ public class RoomController : MonoBehaviour
                     room.RemoveConnectedDoors();
                 }
                 updatedRooms = true;
+                DespawnRooms();
             }
             return;
         }
@@ -105,6 +111,31 @@ public class RoomController : MonoBehaviour
         isLoadingRoom = true;
 
         StartCoroutine(LoadRoomRoutine(currentLoadRoomData));
+    }
+
+    void DespawnRooms()
+    {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene roomScene = SceneManager.GetSceneAt(i);
+            if (possibleSceneNames.Contains(roomScene.name))
+            {
+                AsyncOperation unload = SceneManager.UnloadSceneAsync(roomScene);
+            }
+        }
+    }
+
+    void GenerateSceneNames()
+    {
+        string baseWorldName = currentWorldName + "_";
+        possibleSceneNames.Add(baseWorldName + "Start");
+        possibleSceneNames.Add(baseWorldName + "Finish");
+        possibleSceneNames.Add(baseWorldName + "Shop");
+        possibleSceneNames.Add(baseWorldName + "Chest");
+        for (int i = 1; i <= 8; i++)
+        {
+            possibleSceneNames.Add(baseWorldName + i);
+        }
     }
 
     IEnumerator SpawnSpecialRooms()
