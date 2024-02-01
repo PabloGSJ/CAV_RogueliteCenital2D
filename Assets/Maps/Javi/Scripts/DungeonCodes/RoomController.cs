@@ -144,7 +144,6 @@ public class RoomController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (loadRoomQueue.Count == 0)
         {
-            //Room finalRoom = loadedRooms[loadedRooms.Count - 1];
             int shopRoom, chestRoom, exitRoom;
             exitRoom = loadedRooms.Count - 1;
             shopRoom = Random.Range(1, loadedRooms.Count - 2);
