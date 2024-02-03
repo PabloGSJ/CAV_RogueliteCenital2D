@@ -7,6 +7,7 @@ public class FightController : MonoBehaviour
 
     public List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> items = new List<GameObject>();
+    private HashSet<int> enemiesIds = new HashSet<int>();
     public int numEnemies = 0;
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -37,6 +38,8 @@ public class FightController : MonoBehaviour
 
     public void AddEnemy(GameObject enemy)
     {
+        // enemiesIds.Add(enemy.GetInstanceID());
+        // Debug.Log(enemy.GetInstanceID());
         enemies.Add(enemy);
         numEnemies++;
     }
@@ -46,13 +49,30 @@ public class FightController : MonoBehaviour
         items.Add(item);
     }
 
-    public void enemyDeath()
+    public void enemyDeath(int id)
     {
-        numEnemies--;
+        // numEnemies--;
+        if (!enemiesIds.Contains(id))
+        {
+            enemiesIds.Add(id);
+            numEnemies--;
+        }
+
         if(numEnemies == 0)
         {
             RoomController.instance.CurrentRoom.UnlockDoors();
             SpawnItems();
+        }
+    }
+    private void removeEnemy(int id)
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (enemies[i].GetInstanceID() == id)
+            {
+                enemies.RemoveAt(i);
+                break;
+            }
         }
     }
 }

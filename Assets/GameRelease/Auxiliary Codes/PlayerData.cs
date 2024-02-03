@@ -7,12 +7,21 @@ public class PlayerData : MonoBehaviour
 {
     void Start()
     {
-        // DontDestroyOnLoad(this.gameObject);
-        // Debug.Log("Loading HomeBase");
-        // StartGame();
         StartCoroutine(StartGame());
-        // AsyncOperation asyncLoadScene = SceneManager.LoadSceneAsync("HomeBase", LoadSceneMode.Additive);
+        if (SceneManager.GetSceneByName("Loading").isLoaded)
+        {
+            Debug.Log("Despawning Loading");
+            StartCoroutine(DespawnLoading());
+        }
+    }
 
+    IEnumerator DespawnLoading()
+    {
+        AsyncOperation unloadLoading = SceneManager.UnloadSceneAsync("Loading");
+        while (!unloadLoading.isDone)
+        {
+            yield return null;
+        }
     }
 
     IEnumerator StartGame()

@@ -250,6 +250,8 @@ public class RoomController : MonoBehaviour
         switch (levelType)
         {
             case LevelType.Beginning:
+                sc.playStartMusic();
+                break;
             case LevelType.Forest:
                 sc.playForestMusic();
                 break;
@@ -270,6 +272,8 @@ public class RoomController : MonoBehaviour
         switch (levelType)
         {
             case LevelType.Beginning:
+                sc.StopStartMusic();
+                break;
             case LevelType.Forest:
                 sc.stopForestMusic();
                 break;
