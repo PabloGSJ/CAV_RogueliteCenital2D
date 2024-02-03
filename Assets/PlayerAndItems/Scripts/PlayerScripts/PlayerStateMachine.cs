@@ -42,6 +42,7 @@ public class PlayerStateMachine : MonoBehaviour
     private const int GMLayer               = 15;
     private const int ClassSelectorLayer    = 16;
     private const int ChestLayer            = 17;
+    private const int SceneChangeLayer      = 21;
 
     private const string AIsMoving    = "IsMoving";
     private const string AIsDashing   = "IsDashing";
@@ -204,20 +205,23 @@ public class PlayerStateMachine : MonoBehaviour
         ui.DisplayNewHealth(Health);
         _isDamagedCounter = InvulnerableTime;
 
-        // setup default weapon
-        GameObject go = Instantiate(DefaultWeapon,
-                                    new Vector3(transform.position.x,
-                                                transform.position.y,
-                                                transform.position.z),
-                                    Quaternion.identity,
-                                    this.transform) as GameObject;
-        PickupWeapon(go.GetComponent<BaseWeapon>());
-
         // setup dash
         _dashCooldownCounter = 0;
 
         // read state from PlayerData
         LoadState();
+
+        if (Weapon == null)
+        {
+            // setup default weapon
+            GameObject go = Instantiate(DefaultWeapon,
+                                        new Vector3(transform.position.x,
+                                                    transform.position.y,
+                                                    transform.position.z),
+                                        Quaternion.identity,
+                                        this.transform) as GameObject;
+            PickupWeapon(go.GetComponent<BaseWeapon>());
+        }
     }
 
     private void Awake()
@@ -313,6 +317,7 @@ public class PlayerStateMachine : MonoBehaviour
             case ClassSelectorLayer:
             case ChestLayer:
             case WeaponsLayer:
+            case SceneChangeLayer:
                 _interacted = false;    // reset actions and listen
                 e.enabled = true;
                 break;
@@ -366,6 +371,9 @@ public class PlayerStateMachine : MonoBehaviour
                         UpdateConsumables();
                     }
                     break;
+                case SceneChangeLayer:
+                    collision.gameObject.GetComponent<SceneChanger>().StartSceneChange();
+                    break;
 
                 default:
                     break;
@@ -379,7 +387,9 @@ public class PlayerStateMachine : MonoBehaviour
         {
             case ShopItemsLayer:
             case ClassSelectorLayer:
+            case ChestLayer:
             case WeaponsLayer:
+            case SceneChangeLayer:
                 _interacted = false;    // reset actions and listen
                 e.enabled = false;
                 break;
