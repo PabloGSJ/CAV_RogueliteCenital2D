@@ -30,6 +30,7 @@ public class PlayerStateMachine : MonoBehaviour
     private bool _isPaused;
     public BaseGM[] gms;
     public Sprite[] DeathSpriteSequence;
+    public Collider2D mycoll;
 
     private const int PlayerLayer           = 6;
     private const int WallsLayer            = 7;

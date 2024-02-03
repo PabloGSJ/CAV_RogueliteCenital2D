@@ -3319,6 +3319,7 @@ MonoBehaviour:
   - {fileID: -771155751, guid: 7179ad0489191a347bf421a92aa19d5b, type: 3}
   - {fileID: -1264063541, guid: 7179ad0489191a347bf421a92aa19d5b, type: 3}
   - {fileID: 881590007, guid: 7179ad0489191a347bf421a92aa19d5b, type: 3}
+  mycoll: {fileID: 8076830716462984434}
   MaxHealth: 10
   Health: 10
   MaxCoins: 99

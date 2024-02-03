@@ -26,6 +26,7 @@ public class PlayerDeadState : PlayerBaseState
     public override void EnterState()
     {
         _ctx.rb.bodyType = RigidbodyType2D.Static;
+        _ctx.mycoll.enabled = false;
         _ctx.SoundController.playGameOverTuneSoundEffect();
         _isDed = false;
         _dead0 = _ctx.DeathSpriteSequence[0];
