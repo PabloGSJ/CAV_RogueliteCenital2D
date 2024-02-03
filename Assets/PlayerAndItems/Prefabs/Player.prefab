@@ -920,9 +920,9 @@ MonoBehaviour:
   - {fileID: 3815397273207179475}
   - {fileID: 2456966399188554127}
   heartSprites:
-  - {fileID: 654256998, guid: 29a3cb9c139c2db48a96c5c9c87f5944, type: 3}
-  - {fileID: -1078191338, guid: 29a3cb9c139c2db48a96c5c9c87f5944, type: 3}
-  - {fileID: 140585745, guid: 29a3cb9c139c2db48a96c5c9c87f5944, type: 3}
+  - {fileID: 270595971, guid: c7c5c0c4c5e18a14a995e68cff48154a, type: 3}
+  - {fileID: 1871445948, guid: c7c5c0c4c5e18a14a995e68cff48154a, type: 3}
+  - {fileID: 72043303, guid: c7c5c0c4c5e18a14a995e68cff48154a, type: 3}
   MaxHealth: 0
   HealthPerHeart: 2
 --- !u!1 &2599745043747285750

@@ -32,6 +32,7 @@ public class SoundControllerScript : MonoBehaviour
     private AudioSource enemyAttackSound;
 
     //Music
+    private AudioSource startMusic;
     private AudioSource forestMusic;
     private AudioSource cityMusic;
     private AudioSource houseMusic;
@@ -77,6 +78,7 @@ public class SoundControllerScript : MonoBehaviour
         airMusic = GameObject.Find("AirMusic").GetComponent<AudioSource>();
         bossMusic = GameObject.Find("BossMusic").GetComponent<AudioSource>();
         mainMenuMusic = GameObject.Find("MainMenuMusic").GetComponent<AudioSource>();
+        startMusic = GameObject.Find("StartMusic").GetComponent<AudioSource>();
     }
 
     // PLAYER
@@ -267,5 +269,14 @@ public class SoundControllerScript : MonoBehaviour
     public void StopMainMenuMusic()
     {
         mainMenuMusic.Stop();
+    }
+
+    public void playStartMusic()
+    {
+        startMusic.Play();
+    }
+    public void StopStartMusic()
+    {
+        startMusic.Stop();
     }
 }
