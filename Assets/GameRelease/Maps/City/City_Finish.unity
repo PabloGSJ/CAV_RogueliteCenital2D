@@ -4682,7 +4682,7 @@ GameObject:
   - component: {fileID: 211596322}
   - component: {fileID: 211596321}
   m_Layer: 21
-  m_Name: Exti Trigg
+  m_Name: ExitTrigg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

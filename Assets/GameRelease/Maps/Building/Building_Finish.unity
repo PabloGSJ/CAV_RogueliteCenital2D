@@ -8020,7 +8020,7 @@ GameObject:
   - component: {fileID: 1691951124}
   - component: {fileID: 1691951123}
   m_Layer: 21
-  m_Name: Exit Trigg
+  m_Name: ExitTrigg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

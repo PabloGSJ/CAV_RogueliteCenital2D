@@ -6138,7 +6138,7 @@ GameObject:
   - component: {fileID: 527759411}
   - component: {fileID: 527759410}
   m_Layer: 0
-  m_Name: Exit Trigg
+  m_Name: ExitTrigg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
