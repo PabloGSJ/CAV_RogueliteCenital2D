@@ -22,21 +22,22 @@ public class PlayerData : MonoBehaviour
         {
             yield return null;
         }
-        // SceneManager.UnloadSceneAsync("Loading");
-        // SceneManager.LoadScene("HomeBase");
-        // Debug.Log("Loading HomeBase");
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("HomeBase"));
-        // Debug.Log("HomeBase Loaded");
     }
 
     public int NGM = 5;
     public GameObject[] weapons;
 
+    // Constants
+    public const int START_HEALTH = 10;
+    public const int START_COINS = 0;
+    public const int START_BULLETS = 10;
+
     // Preservable player context
     private GameObject weapon = null;
-    private int health = 10;
-    private int coins = 0;
-    private int bullets = 10;
+    private int health = START_HEALTH;
+    private int coins = START_COINS;
+    private int bullets = START_BULLETS;
     private bool[] activeGM = {false, false, false, false, false};
 
     // getters-setters
@@ -47,105 +48,26 @@ public class PlayerData : MonoBehaviour
 
     public void SetWeapon(BaseWeapon playerWeapon)
     {
-        // comparar playerWeapon con weapons[]
-        // foreach (GameObject weapon in weapons)
-        // {
-        //     if (playerWeapon.name == weapon.name)
-        //     {
-        //         this.weapon = weapon;
-        //         Debug.Log("Weapon set");
-        //         break;
-        //     }
-        //     else
-        //     {
-        //         this.weapon = null;
-        //     }
-        // }
-
-        // BaseWeapon bw =  weapons[0].GetComponent<BaseWeapon>();
-
-        // if (bw is WeaponCrowbar)
-        // {
-        //     Debug.Log("Si lo es");
-        // }
-
-        // if (bw is WeaponGun)
-        // {
-        //     Debug.Log("Si lo es");
-        // }
-        // else
-        // {
-        //     Debug.Log("No lo es");
-        // }
-
-        // Debug.Log("Writing weapon");
-
-        // if (playerWeapon == null)
-        // {
-        //     weapon = null; // KnuckleBuster
-        //     Debug.Log("KnuckleBuster set");
-        // }
-        // else if (playerWeapon.GetComponent<WeaponCrowbar>() != null)
-        // {
-        //     weapon = weapons[0];
-        // }
-        // else if (playerWeapon.GetComponent<WeaponGun>() != null)
-        // {
-        //     weapon = weapons[1];
-        //     Debug.Log("Weapon set");
-        // }
-        // else if (playerWeapon.GetComponent<WeaponShotgun>() != null)
-        // {
-        //     weapon = weapons[2];
-        // }
-        // else
-        // {
-        //     weapon = weapons[3];
-        //     Debug.Log("Default weapon set");
-        // }
-
         if (playerWeapon is WeaponCrowbar)
         {
-            weapon = weapons[0];
-            // Debug.Log("Crowbar set");
+            weapon = weapons[0]; // Crowbar
         }
         else if (playerWeapon is WeaponGun)
         {
-            weapon = weapons[1];
-            // Debug.Log("Gun set");
+            weapon = weapons[1]; // Gun
         }
         else if (playerWeapon is WeaponShotgun)
         {
-            weapon = weapons[2];
-            // Debug.Log("Shotgun set");
+            weapon = weapons[2]; // Shotgun
         }
         else if (playerWeapon is WeaponSniper)
         {
-            weapon = weapons[3];
-            // Debug.Log("Sniper set");
+            weapon = weapons[3]; // Sniper
         }
         else
         {
-            weapon = null;
-            // Debug.Log("KnuckleBuster set");
+            weapon = null; // KnuckleBuster
         }
-
-
-        // for (int i = 0; i < weapons.Length; i++)
-        // {
-        //     if (playerWeapon.name == weapons[i].name)
-        //     {
-        //         weapon = weapons[i];
-        //         Debug.Log("Weapon set");
-        //         break;
-        //     }
-        //     else
-        //     {
-        //         weapon = null;
-        //     }
-        // }
-
-        // guardar en weapon el weapons[i] que corresponda
     }
 
     public GameObject GetWeapon()
@@ -156,9 +78,9 @@ public class PlayerData : MonoBehaviour
     public void ResetPlayerData()
     {
         weapon = null;
-        health = 10;
-        coins = 0;
-        bullets = 10;
+        health = START_HEALTH;
+        coins = START_COINS;
+        bullets = START_BULLETS;
         
         for (int i = 0; i < activeGM.Length; i++)
         {

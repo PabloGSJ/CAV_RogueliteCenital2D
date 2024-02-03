@@ -50,6 +50,31 @@ public class SceneChanger : MonoBehaviour
 
     IEnumerator LoadNextScene()
     {
+        AsyncOperation asyncLoadingScene = SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive);
+        while (!asyncLoadingScene.isDone)
+        {
+            yield return null;
+        }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Loading"));
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(SceneNames[(int)sceneName]));
+
+        AsyncOperation asyncNextScene = SceneManager.LoadSceneAsync(SceneNames[(int)sceneName + 1], LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Loading"));
+        while (!asyncNextScene.isDone)
+        {
+            yield return null;
+        }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneNames[(int)sceneName + 1]));
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.GetSceneByName("MainScene").GetRootGameObjects()[0].GetComponent<PlayerData>().ResetPlayerData();
+        StartCoroutine(LoadBeginning());
+    }
+
+    IEnumerator LoadBeginning()
+    {
         AsyncOperation asyncLoadScene = SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive);
         while (!asyncLoadScene.isDone)
         {
@@ -58,12 +83,12 @@ public class SceneChanger : MonoBehaviour
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Loading"));
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(SceneNames[(int)sceneName]));
 
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneNames[(int)sceneName + 1], LoadSceneMode.Additive);
+        AsyncOperation asyncStartScene = SceneManager.LoadSceneAsync(SceneNames[0], LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Loading"));
-        while (!asyncLoad.isDone)
+        while (!asyncStartScene.isDone)
         {
             yield return null;
         }
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneNames[(int)sceneName + 1]));
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneNames[0]));
     }
 }
