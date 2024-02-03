@@ -10070,6 +10070,7 @@ GameObject:
   - component: {fileID: 691822388}
   - component: {fileID: 691822389}
   - component: {fileID: 691822390}
+  - component: {fileID: 691822391}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -10162,6 +10163,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 34, y: 18}
   m_EdgeRadius: 0
+--- !u!114 &691822391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691822385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8f139971eee6e4ca4796624a9ea6dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: 5
 --- !u!1001 &693930634
 PrefabInstance:
   m_ObjectHideFlags: 0
