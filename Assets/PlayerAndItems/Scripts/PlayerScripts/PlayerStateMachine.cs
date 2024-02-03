@@ -204,20 +204,23 @@ public class PlayerStateMachine : MonoBehaviour
         ui.DisplayNewHealth(Health);
         _isDamagedCounter = InvulnerableTime;
 
-        // setup default weapon
-        GameObject go = Instantiate(DefaultWeapon,
-                                    new Vector3(transform.position.x,
-                                                transform.position.y,
-                                                transform.position.z),
-                                    Quaternion.identity,
-                                    this.transform) as GameObject;
-        PickupWeapon(go.GetComponent<BaseWeapon>());
-
         // setup dash
         _dashCooldownCounter = 0;
 
         // read state from PlayerData
         LoadState();
+
+        if (Weapon == null)
+        {
+            // setup default weapon
+            GameObject go = Instantiate(DefaultWeapon,
+                                        new Vector3(transform.position.x,
+                                                    transform.position.y,
+                                                    transform.position.z),
+                                        Quaternion.identity,
+                                        this.transform) as GameObject;
+            PickupWeapon(go.GetComponent<BaseWeapon>());
+        }
     }
 
     private void Awake()
