@@ -29,6 +29,7 @@ public class PlayerStateMachine : MonoBehaviour
     public GameObject pauseMenuCanvas;
     private bool _isPaused;
     public BaseGM[] gms;
+    public Sprite[] DeathSpriteSequence;
 
     private const int PlayerLayer           = 6;
     private const int WallsLayer            = 7;

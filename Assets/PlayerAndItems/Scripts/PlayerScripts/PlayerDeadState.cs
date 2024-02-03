@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class PlayerDeadState : PlayerBaseState
 {
+
+    private bool _isDed;
+
+    private Sprite _dead0, _dead1, _dead2, _dead3;
+
+
+
     public PlayerDeadState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(currentContext, playerStateFactory)
     {
     }
@@ -16,11 +23,12 @@ public class PlayerDeadState : PlayerBaseState
     public override void EnterState()
     {
         _ctx.rb.bodyType = RigidbodyType2D.Static;
-        _ctx.a.SetBool(_ctx.AnimIsDead, true);
         _ctx.SoundController.playGameOverTuneSoundEffect();
-        _ctx.gameOverCanvas.SetActive(true);
-        _ctx.gameOverAnim.SetBool("FadeIn", true);
-        Time.timeScale = 0;
+        _isDed = false;
+        _dead0 = _ctx.DeathSpriteSequence[0];
+        _dead1 = _ctx.DeathSpriteSequence[1];
+        _dead2 = _ctx.DeathSpriteSequence[2];
+        _dead3 = _ctx.DeathSpriteSequence[3];
     }
 
     public override void ExitState()
@@ -35,6 +43,25 @@ public class PlayerDeadState : PlayerBaseState
 
     public override void UpdateState()
     {
-       
+        DieSequence();
+
+        if (_isDed)
+        {
+            Deathloop();
+        }
+    }
+
+    private void DieSequence()
+    {
+        
+    }
+
+    private void Deathloop()
+    {
+        _ctx.gameOverCanvas.SetActive(true);
+        _ctx.gameOverAnim.SetBool("FadeIn", true);
+        Time.timeScale = 0;
+
+        for (;;) { }
     }
 }
