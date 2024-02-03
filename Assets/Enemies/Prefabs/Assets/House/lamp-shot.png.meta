@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 48ebca59a6374ef49b44a933669b9a3f
+guid: b9054abd1f5fe684d8a380ec0ce53da7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rat-follow-nolegs_0
+      name: lamp-shot_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 16
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0df13f3e58185c4aa92df3929653e65
-      internalID: -1351539352
+      spriteID: dba50a4429a6f3642839860001999446
+      internalID: 1908089401
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rat-follow-nolegs_1
+      name: lamp-shot_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 16
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4582e27a42a39a44f8f49703cb7a01e0
-      internalID: -815604577
+      spriteID: 47a76d878b7c24b4492082ed7bb1fb78
+      internalID: -329120913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rat-follow-nolegs_2
+      name: lamp-shot_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 16
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7cf62f8d448b284f995dfb018095a5f
-      internalID: -386875696
+      spriteID: 7a7cd299613a08c4281a11d2c2c9d589
+      internalID: 997402915
       vertices: []
       indices: 
       edges: []
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      rat-follow-nolegs_0: -1351539352
-      rat-follow-nolegs_1: -815604577
-      rat-follow-nolegs_2: -386875696
+      lamp-shot_0: 1908089401
+      lamp-shot_1: -329120913
+      lamp-shot_2: 997402915
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 993eac9206f0aea43a9210da8712f4f9
+guid: c94088889bd5c4a468f89f629e64f42e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: roomba-follow_0
+      name: drone-shot_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63bf8eb409817fb48ad0b19f64a55cb1
-      internalID: 367306656
+      spriteID: aa7c35a59aca46148930affaa964aca1
+      internalID: -641623887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roomba-follow_1
+      name: drone-shot_1
       rect:
         serializedVersion: 2
         x: 16
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4333bbc5cf292b45a7fb7eba7202949
-      internalID: -1230805825
+      spriteID: b7f42c6c6f7832e4cab37cb6b672f23a
+      internalID: 1959216686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: roomba-follow_2
+      name: drone-shot_2
       rect:
         serializedVersion: 2
         x: 32
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12aadae5590bd5e44a4e6a952a672a49
-      internalID: -842043794
+      spriteID: 1c486a06a5dd5bd40b39866edba671bc
+      internalID: -927099550
       vertices: []
       indices: 
       edges: []
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      roomba-follow_0: 367306656
-      roomba-follow_1: -1230805825
-      roomba-follow_2: -842043794
+      drone-shot_0: -641623887
+      drone-shot_1: 1959216686
+      drone-shot_2: -927099550
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

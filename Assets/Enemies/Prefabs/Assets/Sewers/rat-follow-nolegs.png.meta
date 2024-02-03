@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ac82df54fabc8c0498aa23c4e413a45e
+guid: 48ebca59a6374ef49b44a933669b9a3f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: carrot-shot_0
+      name: rat-follow-nolegs_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e297f0007e171f94d943b69e4c1ad271
-      internalID: -839372892
+      spriteID: e0df13f3e58185c4aa92df3929653e65
+      internalID: -1351539352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: carrot-shot_1
+      name: rat-follow-nolegs_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f854a8b2dac5264d929488a4625447a
-      internalID: -330189220
+      spriteID: 4582e27a42a39a44f8f49703cb7a01e0
+      internalID: -815604577
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: carrot-shot_2
+      name: rat-follow-nolegs_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
-        height: 17
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,29 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a468749e83d2af41a7bf64616406a79
-      internalID: 31083505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: carrot-shot_3
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f909330b8f953c541aaee5836a06923d
-      internalID: -1683439024
+      spriteID: b7cf62f8d448b284f995dfb018095a5f
+      internalID: -386875696
       vertices: []
       indices: 
       edges: []
@@ -204,10 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      carrot-shot_0: -839372892
-      carrot-shot_1: -330189220
-      carrot-shot_2: 31083505
-      carrot-shot_3: -1683439024
+      rat-follow-nolegs_0: -1351539352
+      rat-follow-nolegs_1: -815604577
+      rat-follow-nolegs_2: -386875696
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

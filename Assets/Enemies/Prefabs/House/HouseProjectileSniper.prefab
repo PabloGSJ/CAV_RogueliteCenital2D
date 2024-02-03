@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7264597552061611995}
   - component: {fileID: 8006229466255137307}
   - component: {fileID: 3611121626892948803}
-  - component: {fileID: 1148873663693998484}
   - component: {fileID: 857558854713104731}
+  - component: {fileID: -4162101503980776412}
   - component: {fileID: 3754428009559171090}
   m_Layer: 12
   m_Name: HouseProjectileSniper
@@ -115,19 +115,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &1148873663693998484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3712754069402590642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be7cb44ab8af1ce4b879eb432cdda271, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 5
 --- !u!114 &857558854713104731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,6 +127,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 355da006fa2d4fc45866672f008c7528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4162101503980776412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3712754069402590642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd389fd5164a206439c86fb73f774ef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 4
 --- !u!61 &3754428009559171090
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 87077793b4d90b846a6b86205df87b7d
+guid: 3d7ed52eab35c1e4b8fe7c3ff35655cd
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tomate-follow_0
+      name: rat-follow_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e21ecbaa09f4d5d40894558f2e2f34f3
-      internalID: -568120876
+      spriteID: e0d5e186ceda7b44f95a08de01fff8f2
+      internalID: 1651613753
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tomate-follow_1
+      name: rat-follow_1
       rect:
         serializedVersion: 2
         x: 16
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6075b1afe9048af4a8e7ecd3c2b31abc
-      internalID: -1685496962
+      spriteID: 4b7bc31b7c790b14b9865589712d5978
+      internalID: -854915845
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tomate-follow_2
+      name: rat-follow_2
       rect:
         serializedVersion: 2
         x: 32
@@ -166,8 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d453d50e55678149bc015c78843ff7b
-      internalID: 1848678637
+      spriteID: 9e83045cdbccd0748b57f3ae14950573
+      internalID: -1927866383
       vertices: []
       indices: 
       edges: []
@@ -183,9 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tomate-follow_0: -568120876
-      tomate-follow_1: -1685496962
-      tomate-follow_2: 1848678637
+      rat-follow_0: 1651613753
+      rat-follow_1: -854915845
+      rat-follow_2: -1927866383
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5be2446956d8395488df44d5c1e5146f
+guid: 87077793b4d90b846a6b86205df87b7d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: trash-shot_0
+      name: tomate-follow_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 17
-        height: 17
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6289df52431b2f4a98829a3dc626afc
-      internalID: 1330644166
+      spriteID: e21ecbaa09f4d5d40894558f2e2f34f3
+      internalID: -568120876
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trash-shot_1
+      name: tomate-follow_1
       rect:
         serializedVersion: 2
-        x: 17
+        x: 16
         y: 0
-        width: 17
-        height: 17
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3aa68a7622e17e14b90cab1e52f07570
-      internalID: 542222423
+      spriteID: 6075b1afe9048af4a8e7ecd3c2b31abc
+      internalID: -1685496962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trash-shot_2
+      name: tomate-follow_2
       rect:
         serializedVersion: 2
-        x: 34
+        x: 32
         y: 0
-        width: 17
-        height: 17
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,29 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d19bfab34d488b4ab0c8a15020d531f
-      internalID: 1977655879
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: trash-shot_3
-      rect:
-        serializedVersion: 2
-        x: 51
-        y: 0
-        width: 17
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4f51a86e49164b94fa68b8b9420730e1
-      internalID: 1692432055
+      spriteID: 6d453d50e55678149bc015c78843ff7b
+      internalID: 1848678637
       vertices: []
       indices: 
       edges: []
@@ -204,10 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      trash-shot_0: 1330644166
-      trash-shot_1: 542222423
-      trash-shot_2: 1977655879
-      trash-shot_3: 1692432055
+      tomate-follow_0: -568120876
+      tomate-follow_1: -1685496962
+      tomate-follow_2: 1848678637
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

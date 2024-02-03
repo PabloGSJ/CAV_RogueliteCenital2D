@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ff599f4995db01444902660b83c5ebe0
+guid: ac82df54fabc8c0498aa23c4e413a45e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: squeleton-shot_0
+      name: carrot-shot_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a752093cbd8d5e94f911be9ed22d2441
-      internalID: -43403921
+      spriteID: e297f0007e171f94d943b69e4c1ad271
+      internalID: -839372892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: squeleton-shot_1
+      name: carrot-shot_1
       rect:
         serializedVersion: 2
         x: 16
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65ef042fcc6ee2f47a8d3ba84e1185dd
-      internalID: 200664333
+      spriteID: 7f854a8b2dac5264d929488a4625447a
+      internalID: -330189220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: squeleton-shot_2
+      name: carrot-shot_2
       rect:
         serializedVersion: 2
         x: 32
@@ -166,8 +166,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 933ccbbb51a49c248bda68ef194d3596
-      internalID: -1552680967
+      spriteID: 7a468749e83d2af41a7bf64616406a79
+      internalID: 31083505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carrot-shot_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f909330b8f953c541aaee5836a06923d
+      internalID: -1683439024
       vertices: []
       indices: 
       edges: []
@@ -183,9 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      squeleton-shot_0: -43403921
-      squeleton-shot_1: 200664333
-      squeleton-shot_2: -1552680967
+      carrot-shot_0: -839372892
+      carrot-shot_1: -330189220
+      carrot-shot_2: 31083505
+      carrot-shot_3: -1683439024
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

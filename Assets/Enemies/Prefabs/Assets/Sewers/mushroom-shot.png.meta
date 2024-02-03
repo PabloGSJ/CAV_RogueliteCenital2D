@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c71e0ee32ef866c4397d6508a5364f2d
+guid: 04ed1cda61b221f4796aebdc07c9971e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: car-follow_0
+      name: mushroom-shot_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72bf195f1b5658542b3f31bd2dff60c2
-      internalID: -1558532126
+      spriteID: 56aff0d3bffe5db47ba78fde594cce16
+      internalID: 322852852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: car-follow_1
+      name: mushroom-shot_1
       rect:
         serializedVersion: 2
         x: 16
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a0c836e579ac19428089496f85bd778
-      internalID: -1150561365
+      spriteID: b5f50b83116b8dc4fa48356486082427
+      internalID: -87510611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: car-follow_2
+      name: mushroom-shot_2
       rect:
         serializedVersion: 2
         x: 32
@@ -166,8 +166,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9acd542a9c2e08048a92243092fe87d2
-      internalID: -817772643
+      spriteID: 8c2f7a36759362a4d9e78208a2783688
+      internalID: 1696961212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mushroom-shot_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eac60d769961ecf4c8be6b0b1915dc0b
+      internalID: -838429486
       vertices: []
       indices: 
       edges: []
@@ -183,9 +204,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      car-follow_0: -1558532126
-      car-follow_1: -1150561365
-      car-follow_2: -817772643
+      mushroom-shot_0: 322852852
+      mushroom-shot_1: -87510611
+      mushroom-shot_2: 1696961212
+      mushroom-shot_3: -838429486
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
