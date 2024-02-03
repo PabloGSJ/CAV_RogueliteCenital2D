@@ -33,6 +33,7 @@ public abstract class BaseShopItem : MonoBehaviour
                                             this.transform.position.z),
                                 this.transform.rotation,
                                 this.transform);
+        _soldItem.GetComponent<SpriteRenderer>().sortingLayerName = "Hover";
 
         // leave only the shop collider active
         Collider2D collider = _soldItem.GetComponent<Collider2D>();

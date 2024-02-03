@@ -38,7 +38,7 @@ public class SceneChanger : MonoBehaviour
         {
             temp.GetComponent<PlayerStateMachine>().SaveState();
             loading = true;
-            StartSceneChange();          
+            //StartSceneChange();
         }
     }
 

@@ -6,6 +6,7 @@ public class Class : MonoBehaviour
 {
     public Collider2D mycoll;
     public ClassSelector cs;
+    public Vector2 offset;
 
     // class item variables
     public GameObject Item;
@@ -18,14 +19,22 @@ public class Class : MonoBehaviour
     private void Awake()
     {
         _classItem = Instantiate(Item,
-                                new Vector3(this.transform.position.x,
-                                            this.transform.position.y,
+                                new Vector3(this.transform.position.x + offset.x,
+                                            this.transform.position.y + offset.y,
                                             this.transform.position.z),
                                 this.transform.rotation,
                                 this.transform);
+        _classItem.GetComponent<BaseWeapon>().sr.sortingLayerName = "Hover";
 
         // leave only the class selector collider active
         _classItem.GetComponent<Collider2D>().enabled = false;
+    }
+
+    private void Update()
+    {
+        _classItem.transform.position = new Vector3(this.transform.position.x + offset.x,
+                                                    this.transform.position.x + offset.y,
+                                                    this.transform.position.z);
     }
 
 
