@@ -74,6 +74,7 @@ public class RoomController : MonoBehaviour
             spawnedSpecialRooms = true;
             loadedSpecialRooms = true;
         }
+        RemoveExcessLoadings();
         GenerateSceneNames();
     }
 
@@ -111,6 +112,18 @@ public class RoomController : MonoBehaviour
         isLoadingRoom = true;
 
         StartCoroutine(LoadRoomRoutine(currentLoadRoomData));
+    }
+
+    void RemoveExcessLoadings()
+    {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene roomScene = SceneManager.GetSceneAt(i);
+            if (roomScene.name == "Loading")
+            {
+                AsyncOperation unload = SceneManager.UnloadSceneAsync(roomScene);
+            }
+        }
     }
 
     void DespawnRooms()
