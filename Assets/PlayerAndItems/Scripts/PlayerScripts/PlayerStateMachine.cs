@@ -214,7 +214,7 @@ public class PlayerStateMachine : MonoBehaviour
         _dashCooldownCounter = 0;
 
         // read state from PlayerData
-        //LoadState();
+        LoadState();
 
         if (Weapon == null)
         {
