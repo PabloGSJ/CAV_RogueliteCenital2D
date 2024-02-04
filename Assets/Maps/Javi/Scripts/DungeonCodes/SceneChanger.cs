@@ -91,4 +91,29 @@ public class SceneChanger : MonoBehaviour
         }
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(SceneNames[0]));
     }
+
+    public void BackToMenu()
+    {
+        StartCoroutine(LoadMenu());
+    }
+
+    IEnumerator LoadMenu()
+    {
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("MainScene"));
+        AsyncOperation asyncLoadScene = SceneManager.LoadSceneAsync("Loading", LoadSceneMode.Additive);
+        while (!asyncLoadScene.isDone)
+        {
+            yield return null;
+        }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Loading"));
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName(SceneNames[(int)sceneName]));
+
+        AsyncOperation asyncLoadMenu = SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+        while (!asyncLoadMenu.isDone)
+        {
+            yield return null;
+        }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainMenu"));
+        SceneManager.UnloadSceneAsync(SceneManager.GetSceneByName("Loading"));
+    }
 }

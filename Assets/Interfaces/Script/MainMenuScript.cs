@@ -15,12 +15,24 @@ public class MainMenuScript : MonoBehaviour
     public void Start()
     {
         sc.playMainMenuMusic();
+        if (SceneManager.sceneCount > 1)
+        {
+            SceneManager.SetActiveScene(SceneManager.GetSceneByName("MainMenu"));
+            for (int i = 0; i < SceneManager.sceneCount; i++)
+            {
+                Scene scene = SceneManager.GetSceneAt(i);
+                if (scene.name != "MainMenu")
+                {
+                    SceneManager.UnloadSceneAsync(scene);
+                }
+            }
+        }
     }
+
     public void Play()
     {
         sc.StopMainMenuMusic();
-        StartCoroutine(LoadGame());
-        
+        StartCoroutine(LoadGame());        
     }
 
     IEnumerator LoadGame()

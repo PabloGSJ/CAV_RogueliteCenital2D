@@ -14,6 +14,16 @@ public class PauseMenu : MonoBehaviour
     public void BackToMenu()
     {
         //SceneManager.LoadScene()
+        GameObject sceneController = GameObject.Find("RoomController");
+        if(sceneController == null)
+        {
+            sceneController = GameObject.Find("Room");
+            sceneController.GetComponent<SceneChanger>().BackToMenu();
+        }
+        else
+        {
+            sceneController.GetComponentInChildren<SceneChanger>().BackToMenu();
+        }
     }
 
     public void Quit()
