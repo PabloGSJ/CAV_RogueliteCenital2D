@@ -72,7 +72,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8143044070160544798}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.07, y: 0.05, z: 0}
   m_ConstrainProportionsScale: 0
@@ -119,7 +119,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1039167661
-  m_SortingLayer: 5
+  m_SortingLayer: 4
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 8404aa0de0ac8554d8d6126a56050aeb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -153,7 +153,7 @@ MonoBehaviour:
   BulletType: {fileID: 1224280175503306348, guid: adfc888d622d3f44bb9aba7db07cde38, type: 3}
   BulletSpawner: {fileID: 5825041603950613342}
   NumBullets: 10
-  ShootingForce: 10
+  ShootingForce: 40
 --- !u!50 &4832154119501156754
 Rigidbody2D:
   serializedVersion: 4
@@ -213,6 +213,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.75, y: -2.25}
   serializedVersion: 2
   m_Radius: 10

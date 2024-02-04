@@ -10,8 +10,18 @@ public class WeaponShotgun : BaseRangedWeapon
 
     public override void Shoot(float dmgMod)
     {
-        if (TryShoot())
+        if ((TryShoot() || _holder.TryBorrowBullet()) && _cadenceCounter <= 0)
         {
+            if (NumBullets > 0)
+            {
+                NumBullets--;
+                ui.DisplayNewWNBullets(NumBullets);
+            }
+            else
+            {
+                _holder.BorrowBullet();
+            }
+
             // shoot the bullets in an arch
             // code source: https://www.reddit.com/r/Unity2D/comments/76dyvl/how_do_you_do_a_shotgun_spread_in_a_topdown/
             float spreadMod, forceMod, shootingAngle;
@@ -22,7 +32,7 @@ public class WeaponShotgun : BaseRangedWeapon
             {
                 // Randomize
                 spreadMod = Random.Range(-BulletSpreadFactor, BulletSpreadFactor);
-                forceMod = Random.Range(0, BulletSpeedFactor); 
+                forceMod = Random.Range(0, BulletSpeedFactor);
 
                 // Calculate the direction of the shot (angle)
                 shootingAngle = spreadMod + (Mathf.Atan2(_shootingVector.y, _shootingVector.x) * Mathf.Rad2Deg);
@@ -34,6 +44,9 @@ public class WeaponShotgun : BaseRangedWeapon
 
                 BulletSpawner.spawnBullet(BulletType, shootingDirection, ShootingForce + forceMod, dmgMod, rotation);
             }
+
+            _cadenceCounter = Cadence;
+            PlayMySoundEffect();
         }
     }
 }

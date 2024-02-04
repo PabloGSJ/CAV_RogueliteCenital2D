@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356819538789512638}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -56,7 +56,7 @@ MonoBehaviour:
   - {fileID: 8143044070160544798, guid: 63e6a053adf9aab4c96af6322f4aefc0, type: 3}
   - {fileID: 8143044070160544798, guid: 2ca0b7756766141489caaf5f6ca275b0, type: 3}
   - {fileID: 8143044070160544798, guid: 76911c0fc3e027541adcca2ea9b80bf0, type: 3}
-  possibleGameModifiers: []
+  MaxGMS: 5
 --- !u!212 &907445251291330915
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1100340957
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 1125395819, guid: 07d50a1ca9fdb894eb57b01eb5f319d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -14,13 +14,12 @@ public class BaseMeleeWeapon : BaseWeapon
 
     // Spawn a slash at the hands of the player
     public override void Shoot(float dmgMod)
-    {
-        PlayMySoundEffect();
-
+    { 
         if (_cadenceCounter <= 0)
         {
             SlashSpawner.spawnSlash(SlashType, dmgMod, this.transform.rotation);
             _cadenceCounter = Cadence;
+            PlayMySoundEffect();
         }
     }
 
