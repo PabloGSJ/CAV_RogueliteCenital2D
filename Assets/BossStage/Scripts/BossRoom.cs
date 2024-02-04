@@ -34,6 +34,7 @@ public class BossRoom : MonoBehaviour
         if(other.gameObject.tag.CompareTo("Player") == 0) // PlayerLayer
         {
             sc.playEvilLaughSoundEffect();
+            sc.playBossMusic();
 
             cmvcam.Follow = this.transform;
             Door.SetActive(true);
@@ -44,6 +45,7 @@ public class BossRoom : MonoBehaviour
 
     public void BossDead()
     {
+        sc.stopBossMusic();
         cat.SetActive(true);
     }
 

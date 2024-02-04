@@ -29,12 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameRelease/Scenes/Loading.unity
     guid: 77de1ed7d2c780f4093b1c4883c888da
-  - enabled: 0
-    path: Assets/GameRelease/Scenes/BossStage.unity
-    guid: 3a59cbadf403b8b4094478eb8af02f84
-  - enabled: 1
-    path: Assets/GameRelease/Scenes/BossStageNew.unity
-    guid: 33e8a5a8486caeb43a8dcac75631a046
   - enabled: 1
     path: Assets/GameRelease/Maps/Beginning_Start.unity
     guid: 5fa0a3ef524f0294bbad3b79fdff4a9f
@@ -170,7 +164,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameRelease/Maps/Sewers/Sewers_Start.unity
     guid: e8fdee04aaa27124b8cfcd3b9bedf35e
-  - enabled: 1
-    path: Assets/GameRelease/Boss/BossStage_Start.unity
-    guid: f21f897cce0e649458f366e1e911e185
   m_configObjects: {}
