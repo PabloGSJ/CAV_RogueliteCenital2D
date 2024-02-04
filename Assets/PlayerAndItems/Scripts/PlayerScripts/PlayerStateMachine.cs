@@ -68,7 +68,7 @@ public class PlayerStateMachine : MonoBehaviour
     public BaseWeapon Weapon = null;
     public GameObject DefaultWeapon = null;
     public int MaxPBullets = 99;
-    private int _numBullets = 99;
+    private int _numBullets = 0;
     private float _dmgMod = 0;
     private bool _isDamaged = false;
     private float _isDamagedCounter;
@@ -447,15 +447,25 @@ public class PlayerStateMachine : MonoBehaviour
 
     public bool TryBorrowBullet()
     {
+        if (_numBullets <= 0)
+        {
+            // Drop the weapon and start punching
+            GameObject go = Instantiate(DefaultWeapon,
+                                        new Vector3(transform.position.x,
+                                                    transform.position.y,
+                                                    transform.position.z),
+                                        Quaternion.identity,
+                                        this.transform) as GameObject;
+            PickupWeapon(go.GetComponent<BaseWeapon>());
+        }
         return _numBullets > 0;
     }
 
     public bool BorrowBullet()
     {
-        bool borrow = false;
-        if (_numBullets > 0)
-        {
-            borrow = true;
+        bool borrow = _numBullets > 0;
+        if (borrow)
+        { 
             _numBullets--;
             ui.DisplayNewPNBullets(_numBullets);
         }
