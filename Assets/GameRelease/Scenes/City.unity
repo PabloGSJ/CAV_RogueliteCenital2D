@@ -1096,7 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05877d41cb17974bba125905077f391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dungeonGenerationData: {fileID: 11400000, guid: 5595c5a4531cb024fa3d69d7542bf6bd, type: 2}
+  dungeonGenerationData: {fileID: 11400000, guid: ab37de4dfda697f47b86b46801ea2c65, type: 2}
 --- !u!114 &800789614
 MonoBehaviour:
   m_ObjectHideFlags: 0
