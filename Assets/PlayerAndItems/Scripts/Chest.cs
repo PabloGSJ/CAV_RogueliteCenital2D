@@ -43,7 +43,6 @@ public class Chest : MonoBehaviour
         {
             gmid = Random.Range(0, MaxGMS);
         }
-        gmid = 0;
         return gmid;
     }
 }

@@ -164,4 +164,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GameRelease/Maps/Sewers/Sewers_Start.unity
     guid: e8fdee04aaa27124b8cfcd3b9bedf35e
+  - enabled: 1
+    path: Assets/GameRelease/Scenes/BossStage.unity
+    guid: bd92f3bd5d9a36c4f8f6cc890cfa9a2b
   m_configObjects: {}
