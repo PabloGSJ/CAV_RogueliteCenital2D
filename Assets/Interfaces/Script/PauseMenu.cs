@@ -5,10 +5,13 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseScreen;
+    public PlayerStateMachine p;
+
     public void Resume()
     {
         pauseScreen.SetActive(false);
         Time.timeScale = 1.0f;
+        p.IsPaused = false;
     }
 
     public void BackToMenu()
@@ -33,7 +36,8 @@ public class PauseMenu : MonoBehaviour
 
     public void GodMode()
     {
-        //TODO
+        Debug.Log("Toggled");
+        p.ToggleGodMode();
     }
 
 }

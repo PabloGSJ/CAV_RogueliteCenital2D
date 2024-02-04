@@ -81,6 +81,7 @@ public class PlayerStateMachine : MonoBehaviour
     // States variables
     PlayerBaseState _currentState;
     PlayerStateFactory _states;
+    private bool _isGod;
 
     // GM variables
     private int _damageModifier = 1;
@@ -103,6 +104,7 @@ public class PlayerStateMachine : MonoBehaviour
     public SoundControllerScript SoundController { get { return sc; } }
     public bool IsDead { get { return _isDead; } }
     public int DamageModifier { set { _damageModifier = value; } }
+    public bool IsPaused { set { _isPaused = value; } }
 
 
     // INPUT HANDLERS:
@@ -190,6 +192,8 @@ public class PlayerStateMachine : MonoBehaviour
         a.SetBool(AIsMoving, false);
         a.SetBool(AIsDashing, false);
         a.SetBool(AIsDead, false);
+        _isGod = false;
+        _isDamagedCounter = InvulnerableTime;
 
         // Setup canvases
         gameOverCanvas.SetActive(false);
@@ -204,7 +208,7 @@ public class PlayerStateMachine : MonoBehaviour
         this.Health = this.MaxHealth;
         ui.ActiveHearts = 5;
         ui.DisplayNewHealth(Health);
-        _isDamagedCounter = InvulnerableTime;
+        ui.EnableIsGodDisplay(_isGod);
 
         // setup dash
         _dashCooldownCounter = 0;
@@ -282,6 +286,12 @@ public class PlayerStateMachine : MonoBehaviour
                     SwitchPlayerToDashLayer(false);
                 }
             }
+        }
+
+        // if godmode is active, keep switching the player to the invulnerable layer
+        if (_isGod)
+        {
+            SwitchPlayerToDashLayer(true);
         }
     }
 
@@ -539,5 +549,22 @@ public class PlayerStateMachine : MonoBehaviour
                 gms[i].UseGM(this);
             }
         }
+    }
+
+    public void ToggleGodMode()
+    {
+        if (_isGod)
+        {
+            // Ungod the player
+            _isGod = false;
+            SwitchPlayerToDashLayer(false);
+        }
+        else
+        {
+            // God the player
+            _isGod = true;
+        }
+
+        ui.EnableIsGodDisplay(_isGod);
     }
 }

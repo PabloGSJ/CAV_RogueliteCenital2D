@@ -10,6 +10,7 @@ public class DisplayManager : MonoBehaviour
     public Text WeaponNumBulletsDisplay;
     public Text PlayerCoinsDisplay;
     public Text DashCooldownDisplay;
+    public Text IsGodDisplay;
 
     // Health display
     public Image[] healthImages;            // Images in the canvas to allocate the 
@@ -82,5 +83,10 @@ public class DisplayManager : MonoBehaviour
     public void EnableDashCooldown(bool enable)
     {
         DashCooldownDisplay.gameObject.SetActive(enable);
+    }
+
+    public void EnableIsGodDisplay(bool enable)
+    {
+        IsGodDisplay.gameObject.SetActive(enable);
     }
 }
