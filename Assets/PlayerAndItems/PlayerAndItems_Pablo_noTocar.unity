@@ -3211,10 +3211,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chest
       objectReference: {fileID: 0}
-    - target: {fileID: 1921547247792110046, guid: d97ce85f2a76f7d4d88297fd5577cbbc, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 4012684631407055414, guid: d97ce85f2a76f7d4d88297fd5577cbbc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.88
