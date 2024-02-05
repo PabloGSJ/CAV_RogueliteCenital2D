@@ -374,11 +374,11 @@ public class PlayerStateMachine : MonoBehaviour
                 case ChestLayer:
                     Chest chest = collision.gameObject.GetComponent<Chest>();
                     int gmid = chest.OpenChest(this);
+                    _coins += 10;
                     if (gmid != -1 && !_activeGM[gmid])
                     {
                         gms[gmid].UseGM(this);
                         _activeGM[gmid] = true;
-                        _coins += 10;
                         UpdateConsumables();
                     }
                     break;
