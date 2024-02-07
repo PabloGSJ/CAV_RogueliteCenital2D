@@ -12,15 +12,11 @@ If the player dies, the protagonist will wake up in his cabin and everything wou
 
 ## Controls:
 
-Move with WASD.
-
-Attack with Left Click.
-
-Dash with Right Click.
-
-Interact with the 'E' key.
-
-Pause with the 'Esc' key.
+- Move with WASD.
+- Attack with Left Click.
+- Dash with Right Click.
+- Interact with the 'E' key.
+- Pause with the 'Esc' key.
 
 ## Authors:
 
